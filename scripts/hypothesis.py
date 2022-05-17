@@ -1,7 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as scs
+from scripts.abtest import ABTesting
+ABT = ABTesting() 
+#pooled_SE, ab_dist, p_val
 
+from scripts.plot_func import PlottingFunctions
+PLTF = PlottingFunctions() 
 class HypothesisPlot:
     def _init_(self):
         """

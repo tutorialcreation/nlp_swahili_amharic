@@ -1,6 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as scs
+from scripts.abtest import ABTesting
+
+ABT = ABTesting()
 
 class PlottingFunctions:
     def _init_(self):
