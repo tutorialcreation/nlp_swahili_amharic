@@ -1,6 +1,7 @@
 from math import *
 import math
 import numpy as np
+import logging
 #REFERENCE
 # A Conditional Sequential Test for the Equality of Two Binomial Proportions
 # William Q. Meeker, Jr
@@ -8,39 +9,14 @@ import numpy as np
 # Vol. 30, No. 2 (1981), pp. 109-115
 class ConditionalSPRT:
     def __init__(self,exposed,control,odd_ratio,alpha=0.05,beta=0.10,stop=None):
-        self.exposed = exposed
-        self.control = control
-        self.odd_ration = odd_ratio
-            
-    def ConditionalSPRT(self,x,y,t1,n0,alpha=0.05,beta=0.10,stop=None):
         """
-        #
-        # Meeker's SPRT for matched `x` (treatment) and `y` (control), 
-        # both indicator responses, likelihood ratio t1, error rates alpha and beta,
-        # and (optionally) truncation after trial stop.
-        #
-        # The return variable contains these elements:
-        #(outcome,n, k,l,u,truncated,truncate_decision,x1,r,stats,limits)
-        # * outcome:   "continue," "reject null," or "accept null".
-        # * n: number observation used for the decsion
-        # * k:     Index at which the outcome decision was made (or NA)
-        # * l:     lower critical point
-        # * u:     upper critical point
-        # * truncate_decision: The approximate decision made after truncate point
-        # * truncated: If the test was truncated, the value of `n.0`; NA otherwise
-        # * x1:       Original data `x`, cumulative
-        # * r:         Cumulative sum of x+y
-        # * stats:     Series of cumulative sums of log probability ratios
-        # * limits:    Two rows giving lower and upper critical limits, respectively
-        #
+        - Initialize of the conditionalSprt class
         """
-        if t1<=1:
-            self.printLog('warning',"Odd ratio should exceed 1.")
-        if (alpha >0.5) | (beta >0.5):
-            self.printLog('warning',"Unrealistic values of alpha or beta were passed."
-                     +" You should have good reason to use large alpha & beta values")
-        if stop!=None:
-            stop=math.floor(n0)
+        self.x = exposed
+        self.y = control
+        self.odd_ratio = odd_ratio
+        self.alpha = alpha
+        self.beta = beta
 
     def comb(self,n, k):
         return factorial(n) // factorial(k) // factorial(n - k)
@@ -151,7 +127,7 @@ class ConditionalSPRT:
         upper=1+a
         return (np.array([lower,upper])+z)/math.log(t1c/t0)
   
-    def printLog(self,stop,x,y,t1,n0,alpha=0.05,beta=0.10):
+    def ConditionalSPRT(self,stop,x,y,t1,n0=None,alpha=0.05,beta=0.10):
         """
         Returns 
         """
