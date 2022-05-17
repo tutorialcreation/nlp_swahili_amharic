@@ -1,3 +1,7 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as scs
+
 class PlottingFunctions:
     def _init_(self):
         """
