@@ -1,7 +1,6 @@
 from math import *
 import math
 import numpy as np
-import logging
 #REFERENCE
 # A Conditional Sequential Test for the Equality of Two Binomial Proportions
 # William Q. Meeker, Jr
@@ -131,13 +130,16 @@ class ConditionalSPRT:
         """
         Returns 
         """
+        x=np.array(x)
+        y=np.array(y)
         l=math.log(beta/(1-alpha))
         u=-math.log(alpha/(1-beta))
         sample_size=min(len(x),len(y))
         n=np.array(range(1,sample_size+1))
-
+        
         if stop!=None:
             n=np.array([z for z in n if z<=stop])
+            
         x1=np.cumsum(x[n-1])
         r=x1+np.cumsum(y[n-1])
         stats=np.array(list(map(self.g,x1, r, n, [t1]*len(x1)))) #recurcively calls g
