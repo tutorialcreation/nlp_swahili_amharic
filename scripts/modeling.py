@@ -179,14 +179,15 @@ class Modeler:
         - responsible for splitting the data
         """
         X,y =self.get_columns()
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
-        return X_train, X_test, y_train, y_test
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1,random_state=42)
+        X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2,random_state=42)
+        return X_train, X_test, X_val, y_train, y_test,y_val
 
     def model(self,model,**kwargs):
         """
         - model the dataset
         """
-        X_train, X_test, y_train, y_test = self.split_data()
+        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data()
         # Define Random Forest Model
         model = model(**kwargs)
         # We fit our model with our train data
