@@ -215,6 +215,7 @@ class Modeler:
         plt.show()
         return feat_importances
 
+
 if __name__=="__main__":
     df = pd.read_csv("data/data.csv")
     analyzer = Modeler(df)
