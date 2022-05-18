@@ -121,7 +121,7 @@ class Modeler:
         - responsible one hot encoding the columns
         """
         to_one_hot_encoding,_= self.encoding_data()
-        one_hot_encoded_columns = pd.get_dummies(df[to_one_hot_encoding])
+        one_hot_encoded_columns = pd.get_dummies(self.df[to_one_hot_encoding])
         return one_hot_encoded_columns
 
     def label_encode(self):
@@ -188,7 +188,7 @@ class Modeler:
         """
         X_train, X_test, y_train, y_test = self.split_data()
         # Define Random Forest Model
-        model = RandomForestClassifier(kwargs)
+        model = model(kwargs)
         # We fit our model with our train data
         model.fit(X_train, y_train)
         # Then predict results from X_test data
