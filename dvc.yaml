@@ -1,0 +1,25 @@
+stages:
+  prepare:
+    cmd: python scripts/eda.py data/AdSmartABdata.csv
+    deps:
+    - data/AdSmartABdata.csv
+    - scripts/eda.py
+    
+  abtest:
+    cmd: python scripts/abtesting data/AdSmartABdata.csv data/abtest
+    deps:
+    - data/AdSmartABdata.csv
+    - scripts/abtest.py
+    
+  sequentialAbtesting:
+    cmd: python scripts/sequential.py data/abtest data/sequential
+    deps:
+    - data/abtest
+    - scripts/sequential.py
+    
+  modeling:
+    cmd: python scripts/modeling.py data/sequential data/model
+    deps:
+    - data/sequential
+    - scripts/modeling.py
+    
