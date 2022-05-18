@@ -9,6 +9,7 @@ from sklearn.impute import SimpleImputer
 
 # To Split our train data
 from sklearn.model_selection import train_test_split
+from sklearn.ensemble import ExtraTreesClassifier
 
 # To Visualize Data
 import matplotlib.pyplot as plt
@@ -199,6 +200,20 @@ class Modeler:
         # get accuracy score
         accuracy = accuracy_score(y_test, predicted_data)
         return confusion_mat,accuracy
+
+
+    def feature_importance(self):
+        """
+        - an algorithm for checking feature importance
+        """
+        model = ExtraTreesClassifier()
+        X,y =self.get_columns()
+        model.fit(X,y)
+        #plot graph of feature importances for better visualization
+        feat_importances = pd.Series(model.feature_importances_, index=X.columns)
+        feat_importances.nlargest(10).plot(kind='barh')
+        plt.show()
+        return feat_importances
 
 if __name__=="__main__":
     df = pd.read_csv("data/data.csv")
