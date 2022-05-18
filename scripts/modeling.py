@@ -199,6 +199,12 @@ class Modeler:
         accuracy = accuracy_score(y_test, predicted_data)
         return confusion_mat,accuracy
 
+    def loss_function(self):
+        """
+        - loss function
+        """
+        return
+
 if __name__=="__main__":
     df = pd.read_csv("data/data.csv")
     analyzer = Modeler(df)
