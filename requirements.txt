@@ -1,5 +1,4 @@
 matplotlib
-jupnumpy
 pandas
 scikit_learn
 seaborn
