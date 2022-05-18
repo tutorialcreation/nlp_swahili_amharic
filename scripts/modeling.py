@@ -163,6 +163,41 @@ class Modeler:
         X = pd.concat([X, one_hot_encoded_columns, label_encoded_columns], axis=1)
         return X
 
+    def get_columns(self):
+        """
+        - responsible for getting the columns
+        """
+        y = self.df["yes"]
+
+        # Droping "class" from X
+        X = self.merge_data()
+        X.drop(["target"], axis=1, inplace=True)
+        return X,y
+
+    def split_data(self):
+        """
+        - responsible for splitting the data
+        """
+        X,y =self.get_columns()
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
+        return X_train, X_test, y_train, y_test
+
+    def model(self,model,**kwargs):
+        """
+        - model the dataset
+        """
+        X_train, X_test, y_train, y_test = self.split_data()
+        # Define Random Forest Model
+        model = RandomForestClassifier(kwargs)
+        # We fit our model with our train data
+        model.fit(X_train, y_train)
+        # Then predict results from X_test data
+        predicted_data = model.predict(X_test)
+        # generate a confusion matrix
+        confusion_mat = confusion_matrix(y_test, predicted_data)
+        # get accuracy score
+        accuracy = accuracy_score(y_test, predicted_data)
+        return confusion_mat,accuracy
 
 if __name__=="__main__":
     df = pd.read_csv("data/data.csv")
