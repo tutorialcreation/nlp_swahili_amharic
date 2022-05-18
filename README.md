@@ -40,7 +40,7 @@ The BIO data for this project is a “Yes” and “No” response of online use
 Q: Do you know the brand LUX?
 
 	1. Yes
-	2.  No
+	2. No
 # Dataset Column description
 * auction_id: the unique id of the online user who has been presented the BIO. In standard terminologies this is called an impression id. The user may see the BIO questionnaire but choose not to respond. In that case both the yes and no columns are zero.
 
