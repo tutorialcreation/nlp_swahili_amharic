@@ -56,6 +56,7 @@ class EDA:
             plt.title(f'Unique value counts of the {column} column');
             plt.show()
         elif type == "bivariate":
+            plt.figure(figsize=(12, 6))
             sns.countplot(data=self.df, x=second_column, hue=column)
             plt.title(f'{column} vs {second_column}')
             plt.show()
