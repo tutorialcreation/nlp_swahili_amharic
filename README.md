@@ -29,11 +29,11 @@ jupyter notebook
 dvc dag
 ```
 
-# The following tests can be found in the folder notebooks
-* Data exploration ==> notebooks/EDA.ipynb
-* Classical AB test ==> notebooks/AB_test.ipynb
-* Sequential Test ==> notebooks/Sequential_Test.ipynb
-* Machine learning ==> notebooks/ML AB Test.ipynb
+# The tests from the modularized scripts are run in the following notebooks
+* EDA analysis ==> notebooks/EDA.ipynb
+* Classical AB test ==> notebooks/AB_Testing.ipynb
+* Sequential Test ==> notebooks/Sequential_AB_Testing.ipynb
+* Machine learning ==> notebooks/Modeling.ipynb
 
 # Data
 The BIO data for this project is a “Yes” and “No” response of online users to the following question
