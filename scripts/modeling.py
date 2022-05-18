@@ -171,7 +171,7 @@ class Modeler:
 
         # Droping "class" from X
         X = self.merge_data()
-        X.drop(["target"], axis=1, inplace=True)
+        X.drop(["yes"], axis=1, inplace=True)
         return X,y
 
     def split_data(self):
@@ -188,7 +188,7 @@ class Modeler:
         """
         X_train, X_test, y_train, y_test = self.split_data()
         # Define Random Forest Model
-        model = model(kwargs)
+        model = model(**kwargs)
         # We fit our model with our train data
         model.fit(X_train, y_train)
         # Then predict results from X_test data
