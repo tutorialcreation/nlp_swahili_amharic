@@ -128,7 +128,24 @@ class ConditionalSPRT:
   
     def ConditionalSPRT(self,stop,x,y,t1,n0=None,alpha=0.05,beta=0.10):
         """
-        Returns 
+        # Meeker's SPRT for matched `x` (treatment) and `y` (control), 
+        # both indicator responses, likelihood ratio t1, error rates alpha and beta,
+        # and (optionally) truncation after trial stop.
+        #
+        # The return variable contains these elements:
+        #(outcome,n, k,l,u,truncated,truncate_decision,x1,r,stats,limits)
+        # * outcome:   "continue," "reject null," or "accept null".
+        # * n: number observation used for the decsion
+        # * k:     Index at which the outcome decision was made (or NA)
+        # * l:     lower critical point
+        # * u:     upper critical point
+        # * truncate_decision: The approximate decision made after truncate point
+        # * truncated: If the test was truncated, the value of `n.0`; NA otherwise
+        # * x1:       Original data `x`, cumulative
+        # * r:         Cumulative sum of x+y
+        # * stats:     Series of cumulative sums of log probability ratios
+        # * limits:    Two rows giving lower and upper critical limits, respectively
+        #
         """
         x=np.array(x)
         y=np.array(y)
