@@ -87,11 +87,88 @@ class Modeler:
                 transformation=pipeline.fit_transform(pd.DataFrame(self.split_data(key,0.3,trim)).select_dtypes(exclude=value))
         return transformation
 
+    
+
+    def store_features(self,type_,value):
+        """
+        purpose:
+            - stores features for the data set
+        input:
+            - string,int,dataframe
+        returns:
+            - dataframe
+        """
+        features = [None]
+        if type_ == "numeric":
+            features = self.df.select_dtypes(include=value).columns.tolist()
+        elif type_ == "categorical":
+            features = self.df.select_dtypes(exclude=value).columns.tolist()
+        return features
+
+    def encoding_data(self):
+        """
+        - responsible for encoding the columns
+
+        """
+        categorical_features = self.store_features("categorical","number")
+        to_one_hot_encoding = [col for col in categorical_features if self.df[col].nunique() <= 10 and self.df[col].nunique() > 2]
+        # Get Categorical Column names thoose are not in "to_one_hot_encoding"
+        to_label_encoding = [col for col in categorical_features if not col in to_one_hot_encoding]
+        return to_one_hot_encoding,to_label_encoding
+
+    def hot_encode(self):
+        """
+        - responsible one hot encoding the columns
+        """
+        to_one_hot_encoding,_= self.encoding_data()
+        one_hot_encoded_columns = pd.get_dummies(df[to_one_hot_encoding])
+        return one_hot_encoded_columns
+
+    def label_encode(self):
+        """
+        - responsible for label ecoding the column
+        """
+        _,to_label_encoding = self.encoding_data()
+        label_encoded_columns = []
+        # For loop for each columns
+        for col in to_label_encoding:
+            # We define new label encoder to each new column
+            le = LabelEncoder()
+            # Encode our data and create new Dataframe of it, 
+            # notice that we gave column name in "columns" arguments
+            column_dataframe = pd.DataFrame(le.fit_transform(self.df[col]), columns=[col] )
+            # and add new DataFrame to "label_encoded_columns" list
+            label_encoded_columns.append(column_dataframe)
+
+        # Merge all data frames
+        label_encoded_columns = pd.concat(label_encoded_columns, axis=1)
+        return label_encoded_columns
+    
+    def merge_data(self):
+        """
+        - responsible for bringing all the data together
+        """
+        # Copy our DataFrame to X variable
+        X = self.df.copy()
+
+        # Droping Categorical Columns,
+        # "inplace" means replace our data with new one
+        # Don't forget to "axis=1"
+        categorical_features = self.store_features("categorical","number")
+        X.drop(categorical_features, axis=1, inplace=True)
+
+        one_hot_encoded_columns = self.hot_encode()
+        label_encoded_columns = self.label_encode()
+        # Merge DataFrames
+        X = pd.concat([X, one_hot_encoded_columns, label_encoded_columns], axis=1)
+        return X
+
 
 if __name__=="__main__":
     df = pd.read_csv("data/data.csv")
     analyzer = Modeler(df)
     numeric_pipeline = analyzer.generate_pipeline("numeric")
     numeric_transformation =  analyzer.generate_transformation(numeric_pipeline,"numeric","number")
-    
+    numerical_features = analyzer.store_features("numeric","number")
+    categorical_features = analyzer.store_features("categorical","number")
     print(numeric_transformation)
