@@ -203,6 +203,7 @@ class Modeler:
         """
         - loss function
         """
+        # begin by getting the accuracy
         return
 
 if __name__=="__main__":
