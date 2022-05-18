@@ -6,5 +6,5 @@ seaborn
 plotly
 jupyter
 dvc
-
+xgboost
 
