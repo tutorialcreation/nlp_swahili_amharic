@@ -2,7 +2,7 @@ artifact_uri: file:///home/martin/Documents/abtest-mlops/pipeline/mlruns/0/cf65e
 end_time: 1652953051468
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 name: ''
 run_id: cf65e1490b6d446daa821ed2220a9c74
 run_uuid: cf65e1490b6d446daa821ed2220a9c74

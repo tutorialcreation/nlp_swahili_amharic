@@ -2,7 +2,7 @@ artifact_uri: file:///home/martin/Documents/abtest-mlops/pipeline/mlruns/0/46541
 end_time: 1652953230568
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 name: ''
 run_id: 465414557d40429dae5fdd769a49b8d3
 run_uuid: 465414557d40429dae5fdd769a49b8d3
