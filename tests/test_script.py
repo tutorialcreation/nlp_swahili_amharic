@@ -1,41 +1,28 @@
 import unittest
 import sys, os
 sys.path.append(os.path.abspath(os.path.join('..')))
-
-from scripts.script import find_average, count_occurence
+import pandas as pd
+from scripts.modeling import Modeler
 
 
 class TestCases(unittest.TestCase):
-    def test_find_average(self):
+    
+    df = pd.read_csv("data/data.csv")
+    analyzer = Modeler(df)
+    numeric_pipeline = analyzer.generate_pipeline("numeric")
+    numeric_transformation =  analyzer.generate_transformation(numeric_pipeline,"numeric","number")
+    numerical_features = analyzer.store_features("numeric","number")
+    
+    def test_generate_pipeline(self):
         """
-        Test that it retunrs the average of a given list
+        Test that Mlscript generates a pipeline
         """
-        data = [1, 2, 3]
-        result = find_average(data)
-        self.assertEqual(result, 2.0)
-
-    def test_input_value(self):
+        self.assertTrue(self.numeric_pipeline)
+    
+    
+    def test_store_features(self):
         """
-        Provide an assertion level for arg input
+        - testing store features
         """
         
-        self.assertRaises(TypeError, find_average, True)
-
-class TestCountOccurence(unittest.TestCase):
-    def test_count_occurence(self):
-        """
-        Test that it returns the count of each unique values in the given list
-        """
-        data = [0,0,9,0,8,9,0,7]
-        result = count_occurence(data)
-        output = {0: 4, 9: 2, 8: 1, 7: 1}
-        self.assertAlmostEqual(result, output)
-
-    def test_input_value(self):
-        """
-        Provide an assertion level for arg input
-        """
-        self.assertRaises(TypeError, count_occurence, True)
-
-if __name__ == '__main__':
-    unittest.main()
+        self.assertTrue(self.numerical_features)

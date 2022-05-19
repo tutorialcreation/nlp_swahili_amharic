@@ -9,6 +9,7 @@ from sklearn.impute import SimpleImputer
 
 # To Split our train data
 from sklearn.model_selection import train_test_split
+from sklearn.ensemble import ExtraTreesClassifier
 
 # To Visualize Data
 import matplotlib.pyplot as plt
@@ -201,20 +202,40 @@ class Modeler:
         return confusion_mat,accuracy
     
     
-    #loss function for Logistic Regression
-    def log_loss(self, model,**kwargs):
+    #loss function for models
+    def log_loss(self, model = LogisticRegression,**kwargs):
         """
         - loss function
         """
-        X_train, y_train, y_test = self.split_data()
-        pred_proba = model.predict_proba(X_train)
+        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data()
+        model_ = model(random_state=0)
+        X,y =self.get_columns()
+        fitted= model_.fit(X,y)
+        pred_proba =fitted.predict_proba(X_train)
+         
         # Running Log loss on training
-        print("The Log Loss on Training is: ", log_loss(y_train, pred_proba))
-
+        train_loss = log_loss(y_train, pred_proba)
+       
         # Running Log loss on testing
-        pred_proba_t = model.predict_proba(X_test)
-        print("The Log Loss on Testing Dataset is: ", log_loss(y_test, pred_proba_t))
+        pred_proba_t = fitted.predict_proba(X_test)
+        test_loss = log_loss(y_test, pred_proba_t)
         
+        return train_loss,test_loss
+
+
+    def feature_importance(self):
+        """
+        - an algorithm for checking feature importance
+        """
+        model = ExtraTreesClassifier()
+        X,y =self.get_columns()
+        model.fit(X,y)
+        #plot graph of feature importances for better visualization
+        feat_importances = pd.Series(model.feature_importances_, index=X.columns)
+        feat_importances.nlargest(10).plot(kind='barh')
+        plt.show()
+        return feat_importances
+
 
 if __name__=="__main__":
     df = pd.read_csv("data/data.csv")

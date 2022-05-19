@@ -6,7 +6,7 @@ stages:
     - scripts/eda.py
     
   abtest:
-    cmd: python scripts/abtesting data/AdSmartABdata.csv data/abtest
+    cmd: python scripts/abtest.py data/AdSmartABdata.csv data/abtest
     deps:
     - data/AdSmartABdata.csv
     - scripts/abtest.py
@@ -16,10 +16,21 @@ stages:
     deps:
     - data/abtest
     - scripts/sequential.py
-    
-  modeling:
-    cmd: python scripts/modeling.py data/sequential data/model
+  
+  train:
+    cmd: python scripts/modeling.py data/sequential data/train
     deps:
     - data/sequential
     - scripts/modeling.py
     
+  model:
+    cmd: python scripts/modeling.py data/train data/model
+    deps:
+    - data/train
+    - scripts/modeling.py
+  
+  evaluate:
+    cmd: python scripts/modeling.py data/model data/evaluate
+    deps:
+    - data/model
+    - scripts/modeling.py
