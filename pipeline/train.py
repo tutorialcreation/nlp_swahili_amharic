@@ -24,4 +24,4 @@ if __name__=='__main__':
         os.makedirs("outputs")
     X_train.to_csv("outputs/train.csv")
     log_artifacts("outputs")
-    print("<<<<<<<<<end pipeline>>>>>>>>>>>")
+    print("<<<<<<<<<stop pipeline>>>>>>>>>>>")
