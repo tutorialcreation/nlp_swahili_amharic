@@ -3,8 +3,15 @@ name: abtest
 conda_env: conda.yaml
 
 entry_points:
+  load_data:
+    command: "cd pipeline && python train.py"
+  
+  n_folds:
+    parameters:
+      n_folds: {type: int, default: 5}
+    command: "cd pipeline && python cross_validator.py --n-folds {n_folds}"
+  
   main:
     parameters:
-      alpha: float
-      l1_ratio: {type: float, default: 0.1}
-    command: "cd pipeline && python train.py"
+      n_folds: {type: int, default: 5}
+    command: "cd pipeline && python evaluate.py {n_folds}"

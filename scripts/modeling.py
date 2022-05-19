@@ -11,6 +11,8 @@ from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import ExtraTreesClassifier
 
+# sensitivity analysis of k in k-fold cross-validation
+from numpy import mean
 # To Visualize Data
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -201,6 +203,14 @@ class Modeler:
         accuracy = accuracy_score(y_test, predicted_data)
         return confusion_mat,accuracy
     
+    def get_model(self,model=LogisticRegression,**kwargs):
+        """
+        - this method does simple returning of the model
+        """
+        model_=model(**kwargs)
+        return model_
+
+    
     
     #loss function for models
     def log_loss(self, model = LogisticRegression,**kwargs):
@@ -235,6 +245,19 @@ class Modeler:
         feat_importances.nlargest(10).plot(kind='barh')
         plt.show()
         return feat_importances
+
+    
+    def evaluate(self,cv):
+        # get the dataset
+        X, y = self.get_columns()
+        # get the model
+        model = self.get_model()
+        # evaluate the model
+        scores = cross_val_score(model, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
+        # return scores
+        return mean(scores), scores.min(), scores.max()
+
+    
 
 
 if __name__=="__main__":

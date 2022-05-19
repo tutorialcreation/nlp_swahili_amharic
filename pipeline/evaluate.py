@@ -3,7 +3,7 @@ import os,sys
 print(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join('..')))
 from scripts.modeling import Modeler
-from mlflow import log_metric, log_param, log_artifacts,sklearn
+from mlflow import log_metric, log_param, log_metrics,sklearn,start_run
 from random import random, randint
 # evaluate a logistic regression model using k-fold cross-validation
 from sklearn.model_selection import KFold
@@ -18,9 +18,8 @@ if __name__=='__main__':
     fold = int(sys.argv[1]) if len(sys.argv) > 1 else 5
     cv = KFold(n_splits=fold, random_state=1, shuffle=True)
     score,min_,max_=model_.evaluate(cv)
-    log_metric("score", score)
-    log_metric("min", min_)
-    log_metric("max", max_)
+    metrics = {"score": score, "min":min_,"max":max_}
+    log_metrics(metrics)
     sklearn.log_model(model, "model")
 
 
