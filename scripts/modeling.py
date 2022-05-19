@@ -9,7 +9,10 @@ from sklearn.impute import SimpleImputer
 
 # To Split our train data
 from sklearn.model_selection import train_test_split
+from sklearn.ensemble import ExtraTreesClassifier
 
+# sensitivity analysis of k in k-fold cross-validation
+from numpy import mean
 # To Visualize Data
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -27,7 +30,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, GaussianNB
 
 # To evaluate end result we have
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix, log_loss
 from sklearn.model_selection import LeaveOneOut
 from sklearn.model_selection import cross_val_score
 
@@ -179,14 +182,15 @@ class Modeler:
         - responsible for splitting the data
         """
         X,y =self.get_columns()
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
-        return X_train, X_test, y_train, y_test
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1,random_state=42)
+        X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2,random_state=42)
+        return X_train, X_test, X_val, y_train, y_test,y_val
 
     def model(self,model,**kwargs):
         """
         - model the dataset
         """
-        X_train, X_test, y_train, y_test = self.split_data()
+        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data()
         # Define Random Forest Model
         model = model(**kwargs)
         # We fit our model with our train data
@@ -198,6 +202,63 @@ class Modeler:
         # get accuracy score
         accuracy = accuracy_score(y_test, predicted_data)
         return confusion_mat,accuracy
+    
+    def get_model(self,model=LogisticRegression,**kwargs):
+        """
+        - this method does simple returning of the model
+        """
+        model_=model(**kwargs)
+        return model_
+
+    
+    
+    #loss function for models
+    def log_loss(self, model = LogisticRegression,**kwargs):
+        """
+        - loss function
+        """
+        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data()
+        model_ = model(random_state=0)
+        X,y =self.get_columns()
+        fitted= model_.fit(X,y)
+        pred_proba =fitted.predict_proba(X_train)
+         
+        # Running Log loss on training
+        train_loss = log_loss(y_train, pred_proba)
+       
+        # Running Log loss on testing
+        pred_proba_t = fitted.predict_proba(X_test)
+        test_loss = log_loss(y_test, pred_proba_t)
+        
+        return train_loss,test_loss
+
+
+    def feature_importance(self):
+        """
+        - an algorithm for checking feature importance
+        """
+        model = ExtraTreesClassifier()
+        X,y =self.get_columns()
+        model.fit(X,y)
+        #plot graph of feature importances for better visualization
+        feat_importances = pd.Series(model.feature_importances_, index=X.columns)
+        feat_importances.nlargest(10).plot(kind='barh')
+        plt.show()
+        return feat_importances
+
+    
+    def evaluate(self,cv):
+        # get the dataset
+        X, y = self.get_columns()
+        # get the model
+        model = self.get_model()
+        # evaluate the model
+        scores = cross_val_score(model, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
+        # return scores
+        return mean(scores), scores.min(), scores.max()
+
+    
+
 
 if __name__=="__main__":
     df = pd.read_csv("data/data.csv")
