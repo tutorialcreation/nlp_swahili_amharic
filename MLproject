@@ -1,0 +1,10 @@
+name: abtest
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      alpha: float
+      l1_ratio: {type: float, default: 0.1}
+    command: "cd pipeline && python train.py"

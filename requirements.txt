@@ -6,4 +6,5 @@ plotly
 jupyter
 dvc
 xgboost
+mlflow
 
