@@ -13,3 +13,5 @@ __pycache__/
 data/*
 !data/data.csv
 env/
+.env
+

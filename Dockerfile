@@ -5,7 +5,7 @@ RUN apt install cabextract -y
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
 RUN apt-get install -y software-properties-common && apt-get --allow-releaseinfo-change update
 RUN add-apt-repository ppa:deadsnakes/ppa && apt-get update && apt-get install -y python3.8 && apt-get install -y python3-pip
-
+RUN apt-get install -y git
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -21,4 +21,4 @@ COPY . /app/
 RUN ls -la /app/
 EXPOSE 5000
 RUN pip3 install -r requirements.txt
-ENTRYPOINT mlflow run /app/ -P n_folds=5 --run-name=abtest --no-conda
+ENTRYPOINT mlflow run /app/ -P n_folds=5 --run-name=abtest --env-manager=local && mlflow ui
