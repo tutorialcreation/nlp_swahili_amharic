@@ -1,0 +1,15 @@
+artifact_uri: ./mlruns/0/ca4356297646445ba667e76794a9e091/artifacts
+end_time: 1652951467846
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: ca4356297646445ba667e76794a9e091
+run_uuid: ca4356297646445ba667e76794a9e091
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1652951467806
+status: 3
+tags: []
+user_id: martin
