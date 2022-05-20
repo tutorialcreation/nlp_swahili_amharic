@@ -26,4 +26,4 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cat results.txt >> report.md
-          cml testing report.md
+          cml send-comment report.md
