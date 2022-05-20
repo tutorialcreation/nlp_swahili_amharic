@@ -1,5 +1,7 @@
 import pandas as pd
 import os,sys
+
+from xgboost import XGBClassifier
 print(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join('..')))
 from scripts.modeling import Modeler
@@ -21,7 +23,7 @@ if __name__=='__main__':
     model_=Modeler(df)
     model = model_.get_model()
     fold = int(sys.argv[1]) if len(sys.argv) > 1 else 5
-    score,min_,max_=model_.evaluate(fold,BernoulliNB)
+    score,min_,max_=model_.evaluate(fold,XGBClassifier,n_estimators=1000)
     metrics = {"score": score, "min":min_,"max":max_}
     log_metrics(metrics)
     sklearn.log_model(model, "model")
