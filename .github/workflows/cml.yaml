@@ -17,5 +17,5 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          echo "## Metrics" >> report.md
+          cat data/data.csv >> report.md
           cml send-comment report.md
