@@ -25,6 +25,8 @@ if __name__=='__main__':
     fold = int(sys.argv[1]) if len(sys.argv) > 1 else 5
     score,min_,max_=model_.evaluate(fold,XGBClassifier,n_estimators=1000)
     metrics = {"score": score, "min":min_,"max":max_}
+    results = pd.DataFrame([metrics])
+    results.to_csv("../data/results.csv")
     log_metrics(metrics)
     sklearn.log_model(model, "model")
 
