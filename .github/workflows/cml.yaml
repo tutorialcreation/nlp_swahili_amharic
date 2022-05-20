@@ -5,7 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     container: docker://ghcr.io/iterative/cml:0-dvc2-base1
     steps:
-      - uses: actions/checkout@v2
+      - name: Train model
+        uses: actions/checkout@v2
       - name: Install dependencies
         run: |
           # Your ML workflow goes here
