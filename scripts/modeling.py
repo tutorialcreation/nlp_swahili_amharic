@@ -166,6 +166,13 @@ class Modeler:
         X = pd.concat([X, one_hot_encoded_columns, label_encoded_columns], axis=1)
         return X
 
+    def groupby(self,column="browser_Chrome Mobile WebView",index=1):
+        """
+        - group according to the different columns
+        """
+        grouped_data = self.df[self.df[column]==index]
+        return grouped_data
+
     def get_columns(self,column="yes"):
         """
         - responsible for getting the columns
@@ -176,6 +183,8 @@ class Modeler:
         y = X[column]
         X.drop([column], axis=1, inplace=True)
         return X,y
+
+
 
     def split_data(self,column="yes"):
         """
@@ -267,10 +276,12 @@ class Modeler:
 
 
 if __name__=="__main__":
-    df = pd.read_csv("data/data.csv")
+    df = pd.read_csv("../data/data.csv")
     analyzer = Modeler(df)
     numeric_pipeline = analyzer.generate_pipeline("numeric")
     numeric_transformation =  analyzer.generate_transformation(numeric_pipeline,"numeric","number")
     numerical_features = analyzer.store_features("numeric","number")
     categorical_features = analyzer.store_features("categorical","number")
+    x=analyzer.merge_data()
+    import pdb;pdb.set_trace()
     print(numeric_transformation)
