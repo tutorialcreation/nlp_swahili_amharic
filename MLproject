@@ -9,7 +9,7 @@ entry_points:
   n_folds:
     parameters:
       n_folds: {type: int, default: 5}
-    command: "cd pipeline && python3 cross_validator.py --n-folds {n_folds} ../data/os_5.csv"
+    command: "cd pipeline && python3 cross_validator.py --n-folds {n_folds} ../data/browser_1.csv"
   
   main:
     parameters:
