@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as scs
 
+
 class ABTesting:
     def _init_(self):
         """
@@ -73,3 +74,4 @@ class ABTesting:
             Returns the p_value for an A/B test
         """
         return scs.binom(Control, p_A).pmf(p_B * Exposed)
+

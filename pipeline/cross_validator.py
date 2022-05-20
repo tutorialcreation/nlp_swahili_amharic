@@ -15,10 +15,12 @@ from sklearn.linear_model import LogisticRegression
 
 if __name__=='__main__':
     fold = int(sys.argv[1]) if len(sys.argv) > 1 else 5
-    df = pd.read_csv("../data/AdSmartABdata.csv")
+    file_path = sys.argv[2]
+    df = pd.read_csv(file_path)
     model_=Modeler(df)
     X,y =model_.get_columns()
     cv = KFold(n_splits=fold, random_state=1, shuffle=True)
+    df.to_csv("../data/validation.csv")
     log_param("fold", fold)
     log_metric("folds", cv.get_n_splits())
     log_artifacts("outputs")

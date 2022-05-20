@@ -10,7 +10,7 @@ from sklearn.impute import SimpleImputer
 # To Split our train data
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import ExtraTreesClassifier
-
+from sklearn.model_selection import KFold
 # sensitivity analysis of k in k-fold cross-validation
 from numpy import mean
 # To Visualize Data
@@ -45,6 +45,8 @@ class Modeler:
         - Initialization of the class
         """
         self.df = df
+    
+    
 
     def generate_pipeline(self,type_="numeric",x=1):
         """
@@ -166,22 +168,31 @@ class Modeler:
         X = pd.concat([X, one_hot_encoded_columns, label_encoded_columns], axis=1)
         return X
 
-    def get_columns(self):
+    def groupby_column(self,column="browser_Chrome Mobile",index=1):
+        """
+        - group according to the different columns
+        """
+        grouped_data = self.df[self.df[column]==index]
+        return grouped_data
+
+    def get_columns(self,column="yes"):
         """
         - responsible for getting the columns
         """
-        y = self.df["yes"]
 
         # Droping "class" from X
         X = self.merge_data()
-        X.drop(["yes"], axis=1, inplace=True)
+        y = X[column]
+        X.drop([column], axis=1, inplace=True)
         return X,y
 
-    def split_data(self):
+
+
+    def split_data(self,column="yes"):
         """
         - responsible for splitting the data
         """
-        X,y =self.get_columns()
+        X,y =self.get_columns(column)
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1,random_state=42)
         X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2,random_state=42)
         return X_train, X_test, X_val, y_train, y_test,y_val
@@ -213,32 +224,27 @@ class Modeler:
     
     
     #loss function for models
-    def log_loss(self, model = LogisticRegression,**kwargs):
+    def log_loss(self, model = LogisticRegression,column="yes",**kwargs):
         """
         - loss function
         """
-        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data()
+        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column)
         model_ = model(random_state=0)
-        X,y =self.get_columns()
-        fitted= model_.fit(X,y)
-        pred_proba =fitted.predict_proba(X_train)
-         
-        # Running Log loss on training
-        train_loss = log_loss(y_train, pred_proba)
-       
-        # Running Log loss on testing
-        pred_proba_t = fitted.predict_proba(X_test)
-        test_loss = log_loss(y_test, pred_proba_t)
+        fitted= model_.fit(X_train,y_train)
+        pred_proba =fitted.predict_proba(X_val)
         
-        return train_loss,test_loss
+        # Running Log loss on training
+        validation_loss = log_loss(y_val, pred_proba)
+        return validation_loss
 
 
-    def feature_importance(self):
+    def feature_importance(self,column="yes"):
         """
         - an algorithm for checking feature importance
         """
+        #initialization
         model = ExtraTreesClassifier()
-        X,y =self.get_columns()
+        X,y =self.get_columns(column)
         model.fit(X,y)
         #plot graph of feature importances for better visualization
         feat_importances = pd.Series(model.feature_importances_, index=X.columns)
@@ -247,24 +253,41 @@ class Modeler:
         return feat_importances
 
     
-    def evaluate(self,cv):
+    def get_folds(self,fold):
+        """
+        - get cross validation
+        """
+        cv = KFold(n_splits=fold, random_state=1, shuffle=True)
+        return cv
+
+    def evaluate(self,fold=5,model_=LogisticRegression,column="yes",**kwargs):
+        """
+        - evaluates the algorithm
+        """
         # get the dataset
-        X, y = self.get_columns()
+        cv = self.get_folds(fold)
+        X, y = self.get_columns(column)
         # get the model
-        model = self.get_model()
+        model = model_(**kwargs)
         # evaluate the model
         scores = cross_val_score(model, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
         # return scores
         return mean(scores), scores.min(), scores.max()
 
+    def get_df(self):
+        """
+        - get the df
+        """
+        return self.df
     
 
 
 if __name__=="__main__":
-    df = pd.read_csv("data/data.csv")
+    df = pd.read_csv("../data/data.csv")
     analyzer = Modeler(df)
     numeric_pipeline = analyzer.generate_pipeline("numeric")
     numeric_transformation =  analyzer.generate_transformation(numeric_pipeline,"numeric","number")
     numerical_features = analyzer.store_features("numeric","number")
     categorical_features = analyzer.store_features("categorical","number")
+    x=analyzer.merge_data()
     print(numeric_transformation)

@@ -1,36 +1,34 @@
 stages:
+  # first stage in the pipeline
   prepare:
-    cmd: python scripts/eda.py data/AdSmartABdata.csv
+    cmd: python scripts/eda.py data/data.csv
     deps:
-    - data/AdSmartABdata.csv
+    - data/data.csv
     - scripts/eda.py
-    
-  abtest:
-    cmd: python scripts/abtest.py data/AdSmartABdata.csv data/abtest
-    deps:
-    - data/AdSmartABdata.csv
-    - scripts/abtest.py
-    
-  sequentialAbtesting:
-    cmd: python scripts/sequential.py data/abtest data/sequential
-    deps:
-    - data/abtest
-    - scripts/sequential.py
-  
+    outs:
+    - data/eda.csv
   train:
-    cmd: python scripts/modeling.py data/sequential data/train
+    cmd: cd pipeline && python train.py ../data/eda.csv
     deps:
-    - data/sequential
-    - scripts/modeling.py
-    
-  model:
-    cmd: python scripts/modeling.py data/train data/model
+    - data/eda.csv
+    - pipeline/train.py
+    outs:
+    - data/os_6.csv
+  crossValidation:
+    cmd: cd pipeline && python cross_validator.py 5 ../data/os_6.csv
+    params:
+    - validation.folds
     deps:
-    - data/train
-    - scripts/modeling.py
-  
+    - data/os_6.csv
+    - pipeline/cross_validator.py
+    outs:
+    - data/validation.csv
   evaluate:
-    cmd: python scripts/modeling.py data/model data/evaluate
+    cmd: cd pipeline && python evaluate.py 5 ../data/validation.csv
+    params:
+    - validation.folds
     deps:
-    - data/model
-    - scripts/modeling.py
+    - data/validation.csv
+    - pipeline/evaluate.py
+    outs:
+    - data/results.csv
