@@ -5,6 +5,6 @@ seaborn
 plotly
 jupyter
 dvc
-xgboost
+xgboost==0.90
 mlflow
 

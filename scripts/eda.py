@@ -50,8 +50,9 @@ class EDA:
         returns:
             -   plot
         """
-        fig,ax = plt.subplots()
+        
         if type == "univariate":
+            plt.figure(figsize=(12, 6))
             sns.countplot(data=self.df, x=column)
             plt.title(f'Unique value counts of the {column} column');
             plt.show()
@@ -60,7 +61,7 @@ class EDA:
             sns.countplot(data=self.df, x=second_column, hue=column)
             plt.title(f'{column} vs {second_column}')
             plt.show()
-        return fig
+        
     
     def correlation_analysis(self):
         """

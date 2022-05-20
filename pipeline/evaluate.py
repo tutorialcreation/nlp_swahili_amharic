@@ -14,10 +14,8 @@ if __name__=='__main__':
     df = pd.read_csv("../data/AdSmartABdata.csv")
     model_=Modeler(df)
     model = model_.get_model()
-    X,y =model_.get_columns()
     fold = int(sys.argv[1]) if len(sys.argv) > 1 else 5
-    cv = KFold(n_splits=fold, random_state=1, shuffle=True)
-    score,min_,max_=model_.evaluate(cv)
+    score,min_,max_=model_.evaluate(fold,LogisticRegression)
     metrics = {"score": score, "min":min_,"max":max_}
     log_metrics(metrics)
     sklearn.log_model(model, "model")
