@@ -1,9 +1,9 @@
 stages:
   # first stage in the pipeline
   prepare:
-    cmd: python scripts/eda.py data/AdSmartABdata.csv
+    cmd: python scripts/eda.py data/data.csv
     deps:
-    - data/AdSmartABdata.csv
+    - data/data.csv
     - scripts/eda.py
     outs:
     - data/eda.csv
