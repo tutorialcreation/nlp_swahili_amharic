@@ -5,12 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     container: docker://ghcr.io/iterative/cml:0-dvc2-base1
     steps:
-      - uses: iterative/setup-cml@v1
+      - uses: actions/checkout@v2
       - name: Train model
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
       - name: Run tests
+      - run: |
           python -m unittest discover tests
       - name: Write CML report
         env:
