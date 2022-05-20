@@ -1,0 +1,429 @@
+,auction_id,experiment,date,hour,device_make,platform_os,browser,yes,no
+10,004c8a83-1c0f-4a4a-ba9e-bc89e8c0c0c1,control,2020-07-10,13,iPhone,5,Mobile Safari,0,0
+25,00d22463-2d1f-44de-8d67-11d6c6b96a00,exposed,2020-07-03,1,iPhone,5,Chrome Mobile iOS,0,0
+26,00e4f247-b54b-4f95-a000-ec4645d5a692,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+51,01b04c3a-8107-4b53-8532-122ff003f900,control,2020-07-04,4,iPhone,5,Mobile Safari,0,0
+73,0270f4d1-654e-42e9-afec-76963504ef45,control,2020-07-03,15,iPhone,5,Mobile Safari UI/WKWebView,0,0
+91,02fd317b-aa5a-48da-bf2a-c93aafc41c2d,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+103,034a8627-9426-4f6a-8c68-83cbf305afaf,control,2020-07-08,19,iPhone,5,Mobile Safari,0,0
+145,0467d28b-c734-4ba7-b3aa-718d12097ba1,exposed,2020-07-07,11,iPhone,5,Chrome Mobile iOS,0,0
+155,04a7940c-147b-4988-82ba-5b90bf69df45,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+165,04d92e6c-db97-474a-8d59-8907ddbe9755,exposed,2020-07-06,5,iPhone,5,Mobile Safari,0,0
+172,05198ebc-0181-463f-afee-3a1e63dcd894,control,2020-07-09,10,iPhone,5,Chrome Mobile iOS,0,0
+177,053943f2-6aed-4322-b27f-644d69abc3dc,exposed,2020-07-08,19,iPhone,5,Mobile Safari,0,0
+188,056fdef5-660b-4467-afbd-668dfa52d5a6,control,2020-07-10,3,iPhone,5,Mobile Safari,0,0
+246,076c217b-5ee9-4118-9f5c-1fe7d00da5c8,control,2020-07-05,12,iPhone,5,Chrome Mobile iOS,0,0
+281,0851fdd1-2a99-4648-9ef1-c7009a01398b,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+317,098ba3a8-c19b-4065-8ee8-65be36cad92b,control,2020-07-06,6,iPhone,5,Mobile Safari,0,0
+340,0a64c7d0-5fea-4fc1-aa2c-4b6ac08e2e61,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+367,0b47c542-41e9-4d25-ab4a-b01ea48a803d,exposed,2020-07-07,19,iPhone,5,Mobile Safari,0,0
+394,0c21ebe1-dd4b-4ba2-93b4-c8d45e342082,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+427,0cfbc21d-27af-4007-95bb-cc3a6201f44b,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+467,0dfd0b49-2745-4d72-9324-9a4a79e0f201,control,2020-07-10,6,iPhone,5,Mobile Safari,0,0
+472,0e0e74dc-1f8d-4d27-a362-5cd9dfbfc972,control,2020-07-08,12,iPhone,5,Mobile Safari,0,0
+497,0eecc045-7a76-437b-a3b0-30bf7bace888,control,2020-07-05,16,iPhone,5,Mobile Safari UI/WKWebView,0,0
+501,0f105892-a33e-4ea5-aa69-77ac3cb27418,control,2020-07-04,6,iPhone,5,Mobile Safari,0,0
+545,10d511fb-67b2-4625-9cf0-eeae88d2abf1,control,2020-07-03,15,iPhone,5,Mobile Safari UI/WKWebView,0,0
+586,12113d43-9213-490a-a71c-768b7890bde7,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+596,12391a37-cac5-4a38-8180-06250d66fdb6,control,2020-07-08,21,iPhone,5,Mobile Safari,0,0
+598,123a1bd9-3ac1-4e21-a3f9-20a3d02d763e,control,2020-07-08,21,iPhone,5,Mobile Safari,0,0
+647,14056a3d-2161-4ebc-9f31-a3d5e48e8c5d,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+674,14fc86b9-3e3f-448a-b61d-89011b64dfd5,control,2020-07-05,16,iPhone,5,Mobile Safari,0,0
+694,16008805-ad9c-4e57-a246-7e02e56e9abb,control,2020-07-10,13,iPhone,5,Mobile Safari UI/WKWebView,0,0
+699,164e1608-0adf-407b-8c08-327f8cebaa01,control,2020-07-08,16,iPhone,5,Chrome Mobile iOS,0,0
+712,16aae7ed-aadf-4e87-b595-185856838d23,control,2020-07-05,21,iPhone,5,Mobile Safari,0,0
+719,16e41cf5-1564-497d-a85e-ae994ad30cc9,control,2020-07-06,3,iPhone,5,Mobile Safari,0,0
+729,171faf5a-9fd4-43cd-a9ee-517efa3da1cd,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+735,1741e6a2-0e66-4131-ae7d-740869555bb5,control,2020-07-06,10,iPhone,5,Mobile Safari,0,0
+742,1778bf59-f101-42b0-84ce-44657fe791dd,exposed,2020-07-10,16,iPhone,5,Mobile Safari,0,0
+804,19e1775c-ab82-4f13-acfa-a1c45e3505d3,control,2020-07-04,6,iPhone,5,Mobile Safari,0,0
+808,19f22822-120f-4b1a-8723-8ea2b439e965,exposed,2020-07-08,0,iPhone,5,Mobile Safari,0,0
+815,1a346c88-a7d4-4290-8701-51d7c04b87c5,exposed,2020-07-04,17,iPhone,5,Mobile Safari,0,0
+853,1b8dc531-31c6-43ac-a4d2-f1046d77f8f8,control,2020-07-04,3,iPhone,5,Mobile Safari,0,0
+867,1c340016-b617-48e2-bf20-0d259a5d1c7f,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+926,1e21402b-f72a-4aea-a842-e4af31ca082c,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+927,1e333a30-1979-408e-8c4d-979552c0f593,control,2020-07-09,15,iPhone,5,Chrome Mobile iOS,0,0
+965,1f745ec2-8438-4d87-a302-01741bc3b55c,exposed,2020-07-04,2,iPhone,5,Chrome Mobile iOS,0,0
+973,1f911589-1d19-4781-95ca-829aec785fbe,exposed,2020-07-08,17,iPhone,5,Mobile Safari,0,0
+978,1fbdfcd8-4fff-48fc-8aeb-103131648a85,control,2020-07-05,3,iPhone,5,Mobile Safari,0,0
+992,201cb878-5072-4953-b0bf-aa606577ad67,exposed,2020-07-10,12,iPhone,5,Mobile Safari,0,0
+1026,216e12e7-c261-44fa-9623-eb3edef8e585,exposed,2020-07-09,8,iPhone,5,Mobile Safari,0,0
+1062,2283b808-6ab4-4b4d-accd-b168907465d4,exposed,2020-07-05,18,iPhone,5,Chrome Mobile iOS,0,0
+1097,23b2028c-72ed-43b3-a2d7-d772b2d4d478,exposed,2020-07-03,8,iPhone,5,Mobile Safari,0,1
+1116,24726c7d-a549-4a14-8438-ebe6ff5d55e7,control,2020-07-04,20,iPhone,5,Mobile Safari,0,0
+1173,2643a01b-dcf5-45d4-8798-5b494d1c3534,control,2020-07-10,10,iPhone,5,Mobile Safari,0,0
+1174,26448778-575d-4527-978f-f15ccfb2df93,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+1207,2742656f-565f-40f1-abf7-4b0db32d5052,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+1219,27e4e0f6-0a17-45b2-bf9b-54654543f075,exposed,2020-07-05,7,iPhone,5,Mobile Safari UI/WKWebView,0,0
+1257,28f3df2e-be61-4a38-a264-70659703c342,exposed,2020-07-10,12,iPhone,5,Mobile Safari,0,0
+1273,29bb0cea-abda-4ab7-a6ae-4603cf9de413,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+1298,2a68f26c-c527-4761-a36b-7340f03a9490,control,2020-07-09,13,iPhone,5,Chrome Mobile iOS,0,0
+1340,2bf90871-4de3-4cbe-8a37-7074360458bf,exposed,2020-07-06,0,iPhone,5,Mobile Safari,0,0
+1345,2c425e9d-b06e-4bc6-83d1-4510770c7082,exposed,2020-07-08,19,iPhone,5,Chrome Mobile iOS,0,0
+1357,2c9f7869-8846-4e68-9691-4c0beb46ccbf,exposed,2020-07-03,14,iPhone,5,Chrome Mobile iOS,0,0
+1379,2d43f358-1995-4f77-bb74-76467110876e,exposed,2020-07-05,11,iPhone,5,Mobile Safari,0,0
+1381,2d55c72d-13f6-478f-9719-ae9e80b04765,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+1383,2d5c1d7a-6c8f-49aa-ba58-62645eb6a5d6,exposed,2020-07-06,9,iPhone,5,Mobile Safari,0,0
+1414,2e6421dc-5e80-448f-8d86-c77cfd44337c,exposed,2020-07-03,6,iPhone,5,Mobile Safari,0,0
+1424,2ea9361a-0ee2-48e6-8328-6efdc05e8276,exposed,2020-07-03,13,iPhone,5,Mobile Safari,0,0
+1443,2f61adb3-7c2c-429b-b1b6-c26d2a84cabb,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+1460,2fda0a0d-60f8-4cc8-91ca-9f755bca5e51,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+1487,30d9f88a-0170-4562-8e38-d7ad76ffe3db,control,2020-07-10,8,iPhone,5,Mobile Safari UI/WKWebView,0,0
+1489,30e0d5af-9014-4b8b-bde3-905b564ec357,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+1495,311a41e8-d23b-4756-ba03-1ff87b42d7e9,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+1503,315f28a9-2eef-4b1a-9627-96a461f3abd1,exposed,2020-07-05,21,iPhone,5,Mobile Safari,0,0
+1542,330ea51c-f2fb-4100-a9ee-3276efbe1292,control,2020-07-09,6,iPhone,5,Mobile Safari,0,0
+1553,33694f8b-5995-44f6-8b46-7aad3af39bd4,exposed,2020-07-05,3,iPhone,5,Mobile Safari,0,0
+1621,35b28614-587a-4623-b335-1b4e1be01b3a,exposed,2020-07-05,18,iPhone,5,Chrome Mobile iOS,0,0
+1642,36478451-4ef7-4fe6-9b3f-b9e90d5001bf,control,2020-07-09,17,iPhone,5,Mobile Safari,0,0
+1644,365e4cae-df6e-44f0-b0d6-bdd868bcfc3f,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+1660,36d549b8-d681-416e-becd-2b36c6f1ee4d,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+1662,36f2ecc6-72c4-4d81-80dc-a4e3b957d630,exposed,2020-07-06,8,iPhone,5,Mobile Safari,0,0
+1679,37602d77-a1d3-4817-a72e-262c22b18b16,exposed,2020-07-10,1,iPhone,5,Mobile Safari UI/WKWebView,0,0
+1767,3a981e27-4c04-4e8c-96a3-0df3c12a6365,control,2020-07-06,2,iPhone,5,Chrome Mobile iOS,0,0
+1848,3d1ba293-b5c7-4563-ad17-5ec4fa0e2fb7,control,2020-07-08,18,iPhone,5,Mobile Safari,0,0
+1864,3dc866c1-7ed1-4721-972d-24d6b7077346,control,2020-07-03,15,iPhone,5,Opera Mini,0,0
+1876,3e085d21-075f-4aa2-bdc7-43fcc3f2a16e,control,2020-07-05,16,iPhone,5,Mobile Safari,0,0
+1911,3f088d13-c074-4c11-8a32-fbbabe326f56,control,2020-07-09,0,iPhone,5,Mobile Safari,0,0
+1918,3f285649-de4d-4654-b4f7-bd5fea5b28bb,control,2020-07-09,6,iPhone,5,Mobile Safari UI/WKWebView,0,0
+1948,401961dc-c39d-4d28-837b-876a5abce9ac,control,2020-07-07,0,iPhone,5,Mobile Safari,0,0
+1964,4088e62e-8f72-414d-b950-e5fbb28ff551,control,2020-07-09,0,iPhone,5,Mobile Safari,0,0
+1975,410bb2c9-d418-4e81-9491-4a98d773ad77,exposed,2020-07-10,8,iPhone,5,Mobile Safari,0,0
+1989,41678de1-c297-4c8b-8ec2-1693efa2172f,exposed,2020-07-09,13,iPhone,5,Mobile Safari,0,0
+1998,41a20fc4-6e1e-4c23-8ed2-0a7896f49ecb,control,2020-07-05,5,iPhone,5,Mobile Safari,0,0
+2000,41a8a64d-b1b7-42d5-a871-b64de4ec3426,exposed,2020-07-09,4,iPhone,5,Mobile Safari,0,0
+2048,4323c5e0-077d-4360-ac04-17d8a4ff314e,control,2020-07-05,21,iPhone,5,Chrome Mobile iOS,0,0
+2061,438d2cb5-3ae2-4e2e-988e-4d51d19b1ed7,control,2020-07-10,5,iPhone,5,Mobile Safari,0,0
+2063,4397cca6-58c3-4bc8-b5ec-f6060fb642dc,control,2020-07-10,16,iPhone,5,Mobile Safari,0,0
+2072,4414d953-5935-400d-88ce-a364b18d4577,control,2020-07-04,18,iPhone,5,Mobile Safari,0,0
+2143,4678f7be-3cd2-4b66-93aa-54fbbddb4b89,exposed,2020-07-08,20,iPhone,5,Mobile Safari,0,0
+2150,46a00418-52b9-444b-95fa-abd900b88cfe,control,2020-07-05,13,iPhone,5,Mobile Safari,0,0
+2185,47af8c8c-0eca-4945-bb11-052fe0a87ab2,control,2020-07-09,2,iPhone,5,Mobile Safari,0,0
+2247,49b48739-e638-4954-9ecf-ee7ba2370c19,control,2020-07-04,6,iPhone,5,Mobile Safari,0,0
+2254,49d90f61-c42d-4073-a9a6-d0d67376b8b2,exposed,2020-07-07,12,iPhone,5,Mobile Safari UI/WKWebView,0,0
+2262,4a1a736a-d4ff-4dee-b62c-7989f1e998cc,exposed,2020-07-08,21,iPhone,5,Mobile Safari,0,0
+2272,4a8063b9-2132-4e28-8eeb-bd2c6b849ff4,control,2020-07-04,16,iPhone,5,Mobile Safari,0,0
+2290,4b1e7c43-2396-486d-87c9-5970f2704448,control,2020-07-06,10,iPhone,5,Mobile Safari,0,0
+2292,4b33a44f-9376-4675-8535-797b2242a846,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2296,4b514faa-c3fc-4382-aac0-ffefbdc0e27f,control,2020-07-09,23,iPhone,5,Chrome Mobile iOS,0,0
+2319,4bdf955a-1287-4fb7-a484-3beb8b544f6d,control,2020-07-10,6,iPhone,5,Mobile Safari,0,0
+2349,4cd8101a-7b9e-4d4f-9608-0f78dd7bf693,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2356,4d2c8034-62da-4e49-b7b9-01408f227904,control,2020-07-04,13,iPhone,5,Mobile Safari,0,0
+2368,4d6b8801-8569-48d3-bccb-6a384bdc4972,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2373,4da294d4-f16d-49f8-be75-a9f80a23cc65,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2375,4dc48898-b93d-4296-a64e-2c16df6462a1,control,2020-07-03,15,iPhone,5,Mobile Safari UI/WKWebView,0,0
+2392,4e257c38-ecbc-4206-a2e0-77f6ccd96f64,exposed,2020-07-04,7,iPhone,5,Chrome Mobile iOS,0,0
+2401,4e7cd95b-39c6-4daf-967a-ed6e182e13b6,exposed,2020-07-04,2,iPhone,5,Chrome Mobile iOS,0,0
+2408,4e92f8ee-9834-4ddf-9319-5e556f33ae51,control,2020-07-04,7,iPhone,5,Mobile Safari,0,0
+2413,4eb1365e-0a68-4ef0-9403-c81ca773970a,exposed,2020-07-05,4,iPhone,5,Chrome Mobile iOS,0,0
+2419,4ec1d740-61fe-4418-a2fa-730deb6487d7,control,2020-07-03,15,iPhone,5,Mobile Safari UI/WKWebView,0,0
+2424,4ef0f87b-bd52-4049-b10e-a2173a3d63a4,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2470,5012d19d-b682-47ce-9da8-18579ea0627d,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2471,50239105-becc-45a2-ac74-68510fb8b239,exposed,2020-07-07,11,iPhone,5,Mobile Safari,0,0
+2486,5078f2fa-0225-47d6-a08e-6d54abfd1733,control,2020-07-08,18,iPhone,5,Mobile Safari,0,0
+2499,50b37ed4-b3c1-4e35-81d9-c2890b7bc57f,control,2020-07-08,11,iPhone,5,Chrome Mobile iOS,0,0
+2505,50d2b136-dfa7-4ee7-b86a-9943bf9ee59f,control,2020-07-04,13,iPhone,5,Mobile Safari,0,0
+2506,50dacde4-eb81-4388-aba6-35f7fed1f5d8,control,2020-07-06,5,iPhone,5,Mobile Safari,0,0
+2514,510bafe2-9f90-4a3b-8333-d894cc361e2d,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2522,512cc784-bc80-4e89-a325-1e95cfa811e2,exposed,2020-07-10,9,iPhone,5,Mobile Safari,0,0
+2560,528c3e4b-6f4f-4264-8ae6-5c63fc86bf3f,exposed,2020-07-05,3,iPhone,5,Mobile Safari,0,0
+2584,53267c65-894b-48a9-bb77-cb0a0b2ee946,control,2020-07-04,6,iPhone,5,Mobile Safari,0,0
+2595,536854dc-791a-40b3-a317-20bbfb887213,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2601,53a9bb27-181a-4d0e-bedc-26d06eafcf2c,control,2020-07-06,1,iPhone,5,Chrome Mobile iOS,0,0
+2630,54a62f37-0c4d-4300-a063-1c6aa99244e5,control,2020-07-03,15,iPhone,5,Mobile Safari,0,1
+2631,54a68ad2-eed9-408e-9088-ddecfa64b0fd,control,2020-07-03,15,iPhone,5,Mobile Safari UI/WKWebView,0,1
+2646,55116765-4734-452f-8320-f4b2e9a95f2c,exposed,2020-07-03,9,iPhone,5,Mobile Safari,0,0
+2676,5656dbad-6bfe-49de-8e74-685a910e0b80,control,2020-07-09,21,iPhone,5,Mobile Safari,0,0
+2684,5698ed69-70e5-4d68-b2be-a5008131b3a9,control,2020-07-08,20,iPhone,5,Mobile Safari,0,0
+2697,5705aa94-bea6-4b1a-9846-d90e473e8d8e,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2702,5730b702-da49-4682-8647-3cb85502093e,control,2020-07-09,2,iPhone,5,Mobile Safari,0,0
+2772,5963b44d-26f3-433c-a1aa-fa86ac4f2596,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2783,59a26b99-2add-4aa3-bf8c-7845da49f340,exposed,2020-07-05,17,iPhone,5,Mobile Safari UI/WKWebView,0,0
+2796,59fdbdb4-b334-463c-b8e9-69b82fdbf6c1,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2801,5a3c24b0-6c28-489e-ad5d-155644bd7824,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2806,5a72c8c4-101b-4b31-a386-108bf329df11,exposed,2020-07-08,15,iPhone,5,Mobile Safari,0,0
+2834,5b49c297-fc5b-4f81-a669-41bdd56f7dc8,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2850,5bccf597-af03-408e-a10b-78340d2f8ed0,control,2020-07-09,20,iPhone,5,Mobile Safari,0,0
+2853,5bde2aea-52a4-4d38-8421-6e0c5bab5e2e,exposed,2020-07-03,12,iPhone,5,Mobile Safari,0,0
+2881,5cb49b64-07c3-4478-8d86-aafeae443805,exposed,2020-07-10,4,iPhone,5,Mobile Safari,0,0
+2888,5cfbfbb0-eae2-4c07-ab35-2e15b3af8615,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+2899,5d3bfabe-a4d3-4d53-9a0d-f2da5fa86bdb,control,2020-07-05,0,iPhone,5,Mobile Safari,0,0
+2919,5ddcfd13-edea-4dbc-a1af-6849161913af,control,2020-07-10,7,iPhone,5,Mobile Safari,0,0
+3011,6107b20b-37a6-4012-ab1f-b7b503c33e01,exposed,2020-07-05,6,iPhone,5,Mobile Safari,0,0
+3063,62f26dbc-012b-498b-8051-f0c55cad99c5,exposed,2020-07-09,3,iPhone,5,Mobile Safari,0,0
+3082,6399a6c5-33f9-4338-9733-160f1efd0ae6,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+3096,63fb4d49-a950-460b-a866-135c3f8aeec4,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+3171,667d8212-e31e-44ae-b3c0-b9587c656277,exposed,2020-07-10,2,iPhone,5,Mobile Safari,0,0
+3172,668b9a90-260b-4cc8-8bf9-afffe8e01921,control,2020-07-07,0,iPhone,5,Mobile Safari,0,0
+3174,66a11bbb-9b5e-481e-9ff0-00400c0e90df,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+3204,67b2d400-2292-414a-bfe7-1fd2c2b9ad0b,exposed,2020-07-06,8,iPhone,5,Mobile Safari UI/WKWebView,0,0
+3209,67ca01bc-0deb-4665-ad85-bdc9b6eb6d03,control,2020-07-04,16,iPhone,5,Mobile Safari UI/WKWebView,0,0
+3229,6844c38b-7659-43e8-8a9d-2edbdd298925,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+3236,6876d026-242d-4d68-be7e-bfcf6b31aef0,control,2020-07-09,17,iPhone,5,Chrome Mobile iOS,0,0
+3240,688aaac1-535e-417a-a8d4-a529b033cbfa,control,2020-07-04,3,iPhone,5,Mobile Safari,1,0
+3267,69a25442-f1f6-47df-9f8e-aa712784d92b,control,2020-07-10,14,iPhone,5,Chrome Mobile iOS,0,0
+3291,6a6a3f51-ebf3-458a-8fba-cff380fb80d2,control,2020-07-07,8,iPhone,5,Mobile Safari,0,0
+3294,6a780971-2c11-435a-929e-fc4acf987f13,control,2020-07-06,1,iPhone,5,Mobile Safari,0,0
+3307,6b0943a9-60e5-444c-ad08-a630d3c64046,control,2020-07-09,3,iPhone,5,Chrome Mobile iOS,0,0
+3333,6ba7fdce-ec09-483b-ae37-ad145389c499,control,2020-07-04,15,iPhone,5,Mobile Safari,0,0
+3370,6cda122d-8501-4a82-bd6c-9abae092e2aa,exposed,2020-07-08,16,iPhone,5,Mobile Safari,0,0
+3371,6ceb4c69-a53e-4ac8-b072-8f9b082d61e8,exposed,2020-07-07,6,iPhone,5,Chrome Mobile iOS,0,0
+3378,6d2dc9e3-5d61-4e15-9360-d5942f21b4c5,control,2020-07-05,8,iPhone,5,Mobile Safari,0,0
+3405,6dd67125-8d55-4c6d-b495-e915b3ad474a,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+3414,6e29dc24-042c-4818-b111-46d0c348f1d9,control,2020-07-10,10,iPhone,5,Mobile Safari,0,0
+3440,6eddbabd-2b39-4cba-86aa-558d861b9274,control,2020-07-06,2,iPhone,5,Mobile Safari,0,0
+3443,6eeda1c8-b6bf-47f3-9a21-b0ded42d9850,control,2020-07-08,19,iPhone,5,Mobile Safari,0,0
+3497,70ecfd3d-92b1-4d03-98df-837905788079,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+3584,73c235e4-7457-4664-97cd-69eef1ad8607,exposed,2020-07-09,8,iPhone,5,Mobile Safari UI/WKWebView,0,0
+3608,7484ebee-0c0f-439c-a383-be6d6aa940c0,control,2020-07-04,1,iPhone,5,Mobile Safari,0,0
+3652,75b41c86-3aa9-46a9-85af-fd6d91c73a6d,exposed,2020-07-05,6,iPhone,5,Mobile Safari,0,0
+3653,75b60b35-363c-46a2-8529-c7cdf5053961,control,2020-07-07,12,iPhone,5,Mobile Safari,0,0
+3657,75cee84a-08c7-4735-b46d-1817e3ae2a55,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+3679,768743b6-05fc-4427-95ec-4b126c51e4ca,control,2020-07-10,14,iPhone,5,Mobile Safari UI/WKWebView,0,0
+3696,771370fe-803f-4e4f-8854-d2b6a0144be7,exposed,2020-07-09,8,iPhone,5,Mobile Safari,0,0
+3704,775c9e75-447d-453a-937b-d7308b7ed9b9,control,2020-07-09,7,iPhone,5,Mobile Safari,0,0
+3797,7a60ad3d-aecf-4e50-aa88-b3f5ef56488f,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+3800,7a6f1b84-ade8-48dc-8e87-16d9fb04aed8,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+3802,7a7380d7-9137-4ab0-a76d-15438478b3e4,exposed,2020-07-05,19,iPhone,5,Mobile Safari,0,0
+3821,7b13988a-bf8c-445a-92a6-8f7c66ad0b9f,control,2020-07-06,0,iPhone,5,Mobile Safari,0,0
+3843,7c003bed-32c3-4236-abf0-f571debe769b,exposed,2020-07-05,3,iPhone,5,Mobile Safari,1,0
+3901,7d867bcf-47bd-41b5-ab26-3252a94b5588,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+3911,7de88d5c-22d2-4858-9e7c-cc2332829233,control,2020-07-08,18,iPhone,5,Mobile Safari,0,0
+3916,7e06d970-e71c-49d0-aacd-a8eb26c742ce,exposed,2020-07-10,15,iPhone,5,Chrome Mobile iOS,0,0
+3921,7e2273f7-d804-4979-a4b0-bda229fda651,control,2020-07-07,5,iPhone,5,Mobile Safari,0,0
+3938,7e9e3338-61c6-4a40-9892-a6213008b6bb,control,2020-07-07,16,iPhone,5,Mobile Safari UI/WKWebView,0,0
+4003,80a02333-9d34-41fc-8844-876bdf71b548,exposed,2020-07-08,15,iPhone,5,Mobile Safari,0,0
+4020,81184ccc-b33e-4e6c-a27f-55e5e1b4519b,control,2020-07-06,6,iPhone,5,Mobile Safari,0,0
+4032,816ad544-28cf-4704-91a5-8dc9786320bb,exposed,2020-07-09,1,iPhone,5,Mobile Safari UI/WKWebView,0,0
+4060,824c66fc-6a05-4119-ba65-0d90c634c8aa,control,2020-07-09,21,iPhone,5,Mobile Safari,0,0
+4062,825d30fd-50ec-4dfc-a5b9-9a8fc16b515f,control,2020-07-05,5,iPhone,5,Mobile Safari,0,0
+4082,830c65ca-d27c-4645-8046-879389a36127,exposed,2020-07-04,6,iPhone,5,Chrome Mobile iOS,0,0
+4107,83fb8194-43e6-4c71-9ecd-d586dd98ca03,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4114,84319a38-ab38-4374-978e-0aaf5a295fd5,control,2020-07-09,1,iPhone,5,Mobile Safari,0,0
+4165,85c4a720-3b0e-4d7e-a68b-d13f18cc330c,exposed,2020-07-04,15,iPhone,5,Mobile Safari,0,0
+4180,8626f3d2-f3c6-4d1c-8a3d-ab4581a57200,exposed,2020-07-07,17,iPhone,5,Mobile Safari,0,0
+4204,870d92d2-37d9-4165-a759-238a97eaf72e,control,2020-07-06,4,iPhone,5,Mobile Safari,0,0
+4245,8800e2cd-984d-4072-a6eb-1fbb597750be,exposed,2020-07-08,5,iPhone,5,Mobile Safari,0,1
+4259,88700ab6-42d9-4642-a924-9aae85e988a0,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4263,887b6e74-5369-466d-be43-1f961b2f9acd,control,2020-07-10,2,iPhone,5,Chrome Mobile iOS,0,0
+4275,88badc88-3f3b-4785-9d6c-31be615bb770,control,2020-07-04,0,iPhone,5,Mobile Safari,0,0
+4320,8a2a74dc-9227-4f91-b8fc-e2b235fe0fbe,exposed,2020-07-07,6,iPhone,5,Mobile Safari,0,0
+4347,8ae4416a-a6c4-4dc1-a278-fc762ccab7f3,control,2020-07-10,11,iPhone,5,Mobile Safari,0,0
+4378,8bbf6dcd-2211-4275-badb-4510bb8bd00d,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4397,8c2a4877-3a5a-4d5c-8ccf-a0cd67efb746,control,2020-07-08,20,iPhone,5,Mobile Safari,0,0
+4398,8c347305-81ae-4652-9e35-2fcc00cfbd0b,exposed,2020-07-09,3,iPhone,5,Mobile Safari,0,0
+4419,8cf9c177-6b6b-4f2d-a766-6abf5cee1d5a,control,2020-07-04,19,iPhone,5,Mobile Safari,0,0
+4423,8d2023b7-9ee5-4fcb-b1dd-cf0505b2b63f,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4460,8e3b0ae7-493a-4cfc-97d9-e6d1cb1344b6,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4464,8e54db05-d938-4971-8a5d-b16452eb16da,exposed,2020-07-10,1,iPhone,5,Mobile Safari,0,0
+4466,8e5a7e25-f6c5-4df1-827c-5bf75db17a04,control,2020-07-07,2,iPhone,5,Mobile Safari,0,0
+4480,8ebcb634-d144-41b8-ba07-bff75f92aac6,control,2020-07-06,9,iPhone,5,Mobile Safari,0,0
+4499,8f4d204f-0585-45bc-b991-e1cabd4f337f,control,2020-07-07,15,iPhone,5,Mobile Safari,0,0
+4531,9054f05d-e7df-4cad-8d7a-d7ff54fcd058,control,2020-07-04,0,iPhone,5,Mobile Safari,0,0
+4538,907eb582-67d2-4fae-8aa9-84d244a540fe,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4544,90da1520-e462-452d-ba7b-cab3caa450f7,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4546,90eaf6b8-e48c-40f1-a286-762a9b64ba9a,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+4612,92f86845-6bde-4553-a851-afc8e1bb9a6c,control,2020-07-08,21,iPhone,5,Mobile Safari,0,0
+4613,92fa40bd-ae02-43b2-943a-bdb1c15572da,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4621,936e8bb5-b138-426a-bb2b-ab62d26c5001,exposed,2020-07-03,2,iPhone,5,Chrome Mobile iOS,0,0
+4647,94165308-eb68-4133-b2af-f6cc1ab8460f,exposed,2020-07-09,3,iPhone,5,Mobile Safari,0,0
+4667,94d5b094-6e53-4878-841d-226a5d394859,control,2020-07-09,4,iPhone,5,Mobile Safari,0,0
+4680,954602b7-9ec7-4865-9154-20c46b46b76d,control,2020-07-05,14,iPhone,5,Mobile Safari UI/WKWebView,0,0
+4692,95924ab5-d1f7-4c73-a38f-fcce7922c57e,control,2020-07-09,17,iPhone,5,Mobile Safari UI/WKWebView,0,0
+4693,9592941f-ebc5-4d1a-867d-469f3a77b43c,exposed,2020-07-10,2,iPhone,5,Mobile Safari,0,0
+4706,95ecf46d-b3d2-46c3-b3ad-14ce40a9ebc4,control,2020-07-10,14,iPhone,5,Mobile Safari UI/WKWebView,0,1
+4708,95ef26fe-17ae-470e-aa11-e91222c6df20,control,2020-07-08,15,iPhone,5,Mobile Safari,0,0
+4731,96ab9f2b-4530-4e1b-b4dc-5fce5bf4f84e,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4749,97551eb7-3e6e-42ba-b6b4-c57e779c3078,control,2020-07-04,12,iPhone,5,Mobile Safari,0,1
+4751,97844846-c6ba-4500-ad49-9e1d754f4432,control,2020-07-08,21,iPhone,5,Mobile Safari,0,0
+4754,97936b33-80b5-4d1e-9dee-1144acb7015f,control,2020-07-08,17,iPhone,5,Mobile Safari,0,0
+4761,97debbf3-db24-45e8-a0f7-76816b03030b,exposed,2020-07-04,4,iPhone,5,Mobile Safari,0,0
+4771,9825b63e-d93c-466e-ae4c-69eae08393f7,exposed,2020-07-08,12,iPhone,5,Mobile Safari,0,0
+4806,995b6cab-6b9e-48de-a8df-402817135660,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+4808,9963c31b-27ca-4906-bb47-707c54a16db9,control,2020-07-05,15,iPhone,5,Mobile Safari,0,0
+4822,99b21980-34a8-4071-b5b4-bd9d6659d783,control,2020-07-05,16,iPhone,5,Chrome Mobile iOS,0,0
+4849,9aae5bf0-315f-498f-a428-ac8bc251c461,exposed,2020-07-06,10,iPhone,5,Mobile Safari,0,0
+4851,9ab56318-b741-4dc4-9b0f-f45afc899461,control,2020-07-08,15,iPhone,5,Mobile Safari,0,0
+4859,9ae9f386-b1a7-43f7-8cc6-c10c80b43dd5,exposed,2020-07-04,8,iPhone,5,Mobile Safari,0,0
+4871,9b3af700-b1f9-47a3-a510-a939e06af5ae,control,2020-07-06,1,iPhone,5,Mobile Safari,0,1
+4914,9c3f6da5-7f7f-4e4d-bf40-67e6390c5ef3,exposed,2020-07-08,15,iPhone,5,Mobile Safari,0,0
+4933,9ca6faff-f9b1-4689-9c65-988cd92c7b8f,control,2020-07-10,9,iPhone,5,Mobile Safari,0,0
+4942,9d088418-29bd-4ad8-94a9-d43e18f33bb1,exposed,2020-07-09,13,iPhone,5,Chrome Mobile iOS,0,0
+4943,9d08a09e-0039-42da-9067-e3a2c8603294,exposed,2020-07-05,18,iPhone,5,Mobile Safari,0,0
+4945,9d12f985-42c9-40ce-a507-7104de4ffb39,control,2020-07-07,5,iPhone,5,Mobile Safari,0,0
+4962,9dac2ce4-cb05-45e4-b1c3-1bef8cbb57f7,control,2020-07-08,11,iPhone,5,Mobile Safari,0,0
+4970,9dfb077c-a865-43cd-b0f2-a525cda077a2,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5016,9f89d0cc-e73e-416b-afa5-06defaebce98,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5027,a00a113c-56d2-47d6-841b-a73a605a902d,control,2020-07-10,2,iPhone,5,Mobile Safari,0,0
+5039,a07add96-0ce5-4176-82c4-6b7a5caf93e7,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5056,a0c5a3ea-82d2-4cf7-81a3-b99e75b315fe,control,2020-07-04,7,iPhone,5,Mobile Safari,0,0
+5066,a11f3ec0-dfc1-4798-b6f0-58b183e5ba00,control,2020-07-08,10,iPhone,5,Mobile Safari UI/WKWebView,0,0
+5070,a1452105-b987-4b6d-b62a-b7f988bea15d,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5165,a44a5215-14d1-4225-b456-98ac87b8c80e,control,2020-07-04,10,iPhone,5,Mobile Safari,0,0
+5201,a51e6434-2cb2-432d-8fd3-2406a6c718a5,control,2020-07-05,8,iPhone,5,Mobile Safari,0,0
+5206,a52b2553-ed86-4bde-b849-4bececc5112d,exposed,2020-07-09,21,iPhone,5,Mobile Safari,0,0
+5214,a55f4bab-30b8-4304-a554-052b3c766b3c,exposed,2020-07-05,17,iPhone,5,Mobile Safari,0,0
+5215,a55f719d-1a51-414f-aab5-aa64ad0f2c1f,control,2020-07-06,4,iPhone,5,Mobile Safari,0,0
+5257,a6bf24b1-fd58-44e7-9bb2-3d05a1128d7e,control,2020-07-08,14,iPhone,5,Mobile Safari,0,0
+5263,a6e6fd0d-fd91-41c7-a3f5-279ee94f6b16,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5278,a73ec6ae-0524-459a-bdf8-5ab9f04c213c,control,2020-07-09,9,iPhone,5,Mobile Safari,1,0
+5286,a795eba8-2be8-45aa-9aa9-98f403ce3b89,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5287,a796bf01-dd5a-4949-8c74-856ee31a5963,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5301,a7f1fbb9-d227-4710-b023-6f730ca05a48,control,2020-07-04,16,iPhone,5,Mobile Safari,0,0
+5368,a9ba6771-1230-425a-b49c-dc03e489f6e4,control,2020-07-05,3,iPhone,5,Mobile Safari,0,0
+5384,aa3d1410-253d-4c4c-b144-5bc68c498ebf,control,2020-07-03,15,iPhone,5,Mobile Safari,0,1
+5387,aa4397f1-89e4-4081-920a-cc2f464ec0e7,exposed,2020-07-03,3,iPhone,5,Mobile Safari,0,0
+5405,aad19400-a058-4667-af94-704f21dd526c,exposed,2020-07-05,1,iPhone,5,Mobile Safari,0,0
+5415,ab2db78a-065a-4ed3-9bf0-80f6ba563ac8,exposed,2020-07-10,3,iPhone,5,Mobile Safari,0,0
+5434,abea385b-49d2-4719-8e6c-e276982ae75d,control,2020-07-04,3,iPhone,5,Mobile Safari,0,0
+5454,ac79bb7d-1e7d-4186-b44e-8c1f549df454,control,2020-07-09,21,iPhone,5,Mobile Safari,0,0
+5457,ac9045c9-9c30-45af-acfe-72a286b86670,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5495,adb4adf5-9d10-47f0-a590-93e047985f26,exposed,2020-07-09,10,iPhone,5,Mobile Safari,0,0
+5500,add3b315-a580-41be-b2eb-282efd2def0f,control,2020-07-05,8,iPhone,5,Mobile Safari,0,0
+5504,adfc3ef5-2ff6-4d45-afe1-26b0196da6d8,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+5532,af121c22-eb71-49e7-9b37-c8c1671d486d,control,2020-07-08,14,iPhone,5,Mobile Safari,0,0
+5537,af41988a-a144-4e57-90dc-c0bbf71e7f9e,control,2020-07-07,16,iPhone,5,Mobile Safari,0,0
+5555,b016ccee-90e5-4345-a1ab-e16118a665ab,control,2020-07-10,12,iPhone,5,Mobile Safari,0,0
+5594,b15d4741-2320-47d2-aaca-416c763b4ff5,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5595,b16a68f2-bf1a-453d-a0f8-5331adf73270,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+5603,b18b7b86-f591-4565-a56d-5fddd99b18af,control,2020-07-08,23,iPhone,5,Mobile Safari UI/WKWebView,0,0
+5604,b18f7c24-b967-4cb1-a055-ce3ce4b6b204,exposed,2020-07-09,21,iPhone,5,Mobile Safari,0,0
+5628,b215f6d6-fb07-4fcb-b420-229467193d66,control,2020-07-09,7,iPhone,5,Mobile Safari,0,0
+5650,b29f1106-a856-4262-857e-f9d9ff5ee744,control,2020-07-05,15,iPhone,5,Mobile Safari,0,0
+5686,b3a2d5df-d0a5-46d5-a941-0abf6043bb73,control,2020-07-04,19,iPhone,5,Mobile Safari,0,0
+5709,b43ba2dd-dd6c-4723-a22a-013cfd75e4e5,control,2020-07-09,5,iPhone,5,Mobile Safari UI/WKWebView,0,0
+5712,b44ef026-b50b-4ad4-a2ab-acd8faa88e8e,control,2020-07-03,15,iPhone,5,Mobile Safari UI/WKWebView,0,0
+5756,b56a6a32-b498-4e81-89b4-819cc717285a,control,2020-07-10,8,iPhone,5,Mobile Safari,0,0
+5765,b5fc9664-c889-4678-8795-d81f1a796c0a,exposed,2020-07-08,7,iPhone,5,Mobile Safari,0,0
+5783,b69228d2-7f66-44c5-b07d-23f11b47eaf9,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5796,b754a13a-e317-47e4-b908-04b763db1bbc,exposed,2020-07-03,14,iPhone,5,Mobile Safari,0,0
+5805,b78b7aa4-733c-462f-a850-f03be2f81473,exposed,2020-07-04,15,iPhone,5,Mobile Safari,0,0
+5827,b846c306-5ad1-4ec2-8ed1-cfb1ccaec187,control,2020-07-06,8,iPhone,5,Mobile Safari,0,0
+5842,b8fc5ae1-3cb7-4538-a04b-f87676865dfd,exposed,2020-07-10,5,iPhone,5,Mobile Safari,0,0
+5847,b91b6284-20d5-475d-bae3-54d2415447c4,control,2020-07-09,0,iPhone,5,Mobile Safari,0,0
+5855,b95abc00-4e1c-4511-a36a-67bff4bb099e,control,2020-07-04,13,iPhone,5,Mobile Safari UI/WKWebView,0,0
+5859,b981d036-b4fe-4bf4-9641-aa092aa0876e,control,2020-07-05,21,iPhone,5,Mobile Safari,0,0
+5863,b9955d42-8749-4bcd-8ce9-3f0da5d9bb28,control,2020-07-08,11,iPhone,5,Mobile Safari,0,0
+5870,b9c442b5-599b-4dc6-857e-5b095c71d3f0,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5914,bb87a745-592f-4366-b1ce-2997ea306561,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5922,bbb696bb-2301-422d-aa81-fb9649d3309f,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+5927,bbcfb0fb-80a3-4bb1-8c44-ab7e6789ee75,control,2020-07-08,18,iPhone,5,Mobile Safari UI/WKWebView,0,0
+5957,bceb2001-2383-403e-b600-c40cffc9b5ac,exposed,2020-07-09,1,iPhone,5,Mobile Safari,0,0
+5974,bd66e69c-4200-4120-8d0c-d1febd8a307b,control,2020-07-10,14,iPhone,5,Mobile Safari,0,0
+6048,c01578ae-07e2-42a2-a235-98e9f9fc1a49,exposed,2020-07-08,19,iPhone,5,Mobile Safari,0,0
+6054,c06c9d76-374c-44ce-a23b-021c5b6f8dbd,control,2020-07-09,14,iPhone,5,Mobile Safari,0,0
+6083,c13249c9-227b-417f-b24d-95b3aa6fe4b5,exposed,2020-07-10,6,iPhone,5,Mobile Safari,0,0
+6085,c14c513a-7630-4d6e-881b-af33525078a1,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+6096,c1836e0d-5f0f-4493-ad6e-e627fcea3089,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+6114,c20e04ae-49f0-4c93-a348-0290053a9da5,control,2020-07-10,10,iPhone,5,Mobile Safari,0,0
+6125,c26cc540-e63a-49af-b75c-79be4fd8b68f,control,2020-07-06,0,iPhone,5,Mobile Safari,0,0
+6143,c322a23d-8c7d-4c58-b2fa-1290e9618efe,control,2020-07-05,19,iPhone,5,Mobile Safari UI/WKWebView,0,0
+6203,c50ab58c-e978-4cd5-8692-639bbd8521ea,control,2020-07-03,15,iPhone,5,Mobile Safari,0,1
+6230,c5fbd152-cf78-424e-aab5-9836c822810d,control,2020-07-04,16,iPhone,5,Mobile Safari,0,0
+6248,c6ac9a79-8ec1-4369-a44a-f1f31af3bfd6,control,2020-07-04,17,iPhone,5,Mobile Safari,0,0
+6281,c7c58504-ba6d-4f6b-b04d-f3391af5aca2,exposed,2020-07-08,22,iPhone,5,Mobile Safari UI/WKWebView,0,0
+6288,c7dd2b18-c89b-4178-9826-60bc18236e84,exposed,2020-07-09,14,iPhone,5,Mobile Safari,0,0
+6318,c8cb7c08-22e1-465b-8b2d-7690be9f1e4a,control,2020-07-04,14,iPhone,5,Mobile Safari,0,0
+6325,c919a537-a811-4275-b97f-04853aac0881,exposed,2020-07-10,2,iPhone,5,Mobile Safari,0,0
+6337,c9435d84-abef-4dce-9e50-d40e6070bf38,control,2020-07-05,19,iPhone,5,Mobile Safari,0,0
+6361,c9fb54ef-0e0d-432a-9a2c-65cf286fc6ab,exposed,2020-07-03,11,iPhone,5,Mobile Safari,0,0
+6367,ca409967-fc97-4cff-b87f-64d5e007eeab,control,2020-07-09,6,iPhone,5,Mobile Safari,0,0
+6374,ca6a66af-031b-43df-914c-4f69877539f9,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+6379,ca8e697e-1644-416e-a3d5-dc67c107d404,control,2020-07-04,15,iPhone,5,Mobile Safari,0,0
+6381,ca9707ed-335d-455e-ad64-ebb6f8c235de,exposed,2020-07-03,6,iPhone,5,Mobile Safari,0,0
+6386,cad91210-c4fd-48ab-bc80-02730d1a06c6,control,2020-07-10,1,iPhone,5,Mobile Safari,0,0
+6392,cb15a48d-727f-4a1d-899f-bf37bd3ee2b9,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+6410,cb5daf2f-2bcf-4410-92e9-bc9945145bfc,control,2020-07-04,11,iPhone,5,Mobile Safari,0,1
+6427,cbcf1684-a75f-43df-84e3-31374d3ed361,control,2020-07-08,22,iPhone,5,Mobile Safari UI/WKWebView,0,0
+6433,cc15d31c-3fdc-4446-905a-3fb8c6822f9f,control,2020-07-05,4,iPhone,5,Mobile Safari,0,0
+6458,ccd892eb-519f-41e6-a960-ef6d6ab1bb7f,control,2020-07-09,1,iPhone,5,Mobile Safari,0,0
+6463,ccf3263f-bc0c-4c99-a6b7-16ffca50a8f8,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+6482,cd91bd43-ac2c-4967-be84-51d248835afe,control,2020-07-05,11,iPhone,5,Mobile Safari UI/WKWebView,0,0
+6485,cdc89be3-ebb0-4b1c-b986-c666cc6b7420,exposed,2020-07-08,3,iPhone,5,Mobile Safari,0,0
+6505,ce2ae941-aece-4e18-a83f-b167a978e34c,exposed,2020-07-05,13,iPhone,5,Mobile Safari,0,0
+6527,ceb7c0ce-6173-495d-a918-41177cc00df6,control,2020-07-04,0,iPhone,5,Mobile Safari,0,0
+6529,cec97dad-b422-42b8-8343-2abdc86cc5d2,control,2020-07-07,10,iPhone,5,Mobile Safari,0,0
+6537,cf1f2ca3-2ab1-40ce-9860-eaae0a8a693d,control,2020-07-08,20,iPhone,5,Mobile Safari,0,0
+6553,cfa68bb6-dc2c-4b68-97a9-dad814710ac7,control,2020-07-09,5,iPhone,5,Mobile Safari,0,0
+6579,d08c57d6-7651-43a7-a636-bb30d8388938,control,2020-07-04,17,iPhone,5,Mobile Safari UI/WKWebView,0,0
+6595,d0f9d485-b22c-42da-96f1-e4824fe38be5,control,2020-07-07,5,iPhone,5,Chrome Mobile iOS,0,0
+6597,d0fdb288-5f3c-4406-972b-1ee67a3201dd,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+6607,d142f4c2-65ad-4e66-92de-2e56c75f32d0,control,2020-07-09,17,iPhone,5,Mobile Safari,0,0
+6614,d16ea70d-abe3-4b34-bf38-3d41e6087907,control,2020-07-07,10,iPhone,5,Mobile Safari,0,0
+6639,d261746b-daeb-4ac0-825c-1e14b24c0788,control,2020-07-04,1,iPhone,5,Mobile Safari,0,0
+6650,d2dd026b-f7d9-4557-871e-1f2839228597,control,2020-07-09,20,iPhone,5,Mobile Safari,0,0
+6659,d3315187-aaf6-433d-b632-4bd741382653,control,2020-07-09,21,iPhone,5,Mobile Safari,0,0
+6663,d36efb60-ef36-4bc1-acfb-3188e857bef8,control,2020-07-05,1,iPhone,5,Mobile Safari UI/WKWebView,0,0
+6667,d38a468c-21d6-4413-8006-1ee7696f85b0,exposed,2020-07-08,15,iPhone,5,Mobile Safari,0,0
+6673,d3c5ee37-a598-4e76-9dc4-cb03d96d457d,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+6686,d41d9c4d-050f-4684-a14a-b83ce9e67df8,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+6687,d420f5b5-6b95-419e-869a-98eb0772ea08,exposed,2020-07-09,19,iPhone,5,Mobile Safari UI/WKWebView,0,0
+6690,d43ee7ab-cadd-4793-a3cd-da0d6a5e152d,control,2020-07-09,14,iPhone,5,Chrome Mobile iOS,0,0
+6763,d68467bd-3266-4328-b36f-45bfe64860d9,exposed,2020-07-05,17,iPhone,5,Mobile Safari,0,0
+6765,d6a8adec-aa18-4ad3-9291-ff285407c4d7,exposed,2020-07-10,11,iPhone,5,Mobile Safari,0,0
+6766,d6b8a2fd-da8e-4435-b419-a31ab282ffab,exposed,2020-07-04,10,iPhone,5,Mobile Safari,0,0
+6769,d70b5402-7afb-427b-8360-b8685c1bbc78,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+6797,d7b6b9c4-8697-4a8b-9dbc-c4d163111f8a,control,2020-07-09,18,iPhone,5,Mobile Safari,0,0
+6804,d80d1e33-be73-44f4-9a41-0766ab80b7af,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+6808,d836ffef-26ec-426a-b248-55e3579e8284,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+6816,d88a3fa5-d669-4c1d-bed2-b9bd712a6d1f,exposed,2020-07-10,8,iPhone,5,Mobile Safari UI/WKWebView,0,0
+6846,d9747fe5-6e1e-46c1-80f3-b61e31fba189,exposed,2020-07-09,10,iPhone,5,Mobile Safari,0,0
+6849,d97b289e-c16f-42c4-8e64-2e3486ba8cbc,exposed,2020-07-08,17,iPhone,5,Mobile Safari,0,0
+6850,d97b2f6b-c6ba-4f72-b7ac-b08027c69018,exposed,2020-07-08,20,iPhone,5,Mobile Safari,0,0
+6862,d9d47b46-adfa-474b-9b4c-04b28d02e0d4,control,2020-07-10,1,iPhone,5,Mobile Safari,0,0
+6875,da506d76-0501-4276-b5d7-ca703c49c292,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+6905,dba2b1a8-cc0c-4e90-941a-fe6c8e0b5bd5,exposed,2020-07-09,2,iPhone,5,Mobile Safari,0,1
+6913,dbe8879d-6e19-4be9-93ef-9b669581543d,control,2020-07-04,2,iPhone,5,Mobile Safari,0,0
+6962,dd6a743d-d81c-4f68-859c-beaea801c643,control,2020-07-09,14,iPhone,5,Mobile Safari,0,0
+6986,de01167d-6395-4f8d-9128-4002ac2ca344,exposed,2020-07-08,16,iPhone,5,Mobile Safari,0,0
+6994,de583c57-aca5-40ef-8c50-72792c1146d4,exposed,2020-07-10,12,iPhone,5,Mobile Safari,0,0
+6999,de77c3e6-35e1-4a2b-87a3-879a4eadec1e,control,2020-07-08,14,iPhone,5,Mobile Safari,0,0
+7034,df79d413-70e2-4b84-8fcf-8d7b413e4300,control,2020-07-03,15,iPhone,5,Mobile Safari UI/WKWebView,0,0
+7065,e0727a5c-caf1-4783-8d98-50383d8f4e64,exposed,2020-07-09,12,iPhone,5,Mobile Safari,0,0
+7075,e0dfd43c-8090-4621-8cd3-2bb22a4b5d96,exposed,2020-07-10,11,iPhone,5,Mobile Safari,0,0
+7083,e103e8b2-ba10-427b-921a-8f9ab15cd9fb,control,2020-07-10,7,iPhone,5,Mobile Safari,0,0
+7095,e1614006-0540-4d1a-9bc7-d2f0d15d73ca,control,2020-07-09,5,iPhone,5,Mobile Safari,1,0
+7164,e3d35cb9-2964-49cc-a013-3cf22f1ba927,control,2020-07-09,15,iPhone,5,Mobile Safari,0,0
+7168,e3db3c9d-9a6e-453d-947e-df9116514505,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+7180,e41804dc-4aa3-46fa-8fd5-228f8f14bb11,control,2020-07-08,20,iPhone,5,Mobile Safari,0,0
+7289,e754f9bf-97a7-4da0-a9b9-440565bd91c9,exposed,2020-07-10,9,iPhone,5,Mobile Safari,0,0
+7312,e7e7eca9-16fd-4103-9f43-f48cbd6019a1,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+7317,e80c24f9-6c57-4ac6-bc99-f2fced706f9a,control,2020-07-09,16,iPhone,5,Mobile Safari,0,0
+7341,e8dc9a39-6a03-4fe6-8d36-106c99c649d2,control,2020-07-10,8,iPhone,5,Mobile Safari,0,0
+7369,e97f336b-488c-42d1-af66-059284f706b9,control,2020-07-09,17,iPhone,5,Mobile Safari UI/WKWebView,0,0
+7370,e980f7cd-2e3d-471d-8594-35d581927a0c,control,2020-07-09,6,iPhone,5,Mobile Safari,0,0
+7373,e98762cf-923a-4d4f-baf0-c2b94a90d465,control,2020-07-06,5,iPhone,5,Mobile Safari,0,0
+7374,e98b7e91-d46b-47c7-9ca9-d4ab79004986,control,2020-07-08,9,iPhone,5,Mobile Safari,0,0
+7376,e9920214-b8d1-4ac7-9b4a-70fed579320b,exposed,2020-07-08,12,iPhone,5,Mobile Safari UI/WKWebView,0,0
+7377,e994d8b8-cf60-4b25-b355-68044ddde5e1,exposed,2020-07-08,18,iPhone,5,Mobile Safari,0,0
+7465,ec4c1cde-1e93-4b47-b5ea-9f31b8cc5295,control,2020-07-04,11,iPhone,5,Chrome Mobile iOS,1,0
+7469,ec772878-5543-46e7-b080-a9f43eba757d,control,2020-07-09,10,iPhone,5,Chrome Mobile iOS,0,0
+7540,eedacea4-5687-4f06-a14d-234ff89f93e1,exposed,2020-07-05,12,iPhone,5,Mobile Safari,0,0
+7563,efb81ce2-2ae0-4e33-b582-191fe0f4c57c,exposed,2020-07-08,21,iPhone,5,Chrome Mobile iOS,0,0
+7573,efee3e2c-02ec-4238-84ac-fc203d8e661d,control,2020-07-10,9,iPhone,5,Mobile Safari,0,0
+7578,f011a0dc-4189-468a-abf5-34d609fa4042,control,2020-07-05,21,iPhone,5,Mobile Safari UI/WKWebView,0,0
+7639,f1d334ff-87f3-49d7-b802-c0b9926b1de5,control,2020-07-05,1,iPhone,5,Mobile Safari,0,0
+7682,f332f4a5-6fc4-4ba8-b17b-f7d336164d2a,control,2020-07-06,10,iPhone,5,Mobile Safari,0,0
+7710,f4442746-7651-4123-b9a4-81a371424224,exposed,2020-07-09,16,iPhone,5,Mobile Safari UI/WKWebView,0,0
+7720,f47a3f77-167e-44a3-b60c-5ed285e3d509,control,2020-07-08,17,iPhone,5,Mobile Safari,0,0
+7724,f49cc8c0-5629-484a-858d-12c7282013c0,control,2020-07-05,17,iPhone,5,Mobile Safari,0,0
+7757,f5f179a3-b7cb-428e-8b3a-398c4292fcb8,control,2020-07-05,0,iPhone,5,Mobile Safari,0,0
+7786,f6dec42f-3f33-48b8-bc52-bbe5811cd66c,control,2020-07-08,16,iPhone,5,Mobile Safari,0,0
+7798,f766d835-d111-4832-a57c-10dddf8bdd1d,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+7849,f8f9920f-89d0-42fa-8f61-572d9c8e26dd,control,2020-07-09,15,iPhone,5,Mobile Safari,0,0
+7856,f934ff31-f037-4ed2-b19a-ff447aea2ad3,control,2020-07-07,17,iPhone,5,Mobile Safari UI/WKWebView,0,1
+7864,f95a1c54-2671-4b60-a38a-05f84b88a6fc,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+7883,f9fd970d-7a43-454e-bd4a-4e59082ff527,control,2020-07-07,7,iPhone,5,Mobile Safari,0,0
+7903,fa539da9-ddd0-46aa-8d6d-66281e31270c,control,2020-07-08,14,iPhone,5,Chrome Mobile iOS,0,0
+7916,fa9caf9c-cd82-4f74-94a1-f644ce90dca9,control,2020-07-08,17,iPhone,5,Mobile Safari,0,0
+7933,fb41e8de-1c10-449d-9193-19355332d136,exposed,2020-07-06,8,iPhone,5,Mobile Safari,0,0
+7965,fc003a33-03de-4e33-8edf-c8e6f5021042,control,2020-07-09,21,iPhone,5,Mobile Safari,0,0
+7968,fc09d0b4-5edf-4eed-a608-c05b194b27c6,control,2020-07-03,15,iPhone,5,Mobile Safari,0,0
+7988,fc8fe0f9-5194-4121-b5a8-84d3d2161877,control,2020-07-05,2,iPhone,5,Mobile Safari,0,0
+7999,fced79ee-6867-470a-bd8b-afc2f0ee5b11,control,2020-07-05,12,iPhone,5,Mobile Safari,0,0
+8001,fcfe1945-c63c-4963-aa6f-8bb61592a069,exposed,2020-07-04,6,iPhone,5,Chrome Mobile iOS,0,0
+8009,fd485e19-fb47-4223-8dc2-7bae945c08fa,control,2020-07-08,19,iPhone,5,Mobile Safari,0,0
+8018,fd93b48c-d634-4994-9643-f0f6282ebca7,control,2020-07-04,16,iPhone,5,Mobile Safari,0,0
+8034,fe6ae1c4-ff79-47c1-9cb5-a8d5e5402745,control,2020-07-03,15,iPhone,5,Chrome Mobile iOS,0,0
+8052,ff7534ce-cf85-48fa-b22f-a8797107f15c,exposed,2020-07-09,6,iPhone,5,Mobile Safari,0,0
+8057,ff91d4f2-d28f-4a66-9e5c-bf1c96e32a4c,control,2020-07-04,17,iPhone,5,Chrome Mobile iOS,0,0

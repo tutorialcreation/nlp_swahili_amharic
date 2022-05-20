@@ -45,6 +45,8 @@ class Modeler:
         - Initialization of the class
         """
         self.df = df
+    
+    
 
     def generate_pipeline(self,type_="numeric",x=1):
         """
@@ -272,6 +274,11 @@ class Modeler:
         # return scores
         return mean(scores), scores.min(), scores.max()
 
+    def get_df(self):
+        """
+        - get the df
+        """
+        return self.df
     
 
 
@@ -283,5 +290,4 @@ if __name__=="__main__":
     numerical_features = analyzer.store_features("numeric","number")
     categorical_features = analyzer.store_features("categorical","number")
     x=analyzer.merge_data()
-    import pdb;pdb.set_trace()
     print(numeric_transformation)

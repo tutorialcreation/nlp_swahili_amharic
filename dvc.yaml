@@ -8,18 +8,19 @@ stages:
     outs:
     - data/eda.csv
   train:
-    cmd: cd pipeline && python pipeline/train.py data/eda.csv
+    cmd: cd pipeline && python pipeline/train.py ../data/eda.csv
     deps:
     - data/eda.csv
     - pipeline/train.py
     outs:
     - data/train.csv
+    - data/os_6.csv
   crossValidation:
-    cmd: cd pipeline && python pipeline/cross_validator.py data/train.csv
+    cmd: cd pipeline && python pipeline/cross_validator.py data/os_6.csv
     params:
     - '5' 
     deps:
-    - data/train.csv
+    - data/os_6.csv
     - pipeline/cross_validator.py
     outs:
     - data/validation.csv

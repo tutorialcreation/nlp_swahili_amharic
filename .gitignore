@@ -11,6 +11,8 @@ __pycache__/
 .tox
 .cache
 data/*
+!/data/**/
+!**/*.dvc
 !data/data.csv
 env/
 .env

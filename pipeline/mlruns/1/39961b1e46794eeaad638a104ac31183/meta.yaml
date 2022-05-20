@@ -1,0 +1,15 @@
+artifact_uri: file:///home/martin/Documents/abtest-mlops/pipeline/mlruns/1/39961b1e46794eeaad638a104ac31183/artifacts
+end_time: 1653048700476
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: 39961b1e46794eeaad638a104ac31183
+run_uuid: 39961b1e46794eeaad638a104ac31183
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1653048700468
+status: 3
+tags: []
+user_id: martin
