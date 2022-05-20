@@ -3,6 +3,7 @@ import pandas as pd
 import warnings
 import matplotlib.pyplot as plt
 import seaborn as sns
+import sys
 
 
 class EDA:
@@ -14,6 +15,7 @@ class EDA:
     def __init__(self,df):
         """initialize the eda class"""
         self.df = df
+
 
     def descriptive_stats(self,describe=False,info=False,size=False):
         """
@@ -76,3 +78,17 @@ class EDA:
         plt.title('Heatmap of correlation for the numerical columns')
         plt.show()
         return fig
+    
+    def get_df(self):
+        """
+        - returns the dataframes
+        """
+        return self.df
+
+if __name__ == '__main__':
+    file_path = sys.argv[1]
+    df = pd.read_csv(file_path)
+    eda = EDA(df)
+    eda_df = eda.get_df()
+    eda_df.to_csv("data/eda.csv",index=False)
+

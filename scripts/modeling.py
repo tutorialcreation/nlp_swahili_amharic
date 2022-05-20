@@ -166,7 +166,7 @@ class Modeler:
         X = pd.concat([X, one_hot_encoded_columns, label_encoded_columns], axis=1)
         return X
 
-    def groupby(self,column="browser_Chrome Mobile WebView",index=1):
+    def groupby_column(self,column="browser_Chrome Mobile",index=1):
         """
         - group according to the different columns
         """
@@ -240,7 +240,7 @@ class Modeler:
         """
         - an algorithm for checking feature importance
         """
-
+        #initialization
         model = ExtraTreesClassifier()
         X,y =self.get_columns(column)
         model.fit(X,y)
