@@ -25,6 +25,5 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Post reports as comments in GitHub PRs
           cat results.txt >> report.md
           cml testing report.md
