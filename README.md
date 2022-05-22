@@ -68,13 +68,13 @@ Q: Do you know the brand LUX?
 * no: 1 if the user chooses the “No” radio button for the BIO questionnaire.
 
 # A/B Hypothesis Testing
-A/B testing, also known as split testing, refers to a randomized experimentation process wherein two or more versions of a variable (web page, page element, etc.) are shown to different segments of website visitors at the same time to determine which version leaves the maximum impact and drive business metrics.
+A/B testing, also known as split testing, refers to a randomized experimentation process wherein two or more versions of a variable (web page, page element, etc.) are shown to different segments of website visitors at the same time to determine which version leaves the maximum impact and drive business metrics or simply which one performs better.
 
 ## Sequential A/B testing
-A common issue with classical A/B-tests, especially when you want to be able to detect small differences, is that the sample size needed can be prohibitively large. In many cases it can take several weeks, months or even years to collect enough data to conclude a test.
+A common issue with classical A/B-tests, especially when you want to be able to detect small differences, is that the sample size needed can be prohibitively large. In many cases it can take several weeks, months or even years to collect enough data to conclude a test, resulting to the high cost.
 
 * The lower number of errors we require, the larger sample size we need.
 * The smaller the difference we want to detect, the larger sample size is required.
 
-Sequential sampling works in a very non-traditional way; instead of a fixed sample size, you choose one item (or a few) at a time, and then test your hypothesis.
+Sequential sampling works in a very non-traditional way; instead of a fixed sample size, you choose one item (or a few) at a time, and then test your hypothesis, thus minimizing the level of the error.
 
