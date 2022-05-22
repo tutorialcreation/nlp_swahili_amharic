@@ -11,6 +11,7 @@ SmartAd is a mobile first advertiser agency. It designs Intuitive touch-enabled 
 * Linear regression
 * Decision Trees
 * XGBoost
+* RandomForest
 
 # ML Pipeline design/setup
 ![image](https://user-images.githubusercontent.com/49780811/169189105-b9e10399-fb16-4651-87f9-7126535435f4.png)
