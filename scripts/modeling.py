@@ -126,7 +126,7 @@ class Modeler:
         - responsible one hot encoding the columns
         """
         to_one_hot_encoding,_= self.encoding_data()
-        one_hot_encoded_columns = pd.get_dummies(self.df[to_one_hot_encoding])
+        one_hot_encoded_columns = pd.get_dummies(self.df[to_one_hot_encoding],ignore_index=True) if len(to_one_hot_encoding) > 0 else pd.DataFrame(columns=to_one_hot_encoding)
         return one_hot_encoded_columns
 
     def label_encode(self):
