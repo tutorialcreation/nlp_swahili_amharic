@@ -132,12 +132,32 @@ class Clean:
         self.df.drop(self.df.columns[self.df.columns.str.contains('unnamed',
         case = False)],axis = 1, inplace = True)
 
+    def transfrom_time_series(self,column,date_column):
+        """
+        - transform the data into a 
+        time series dataset
+        """
+        self.df.sort_values([column,date_column], ignore_index=True, inplace=True)    
+        self.df[date_column] = pd.to_datetime(self.df[date_column],errors='coerce')
+        self.df['Day'] = self.df[date_column].dt.day
+        self.df['Month'] = self.df[date_column].dt.month
+        self.df['Year'] = self.df[date_column].dt.year
+        self.df['DayOfYear'] = self.df[date_column].dt.dayofyear
+        self.df['WeekOfYear'] = self.df[date_column].dt.weekofyear
+        self.df.set_index(date_column, inplace=True)
+
     def save(self,name):
         """
         - returns the dataframes
         """
         self.df.to_csv(name)
 
+
+    def get_df(self):
+        """
+        - returns the dataframe
+        """
+        return self.df
 
 if __name__ == '__main__':
     train_path = sys.argv[1]
@@ -150,6 +170,7 @@ if __name__ == '__main__':
     clean_df.drop_missing_values()
     clean_df.fix_outliers()
     clean_df.remove_unnamed_cols()
+    clean_df.transfrom_time_series("Store","Date")
     clean_df.save(name="data/training.csv")
     df = pd.read_csv(test_path)
     clean_df = Clean(df)
@@ -157,4 +178,5 @@ if __name__ == '__main__':
     clean_df.drop_missing_values()
     clean_df.fix_outliers()
     clean_df.remove_unnamed_cols()
+    clean_df.transfrom_time_series("Store","Date")
     clean_df.save(name="data/testing.csv")
