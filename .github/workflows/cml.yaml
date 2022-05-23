@@ -1,4 +1,4 @@
-name: abtest-ml
+name: sales_predictions
 on: [push]
 jobs:
   run:
