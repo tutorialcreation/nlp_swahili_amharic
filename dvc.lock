@@ -1,73 +1,50 @@
 schema: '2.0'
 stages:
-  prepare:
-    cmd: python scripts/eda.py data/data.csv
+  cleaing:
+    cmd: python scripts/clean.py data/store.csv
     deps:
-    - path: data/data.csv
-      md5: 76a97c100cf1ef6425513d5b31a18d09
-      size: 2741
+    - path: data/store.csv
+      md5: 30c9ccb5af66c21f65e7d1da967e6251
+      size: 45010
+    - path: scripts/clean.py
+      md5: 5d2989271c9dd135a4f74059e7b6f724
+      size: 1301
+    outs:
+    - path: data/clean.csv
+      md5: df7d8916bcd9fe2c0655398312f6fe57
+      size: 46994
+  eda:
+    cmd: python scripts/eda.py data/train.csv
+    deps:
+    - path: data/train.csv
+      md5: d47aedd9e2d580e06a6ef7ce1732e8b6
+      size: 38057952
     - path: scripts/eda.py
-      md5: 1063e14ffa56dfab3e718667bd095167
-      size: 2326
+      md5: 9579c58ad79acf302a23b7f99e8413c6
+      size: 2534
     outs:
     - path: data/eda.csv
-      md5: 76a97c100cf1ef6425513d5b31a18d09
-      size: 2741
-  train:
-    cmd: cd pipeline && python train.py ../data/eda.csv
+      md5: 5ab729bb5bc6247d0e7e282478df8325
+      size: 33989098
+  cleaning:
+    cmd: python scripts/clean.py data/train.csv data/test.csv data/store.csv
     deps:
-    - path: data/eda.csv
-      md5: 76a97c100cf1ef6425513d5b31a18d09
-      size: 2741
-    - path: pipeline/train.py
-      md5: 26a0b76b5bfc0b9523ac2a28dcf5fc1e
-      size: 1628
+    - path: data/store.csv
+      md5: 30c9ccb5af66c21f65e7d1da967e6251
+      size: 45010
+    - path: data/test.csv
+      md5: 702189c326ce783ff913ddd6ff984946
+      size: 1427425
+    - path: data/train.csv
+      md5: d47aedd9e2d580e06a6ef7ce1732e8b6
+      size: 38057952
+    - path: scripts/clean.py
+      md5: 5bb8fe58ed5dc7d47acb40823741453d
+      size: 4646
     outs:
-    - path: data/os_6.csv
-      md5: 98ea6ba78267a21ac7ab887c38ee79e9
-      size: 2546
-  crossValidation:
-    cmd: cd pipeline && python cross_validator.py 5 ../data/os_6.csv
-    deps:
-    - path: data/os_6.csv
-      md5: 98ea6ba78267a21ac7ab887c38ee79e9
-      size: 2546
-    - path: pipeline/cross_validator.py
-      md5: cbacca18778aa781601869fc97615202
-      size: 890
-    params:
-      params.yaml:
-        validation.folds: 5
-    outs:
-    - path: data/validation.csv
-      md5: dd8ecc5807702b467b71e2cd35339a51
-      size: 2622
-  evaluate:
-    cmd: cd pipeline && python evaluate.py 5 ../data/validation.csv
-    deps:
-    - path: data/validation.csv
-      md5: dd8ecc5807702b467b71e2cd35339a51
-      size: 2622
-    - path: pipeline/evaluate.py
-      md5: 442072fa111539bb4808f2ff66a93311
-      size: 1274
-    params:
-      params.yaml:
-        validation.folds: 5
-    outs:
-    - path: data/results.csv
-      md5: d5ce0f8b7c9fafe1424d8397fcc60529
-      size: 44
-  predict:
-    cmd: cd pipeline && python evaluate.py 5 ../data/validation.csv
-    deps:
-    - path: data/validation.csv
-      md5: dd8ecc5807702b467b71e2cd35339a51
-      size: 2622
-    - path: pipeline/evaluate.py
-      md5: 442072fa111539bb4808f2ff66a93311
-      size: 1274
-    outs:
-    - path: data/predictions.csv
-      md5: d5ce0f8b7c9fafe1424d8397fcc60529
-      size: 44
+    - path: data/testing.csv
+      md5: 51325aec60755ef0bbc57c99582070a7
+      size: 1548936
+    - path: data/training.csv
+      md5: 9fcc18d63bc09e137f7bcbe1e8fbe0a7
+      size: 35710951
