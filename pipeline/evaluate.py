@@ -27,6 +27,7 @@ if __name__=='__main__':
     metrics = {"score": score, "min":min_,"max":max_}
     results = pd.DataFrame([metrics])
     results.to_csv("../data/results.csv")
+    results.to_csv("../data/predictions.csv")
     log_metrics(metrics)
     sklearn.log_model(model, "model")
 

@@ -32,3 +32,10 @@ stages:
     - pipeline/evaluate.py
     outs:
     - data/results.csv
+  predict:
+    cmd: cd pipeline && python evaluate.py 5 ../data/validation.csv
+    deps:
+    - data/validation.csv
+    - pipeline/evaluate.py
+    outs:
+    - data/predictions.csv
