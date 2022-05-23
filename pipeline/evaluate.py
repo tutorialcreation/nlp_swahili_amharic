@@ -1,3 +1,4 @@
+# evaluation script
 import pandas as pd
 import os,sys
 
@@ -16,6 +17,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, GaussianNB
+
 
 if __name__=='__main__':
     file_path = sys.argv[2]
