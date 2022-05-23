@@ -1,15 +1,18 @@
 stages:
-  cleaing:
-    cmd: python scripts/clean.py data/store.csv
+  cleaning:
+    cmd: python scripts/clean.py data/train.csv data/test.csv data/store.csv
     deps:
+    - data/train.csv 
+    - data/test.csv 
     - data/store.csv
     - scripts/clean.py
     outs:
-    - data/clean.csv
+    - data/training.csv
+    - data/testing.csv
   eda:
-    cmd: python scripts/eda.py data/clean.csv
+    cmd: python scripts/eda.py data/train.csv
     deps:
-    - data/clean.csv
+    - data/train.csv
     - scripts/eda.py
     outs:
     - data/eda.csv

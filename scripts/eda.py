@@ -44,38 +44,45 @@ class EDA:
             has_missing_values = True
         return has_missing_values
 
-    # def plot_counts(self, column, second_column=None, type=None):
-    #     """
-    #     expects:
-    #         -   string
-    #     returns:
-    #         -   plot
-    #     """
-    #     if type == "univariate":
-    #         plt.figure(figsize=(12, 6))
-    #         sns.countplot(data=self.df, x=column)
-    #         plt.title(f"Unique value counts of the {column} columns")
-    #         plt.show()
-    #     elif type == "bivariate":
-    #         plt.figure(figsize=(12, 6))
-    #         sns.countplot(data=self.df, x=second_column, hue=column)
-    #         plt.title(f"{column} vs {second_column}")
-    #         plt.show()
-    #     return
+    def plot_counts(self, column, second_column=None, type=None):
+        """
+        expects:
+            -   string
+        returns:
+            -   plot
+        """
+        if type == "univariate":
+            plt.figure(figsize=(12, 6))
+            sns.countplot(data=self.df, x=column)
+            plt.title(f"Unique value counts of the {column} columns")
+            plt.show()
+        elif type == "bivariate":
+            plt.figure(figsize=(12, 6))
+            sns.countplot(data=self.df, x=second_column, hue=column)
+            plt.title(f"{column} vs {second_column}")
+            plt.show()
+        return
 
-    # def correlation_analysis(self):
-    #     """
-    #     expects:
-    #         - nothing
-    #     returns:
-    #         - dataframe
-    #     """
-    #     corr = self.df.corr()
-    #     fig, ax = plt.subplots()
-    #     sns.heatmap(corr, annot=True)
-    #     plt.title('Heatmap of correlation for the numerical columns')
-    #     plt.show()
-    #     return fig
+    def correlation_analysis(self):
+        """
+        expects:
+            - nothing
+        returns:
+            - dataframe
+        """
+        corr = self.df.corr()
+        fig, ax = plt.subplots()
+        sns.heatmap(corr, annot=True)
+        plt.title('Heatmap of correlation for the numerical columns')
+        plt.show()
+        return fig
+
+    def plot_distributions(self):
+        """
+        - this algorithm is responsible for plotting distributions
+        """
+        num_feats = list(self.df.select_dtypes(include=['int64', 'float64', 'int32']).columns)
+        self.df[num_feats].hist(figsize=(20,15))
 
     def get_df(self):
         """

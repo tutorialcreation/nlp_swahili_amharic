@@ -9,28 +9,12 @@ import sys
 class Clean:
     """
     - this class is responsible for performing 
-    Exploratory Data Analysis
+    Cleaning Tasks
     """
 
     def __init__(self, df):
-        """initialize the eda class"""
+        """initialize the cleaning class"""
         self.df = df
-
-    def descriptive_stats(self, describe=False, info=False, size=False):
-        """
-        expects: 
-            - boolean
-        returns:
-            - summary
-        """
-        summary = None
-        if describe:
-            summary = self.df.describe()
-        elif info:
-            summary = self.df.info
-        elif size:
-            summary = self.df.shape
-        return summary
 
     def has_missing_values(self):
         """
@@ -42,19 +26,135 @@ class Clean:
         has_missing_values = False
         if True in self.df.isnull().any().to_list():
             has_missing_values = True
-        return has_missing_values
+        counts = None
+        counts = self.df.isnull().sum()
+        return counts,has_missing_values
+
+    def store_features(self,type_,value):
+        """
+        purpose:
+            - stores features for the data set
+        input:
+            - string,int,dataframe
+        returns:
+            - dataframe
+        """
+        features = [None]
+        if type_ == "numeric":
+            features = self.df.select_dtypes(include=value).columns.tolist()
+        elif type_ == "categorical":
+            features = self.df.select_dtypes(exclude=value).columns.tolist()
+        return features
+
+    def merge_df(self,df_,column):
+        """
+        expects:
+            - string(column)
+        returns:
+            - merged df
+        """
+        self.df = pd.merge(self.df, df_, how = 'left', on = column)
+        return self.df
+
+    
+    def handle_missing_values_numeric(self, features, df=None):
+        """
+        this algorithm does the following
+        - remove columns with x percentage of missing values
+        - fill the missing values with the mean
+        returns:
+            - df
+            - percentage of missing values
+        """
+        if df:
+            self.df=df
+        missing_percentage = round((self.df.isnull().sum().sum()/\
+                reduce(lambda x, y: x*y, self.df.shape))*100,2)
+        for key in features:
+            self.df[key] = self.df[key].fillna(self.df[key].mean())
+        return missing_percentage, self.df
+
+    def handle_missing_values_categorical(self,features):
+        """
+        this algorithm does the following
+        - remove columns with x percentage of missing values
+        - fill the missing values with the mode
+        returns:
+            - df
+            - percentage of missing values
+        """
+        missing_percentage = round((self.df.isnull().sum().sum()/\
+                reduce(lambda x, y: x*y, self.df.shape))*100,2)
+        for key in features:
+            self.df[key] = self.df[key].fillna(self.df[key].mode()[0])
+        return missing_percentage, self.df
 
 
-    def get_df(self):
+    def drop_missing_values(self)->pd.DataFrame:
         """
-        - returns the dataframes
+        remove rows that has column names. This error originated from
+        the data collection stage.  
         """
+        self.df.dropna(inplace=True)
+        
+    
+    def drop_duplicate(self, df:pd.DataFrame,column)->pd.DataFrame:
+        """
+        - this function drop duplicate rows
+        """
+        self.df = self.df.drop_duplicates(subset=[column])
+        return self.df
+        
+    def convert_to_datetime(self, df:pd.DataFrame)->pd.DataFrame:
+        """
+        convert column to datetime
+        """
+        self.df['created_at'] = pd.to_datetime(self.df['created_at'])
         return self.df
 
 
+
+    def fix_outliers(self):
+        """
+        - this algorithm fixes outliers
+        """
+        numerical_columns=self.store_features("numeric","number")
+        for i in numerical_columns:
+            self.df[i] = np.where(self.df[i] > self.df[i].quantile(0.95), 
+                            self.df[i].median(),self.df[i])
+        
+        return self.df
+
+    def remove_unnamed_cols(self):
+        """
+        - this algorithm removes columns with unnamed
+        """
+        self.df.drop(self.df.columns[self.df.columns.str.contains('unnamed',
+        case = False)],axis = 1, inplace = True)
+
+    def save(self,name):
+        """
+        - returns the dataframes
+        """
+        self.df.to_csv(name)
+
+
 if __name__ == '__main__':
-    file_path = sys.argv[1]
-    df = pd.read_csv(file_path)
-    clean = Clean(df)
-    clean_df = eda.get_df()
-    clean_df.to_csv("data/clean.csv", index=False)
+    train_path = sys.argv[1]
+    test_path = sys.argv[2]
+    store_path = sys.argv[3]
+    store = pd.read_csv(store_path)
+    df = pd.read_csv(train_path)
+    clean_df = Clean(df)
+    clean_df.merge_df(store,'Store')
+    clean_df.drop_missing_values()
+    clean_df.fix_outliers()
+    clean_df.remove_unnamed_cols()
+    clean_df.save(name="data/training.csv")
+    df = pd.read_csv(test_path)
+    clean_df = Clean(df)
+    clean_df.merge_df(store,'Store')
+    clean_df.drop_missing_values()
+    clean_df.fix_outliers()
+    clean_df.remove_unnamed_cols()
+    clean_df.save(name="data/testing.csv")
