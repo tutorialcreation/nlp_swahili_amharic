@@ -1,41 +1,15 @@
 stages:
-  # first stage in the pipeline
-  prepare:
-    cmd: python scripts/eda.py data/data.csv
+  cleaing:
+    cmd: python scripts/clean.py data/store.csv
     deps:
-    - data/data.csv
+    - data/store.csv
+    - scripts/clean.py
+    outs:
+    - data/clean.csv
+  eda:
+    cmd: python scripts/eda.py data/clean.csv
+    deps:
+    - data/clean.csv
     - scripts/eda.py
     outs:
     - data/eda.csv
-  train:
-    cmd: cd pipeline && python train.py ../data/eda.csv
-    deps:
-    - data/eda.csv
-    - pipeline/train.py
-    outs:
-    - data/os_6.csv
-  crossValidation:
-    cmd: cd pipeline && python cross_validator.py 5 ../data/os_6.csv
-    params:
-    - validation.folds
-    deps:
-    - data/os_6.csv
-    - pipeline/cross_validator.py
-    outs:
-    - data/validation.csv
-  evaluate:
-    cmd: cd pipeline && python evaluate.py 5 ../data/validation.csv
-    params:
-    - validation.folds
-    deps:
-    - data/validation.csv
-    - pipeline/evaluate.py
-    outs:
-    - data/results.csv
-  predict:
-    cmd: cd pipeline && python evaluate.py 5 ../data/validation.csv
-    deps:
-    - data/validation.csv
-    - pipeline/evaluate.py
-    outs:
-    - data/predictions.csv
