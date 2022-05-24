@@ -17,48 +17,8 @@ jobs:
           REPO_TOKEN: ${{ secrets.TOKEN }}
         run: |
           echo "
-              The following stores are all opened during the weekdays:
-            - [2,    3,   11,   14,   15,   17,   18,   20,   21,   24,   27,
-              28,   30,   35,   36,   39,   46,   47,   51,   52,   54,   56,
-              58,   59,   61,   63,   65,   71,   72,   77,   78,   81,   82,
-              86,   89,   96,   98,   99,  102,  115,  120,  121,  126,  127,
-              133,  136,  137,  139,  140,  146,  149,  153,  156,  162,  164,
-              165,  166,  169,  170,  177,  181,  186,  190,  191,  192,  196,
-              198,  199,  204,  209,  210,  213,  214,  223,  229,  231,  232,
-              235,  242,  244,  247,  248,  254,  255,  256,  258,  261,  263,
-              266,  272,  275,  276,  280,  287,  295,  296,  300,  302,  303,
-              305,  306,  308,  314,  317,  319,  321,  322,  323,  325,  326,
-              329,  334,  337,  343,  344,  347,  351,  356,  361,  368,  370,
-              371,  372,  375,  377,  380,  381,  386,  391,  399,  400,  401,
-              402,  405,  406,  407,  410,  418,  421,  427,  428,  429,  434,
-              440,  446,  449,  450,  451,  452,  459,  461,  477,  479,  483,
-              487,  489,  490,  492,  500,  502,  503,  506,  507,  509,  514,
-              518,  519,  521,  522,  534,  536,  537,  539,  542,  544,  545,
-              547,  552,  553,  555,  559,  563,  567,  571,  572,  573,  575,
-              587,  590,  597,  598,  600,  601,  602,  603,  605,  607,  608,
-              611,  612,  613,  616,  619,  623,  625,  629,  633,  636,  641,
-              642,  643,  644,  650,  653,  655,  656,  657,  660,  665,  669,
-              671,  674,  675,  677,  685,  688,  694,  695,  701,  702,  705,
-              706,  708,  710,  711,  712,  714,  716,  720,  721,  723,  737,
-              739,  743,  744,  745,  746,  748,  749,  750,  752,  753,  754,
-              759,  765,  775,  776,  777,  778,  782,  784,  785,  786,  792,
-              797,  805,  815,  822,  825,  833,  835,  844,  845,  846,  848,
-              850,  852,  857,  858,  862,  864,  868,  869,  872,  875,  876,
-              881,  888,  897,  900,  902,  904,  908,  914,  915,  920,  924,
-              925,  926,  931,  941,  946,  947,  953,  954,  955,  956,  967,
-              969,  970,  971,  974,  977,  979,  983,  985,  986,  989,  993,
-              994,  996,  997,  998,  999, 1000, 1003, 1006, 1009, 1010, 1011,
-              1012, 1013, 1015, 1019, 1023, 1026, 1027, 1032, 1039, 1040, 1041,
-              1044, 1048, 1049, 1050, 1051, 1062, 1071, 1072, 1074, 1077, 1086,
-              1088, 1092, 1094, 1095, 1099, 1102, 1103, 1104, 1105, 1106, 1107,
-              1109, 1111]
-
-          It seems that most people on Monday make many sales than any day of the week, 
-          because we can see that most of the stores have spiked up sales, on that particular 
-          day of the week, and as the values go by we note that sales keep decreasing and then 
-          there is a short spike on Friday. Why could that be the case?.. 
-          I want to believe that on Monday people have accumulated their interests from the 
-          weekend, and on Friday people are trying to purchase because that weekend they might 
-          need it and they find the store is closed. Or they could be traveling too or something of that sort.
+              What we can see is that stores that have assortment a are the ones with the highest sales, 
+              pretty much, and then it is followed with stores with assortment c, 
+              but stores with assortment b seem to be really low on sales
           " > report.md
           cml send-comment report.md
