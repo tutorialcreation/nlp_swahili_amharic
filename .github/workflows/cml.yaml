@@ -17,13 +17,23 @@ jobs:
           REPO_TOKEN: ${{ secrets.TOKEN }}
         run: |
           echo "
-              - Yes we can see there is a huge change once a promo is done, because of the huge distance overlaps in the bars in the 
-              with promo shade as compared to when there is not, so we can 
-              say that yes a promo attracts customers, however we note that this will 
-              happen for only the promos above 40000 
-              - We note that there is also some overlap, between the customers, and the 
-              promos that are slightly above 50,000 is where we see a consistency in how 
-              it affects those type of customers, therefore promos done to existing customers 
-              above a certain category(in our case 50000), is more effective as compared to promos done to all existing customers.
+              Yes we see that for promos below 10000, there is no 
+              impact on the side of the stores, but for promos above 10,000 there is significant 
+              change in such stores, I would recomend that promos to be deployed in stores that are 
+              between the 15,000 - 20000 mark, that is the following stores
+              -       [3,   11,   17,   24,   27,   28,   35,   52,   54,   58,   71,
+                      77,   82,  102,  120,  126,  137,  140,  146,  153,  156,  162,
+                      164,  166,  169,  181,  192,  199,  213,  214,  223,  229,  247,
+                      248,  256,  261,  272,  303,  308,  319,  323,  344,  368,  370,
+                      371,  372,  375,  377,  380,  381,  386,  391,  400,  401,  421,
+                      427,  434,  449,  450,  459,  479,  489,  492,  502,  503,  506,
+                      507,  518,  522,  534,  536,  539,  544,  545,  552,  571,  572,
+                      575,  587,  603,  605,  608,  612,  613,  616,  623,  629,  636,
+                      641,  643,  644,  655,  657,  665,  674,  677,  685,  695,  705,
+                      708,  711,  720,  721,  739,  745,  753,  754,  759,  765,  775,
+                      784,  792,  815,  822,  835,  846,  848,  862,  868,  869,  872,
+                      876,  897,  914,  926,  947,  954,  967,  971,  974,  983,  985,
+                      986,  993,  996,  999, 1003, 1010, 1011, 1019, 1023, 1026, 1027,
+                      1032, 1039, 1040, 1048, 1050, 1051, 1086, 1092, 1099, 1107]
           " > report.md
           cml send-comment report.md
