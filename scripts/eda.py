@@ -84,6 +84,9 @@ class EDA:
             plt.xlabel(second_column)
             plt.legend()
             plt.plot()
+        elif type == "bivariate_count":
+            sns.countplot( x=column, data=self.df, hue=second_column, palette="Set1")
+            plt.show()
 
         return
 
@@ -127,7 +130,7 @@ class EDA:
         """
         return self.df
 
-
+    
 if __name__ == '__main__':
     file_path = sys.argv[1]
     df = pd.read_csv(file_path)
