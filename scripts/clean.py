@@ -147,6 +147,17 @@ class Clean:
         self.df.drop(self.df.columns[self.df.columns.str.contains('unnamed',
         case = False)],axis = 1, inplace = True)
         logger.info("Successfully removed columns with head unnamed")
+    
+    def label_encoding(self,train,test):
+        """
+        - label encode the data
+        """
+        categorical_features=self.store_features("categorical","number")
+        for dataset in (train,test):
+            for f in categorical_features:
+                dataset[categorical_features] = dataset[categorical_features].apply(lambda x: pd.factorize(x)[0])
+        logger.info("Successfully encoded your categorical data")
+
 
     def transfrom_time_series(self,column,date_column):
         """

@@ -58,3 +58,23 @@
 2022-05-24 16:06:35,969:logger:Successfully removed columns with head unnamed
 2022-05-24 16:06:36,094:logger:Successfully transformed data to time series data
 2022-05-24 16:06:36,461:logger:Successfully saved the dataframe
+2022-05-24 16:21:14,902:logger:Successfully initialized clean class
+2022-05-24 16:21:15,303:logger:Successfully merged the dataframe
+2022-05-24 16:21:25,238:logger:Successfully saved the dataframe
+2022-05-24 16:21:27,000:logger:Successfully dropped the columns with missing values
+2022-05-24 16:21:27,002:logger:Successfully stored the features
+2022-05-24 16:21:27,087:logger:Successfully handled outliers
+2022-05-24 16:21:27,126:logger:Successfully removed columns with head unnamed
+2022-05-24 16:21:27,816:logger:Successfully transformed data to time series data
+2022-05-24 16:21:35,492:logger:Successfully saved the dataframe
+2022-05-24 16:21:35,728:logger:Successfully initialized clean class
+2022-05-24 16:21:35,746:logger:Successfully merged the dataframe
+2022-05-24 16:21:36,148:logger:Successfully saved the dataframe
+2022-05-24 16:21:36,202:logger:Successfully dropped the columns with missing values
+2022-05-24 16:21:36,207:logger:Successfully stored the features
+2022-05-24 16:21:36,208:logger:Successfully handled outliers
+2022-05-24 16:21:36,214:logger:Successfully removed columns with head unnamed
+2022-05-24 16:21:36,298:logger:Successfully transformed data to time series data
+2022-05-24 16:21:36,617:logger:Successfully saved the dataframe
+2022-05-24 16:21:55,854:logger:Successfully stored the features
+2022-05-24 16:21:56,353:logger:Successfully encoded your categorical data
