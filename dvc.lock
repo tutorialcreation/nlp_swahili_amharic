@@ -20,8 +20,8 @@ stages:
       md5: d47aedd9e2d580e06a6ef7ce1732e8b6
       size: 38057952
     - path: scripts/eda.py
-      md5: 9579c58ad79acf302a23b7f99e8413c6
-      size: 2534
+      md5: dbadef3cacd4bc6f016243c5adba0659
+      size: 5346
     outs:
     - path: data/eda.csv
       md5: 5ab729bb5bc6247d0e7e282478df8325
@@ -39,12 +39,12 @@ stages:
       md5: d47aedd9e2d580e06a6ef7ce1732e8b6
       size: 38057952
     - path: scripts/clean.py
-      md5: 5bb8fe58ed5dc7d47acb40823741453d
-      size: 4646
+      md5: 49f47ff4f9e4540d4df282bda5711f5a
+      size: 6776
     outs:
     - path: data/testing.csv
-      md5: 51325aec60755ef0bbc57c99582070a7
-      size: 1548936
+      md5: 50472a8200159f496c0a653cd0c18009
+      size: 1285873
     - path: data/training.csv
-      md5: 9fcc18d63bc09e137f7bcbe1e8fbe0a7
-      size: 35710951
+      md5: e9aa53274b9b349a683bc7c84fc2ac8f
+      size: 30061886

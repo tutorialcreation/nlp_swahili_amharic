@@ -1,0 +1,37 @@
+2022-05-24 14:20:16,535:logger:Successfully merged the dataframe
+2022-05-24 14:20:36,417:logger:Successfully merged the dataframe
+2022-05-24 14:25:54,951:logger:Successfully merged the dataframe
+2022-05-24 14:26:04,355:logger:Successfully saved the dataframe
+2022-05-24 14:26:06,254:logger:Successfully dropped the columns with missing values
+2022-05-24 14:26:06,255:logger:Successfully stored the features
+2022-05-24 14:26:06,341:logger:Successfully handled outliers
+2022-05-24 14:26:06,379:logger:Successfully removed columns with head unnamed
+2022-05-24 14:26:07,185:logger:Successfully transformed data to time series data
+2022-05-24 14:26:14,839:logger:Successfully saved the dataframe
+2022-05-24 14:26:14,922:logger:Successfully merged the dataframe
+2022-05-24 14:26:15,301:logger:Successfully saved the dataframe
+2022-05-24 14:26:15,363:logger:Successfully dropped the columns with missing values
+2022-05-24 14:26:15,365:logger:Successfully stored the features
+2022-05-24 14:26:15,366:logger:Successfully handled outliers
+2022-05-24 14:26:15,371:logger:Successfully removed columns with head unnamed
+2022-05-24 14:26:15,422:logger:Successfully transformed data to time series data
+2022-05-24 14:26:15,792:logger:Successfully saved the dataframe
+2022-05-24 14:32:06,415:logger:Successfully initialized clean class
+2022-05-24 14:32:06,855:logger:Successfully merged the dataframe
+2022-05-24 14:32:16,720:logger:Successfully saved the dataframe
+2022-05-24 14:32:19,797:logger:Successfully dropped the columns with missing values
+2022-05-24 14:32:19,798:logger:Successfully stored the features
+2022-05-24 14:32:19,908:logger:Successfully handled outliers
+2022-05-24 14:32:19,953:logger:Successfully removed columns with head unnamed
+2022-05-24 14:32:20,701:logger:Successfully transformed data to time series data
+2022-05-24 14:32:27,865:logger:Successfully saved the dataframe
+2022-05-24 14:32:27,949:logger:Successfully initialized clean class
+2022-05-24 14:32:27,960:logger:Successfully merged the dataframe
+2022-05-24 14:32:28,325:logger:Successfully saved the dataframe
+2022-05-24 14:32:28,396:logger:Successfully dropped the columns with missing values
+2022-05-24 14:32:28,397:logger:Successfully stored the features
+2022-05-24 14:32:28,397:logger:Successfully handled outliers
+2022-05-24 14:32:28,399:logger:Successfully removed columns with head unnamed
+2022-05-24 14:32:28,443:logger:Successfully transformed data to time series data
+2022-05-24 14:32:28,816:logger:Successfully saved the dataframe
+2022-05-24 14:32:38,275:logger:Successfully initialized eda class
