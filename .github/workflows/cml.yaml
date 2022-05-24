@@ -17,9 +17,13 @@ jobs:
           REPO_TOKEN: ${{ secrets.TOKEN }}
         run: |
           echo "
-              We notice that there is a high correlation between the customers, and the sales
-              and the relationship is a positive/direct type of relationship that is as the customers grow
-              likewise do the sales, but customers column/feature is not in the test set, therefore we can only use it in 
-              some analysis but not all
+              - Yes we can see there is a huge change once a promo is done, because of the huge distance overlaps in the bars in the 
+              with promo shade as compared to when there is not, so we can 
+              say that yes a promo attracts customers, however we note that this will 
+              happen for only the promos above 40000 
+              - We note that there is also some overlap, between the customers, and the 
+              promos that are slightly above 50,000 is where we see a consistency in how 
+              it affects those type of customers, therefore promos done to existing customers 
+              above a certain category(in our case 50000), is more effective as compared to promos done to all existing customers.
           " > report.md
           cml send-comment report.md
