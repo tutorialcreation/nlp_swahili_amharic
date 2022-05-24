@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from functools import reduce
 import os,sys
+from sklearn.impute import SimpleImputer
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
+from sklearn.pipeline import Pipeline
 from logger import logger
 
 
@@ -139,6 +143,51 @@ class Clean:
                 self.df.reset_index(drop=True)
         logger.info("Successfully handled outliers")
         return
+
+    def generate_pipeline(self,type_="numeric",x=1):
+        """
+        purpose:
+            - generate_pipelines for the data
+        input:
+            - string and int
+        returns:
+            - pipeline
+        """
+        pipeline = None
+        if type_ == "numeric":
+            pipeline = Pipeline(steps=[
+                ('impute', SimpleImputer(strategy='mean')),
+                ('scale', MinMaxScaler())
+            ])
+        elif type_ == "categorical":
+            pipeline = Pipeline(steps=[
+            ('impute', SimpleImputer(strategy='most_frequent')),
+            ('one-hot', OneHotEncoder(handle_unknown='ignore', sparse=False))
+            ])
+        else:
+            pipeline = np.zeros(x)
+        return pipeline
+    
+    def generate_transformation(self,df,type_,value,trim=None,key=None):
+        """
+        purpose:
+            - generates transformations for the data
+        input:
+            - string,int and df
+        returns:
+            - transformation
+        """
+        transformation = None
+        pipeline = self.generate_pipeline(type_,value)
+        if type_=="numeric":
+            transformation=pipeline.fit_transform(df.select_dtypes(include=value))
+            logger.info("Successfully transformed numerical data")
+        elif type_ == "categorical":
+            transformation=pipeline.fit_transform(df.select_dtypes(exclude=value))
+            logger.info("Successfully transformed categorical data")
+        return transformation
+
+    
 
     def remove_unnamed_cols(self):
         """
