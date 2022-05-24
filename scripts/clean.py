@@ -236,6 +236,21 @@ class Clean:
         """
         return self.df
 
+
+    def aggregations(self,df,column=None,second_column=None,
+                    third_column=None,according_to="sum"):
+        """
+        - this is for adding features based on aggregations
+        """
+        if according_to=="sum":
+            grouped_x =  df.groupby([df[column]])[second_column].sum()
+        elif according_to=="mean":
+            grouped_x =  df.groupby([df[column]])[second_column].mean()
+        grouped_y = df.groupby([df[column]])[third_column].count()
+        per_x = grouped_x / grouped_y
+        logger.info("successful aggregation")
+        return dict(per_x)
+
 if __name__ == '__main__':
     train_path = sys.argv[1]
     test_path = sys.argv[2]
