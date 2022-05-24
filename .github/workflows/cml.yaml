@@ -17,10 +17,9 @@ jobs:
           REPO_TOKEN: ${{ secrets.TOKEN }}
         run: |
           echo "
-              Noting that in the graph, we have a = public holiday, b = Easter holiday, c = Christmas, 0 = None, we notice that
-              most of the sales are done when stateholiday=0, but we notice that there is a strong decrease during the holidays,
-              that is very few sales are done during the public holidays,easter and christmas, However we can note that
-              in the easters there are more sales in the public holidays, than in the easter and christmas holidays, 
-              and that there are more sales in the easter holidays, than in the christmas holidays
+              We notice that there is a high correlation between the customers, and the sales
+              and the relationship is a positive/direct type of relationship that is as the customers grow
+              likewise do the sales, but customers column/feature is not in the test set, therefore we can only use it in 
+              some analysis but not all
           " > report.md
           cml send-comment report.md
