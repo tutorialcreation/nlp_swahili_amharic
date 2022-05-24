@@ -17,7 +17,10 @@ jobs:
           REPO_TOKEN: ${{ secrets.TOKEN }}
         run: |
           echo "
-              We can notice that before the holidays the sales that is when school holidays = 0, the sales are more but when there are school holidays, that is when holidays = 1, we notice that there is a decrease in the sales
-              We can note that when there are no state holidays, that is when stateholiday = 0, there are more sales, and then we notice that during the state holidays, there are fewer sales,
+              Noting that in the graph, we have a = public holiday, b = Easter holiday, c = Christmas, 0 = None, we notice that
+              most of the sales are done when stateholiday=0, but we notice that there is a strong decrease during the holidays,
+              that is very few sales are done during the public holidays,easter and christmas, However we can note that
+              in the easters there are more sales in the public holidays, than in the easter and christmas holidays, 
+              and that there are more sales in the easter holidays, than in the christmas holidays
           " > report.md
           cml send-comment report.md

@@ -61,6 +61,10 @@ class EDA:
             sns.countplot(data=self.df, x=second_column, hue=column)
             plt.title(f"{column} vs {second_column}")
             plt.show()
+        elif type == "bivariate_line":
+            plt.figure(figsize=(28,10))
+            sns.lineplot(self.df.index, y= self.df[column], hue=self.df[second_column]);
+            plt.show()
         elif type == "bivariate_scatter":
             plt.figure(figsize=(12, 8))
             plt.scatter(self.df[column],self.df[second_column], alpha=0.1)
