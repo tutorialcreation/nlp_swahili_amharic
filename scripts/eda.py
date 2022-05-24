@@ -4,6 +4,7 @@ import warnings
 import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
+from pandas.plotting import scatter_matrix
 
 
 class EDA:
@@ -76,19 +77,24 @@ class EDA:
 
 
     
-    def correlation_analysis(self):
+    def correlation_analysis(self,column=None,second_column=None,type="all"):
         """
         expects:
             - nothing
         returns:
             - dataframe
         """
-        corr = self.df.corr()
-        fig, ax = plt.subplots()
-        sns.heatmap(corr, annot=True)
-        plt.title('Heatmap of correlation for the numerical columns')
-        plt.show()
-        return fig
+        if type=="all":
+            corr = self.df.corr()
+            fig, ax = plt.subplots()
+            sns.heatmap(corr, annot=True)
+            plt.title('Heatmap of correlation for the numerical columns')
+            plt.show()
+        elif type=="bivariate":
+            attributes = [column,second_column]
+            scatter_matrix(self.df[attributes], alpha=0.1);
+            plt.show()
+        return 
 
     def plot_distributions(self):
         """
