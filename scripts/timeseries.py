@@ -4,15 +4,12 @@ import pandas as pd
 import warnings
 import matplotlib.pyplot as plt
 from pandas.plotting import scatter_matrix
+import os
+print(os.getcwd())
 from logger import logger
 import sys
 import seaborn as sns
 sns.set()
-warnings.simplefilter(action='ignore', category=FutureWarning)
-pd.set_option('display.float_format', lambda x: '%.3f' % x)
-pd.options.mode.chained_assignment = None  # default='warn'
-plt.rcParams["figure.figsize"] = (12, 8)
-pd.set_option('display.max_columns', None)
 
 
 class TimeSeries:
@@ -35,4 +32,4 @@ class TimeSeries:
 if __name__=='__main__':
     train_path = sys.argv[1]
     train = pd.read_csv(train_path)
-    timeseries = TimeSeries(df)
+    timeseries = TimeSeries(train)

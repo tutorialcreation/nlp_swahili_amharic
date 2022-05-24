@@ -35,3 +35,26 @@
 2022-05-24 14:32:28,443:logger:Successfully transformed data to time series data
 2022-05-24 14:32:28,816:logger:Successfully saved the dataframe
 2022-05-24 14:32:38,275:logger:Successfully initialized eda class
+2022-05-24 15:29:03,262:logger:Initialized the time series class
+2022-05-24 15:29:57,948:logger:Successfully initialized clean class
+2022-05-24 15:29:58,339:logger:Successfully merged the dataframe
+2022-05-24 16:05:38,371:logger:Successfully initialized clean class
+2022-05-24 16:05:39,141:logger:Successfully merged the dataframe
+2022-05-24 16:06:12,316:logger:Successfully initialized clean class
+2022-05-24 16:06:12,684:logger:Successfully merged the dataframe
+2022-05-24 16:06:22,157:logger:Successfully saved the dataframe
+2022-05-24 16:06:24,804:logger:Successfully dropped the columns with missing values
+2022-05-24 16:06:24,864:logger:Successfully stored the features
+2022-05-24 16:06:24,963:logger:Successfully handled outliers
+2022-05-24 16:06:25,059:logger:Successfully removed columns with head unnamed
+2022-05-24 16:06:26,648:logger:Successfully transformed data to time series data
+2022-05-24 16:06:34,789:logger:Successfully saved the dataframe
+2022-05-24 16:06:35,157:logger:Successfully initialized clean class
+2022-05-24 16:06:35,179:logger:Successfully merged the dataframe
+2022-05-24 16:06:35,893:logger:Successfully saved the dataframe
+2022-05-24 16:06:35,958:logger:Successfully dropped the columns with missing values
+2022-05-24 16:06:35,960:logger:Successfully stored the features
+2022-05-24 16:06:35,961:logger:Successfully handled outliers
+2022-05-24 16:06:35,969:logger:Successfully removed columns with head unnamed
+2022-05-24 16:06:36,094:logger:Successfully transformed data to time series data
+2022-05-24 16:06:36,461:logger:Successfully saved the dataframe
