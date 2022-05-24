@@ -72,6 +72,18 @@ class EDA:
             plt.xlabel(column)
             plt.ylabel(second_column)
             plt.plot()
+        elif type == "bivariate_hist":
+            cols = ['purple','green']
+            labels = ['With','Without']
+            for i in reversed(range(0,2)):
+                promos = self.df[self.df[column] == i][second_column]
+                plt.hist(promos, 
+                color=cols[i], alpha=0.3, label =labels[i])
+            
+            plt.ylabel(column)
+            plt.xlabel(second_column)
+            plt.legend()
+            plt.plot()
 
         return
 
