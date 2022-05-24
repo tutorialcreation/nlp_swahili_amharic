@@ -73,13 +73,19 @@ class EDA:
             plt.ylabel(second_column)
             plt.plot()
         elif type == "bivariate_hist":
-            cols = ['purple','green']
+            cols = ['purple','green','red','yellow']
             labels = ['With','Without']
-            for i in reversed(range(0,2)):
-                promos = self.df[self.df[column] == i][second_column]
-                plt.hist(promos, 
-                color=cols[i], alpha=0.3, label =labels[i])
-            
+            column_values = np.unique(self.df[column])
+            if isinstance(column_values,int):
+                for i in reversed(range(0,2)):
+                    promos = self.df[self.df[column] == i][second_column]
+                    plt.hist(promos, 
+                    color=cols[i], alpha=0.3, label =labels[i])
+            else:
+                for i,x in enumerate(column_values):
+                    plt.hist(self.df[self.df[column] == x][second_column], 
+                    color=cols[i], alpha=0.3, label = x)
+
             plt.ylabel(column)
             plt.xlabel(second_column)
             plt.legend()
