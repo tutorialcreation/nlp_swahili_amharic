@@ -64,6 +64,7 @@ class EDA:
             plt.show()
         elif type == "bivariate_line":
             plt.figure(figsize=(28,10))
+            plt.ylim(-25000,25000)
             sns.lineplot(self.df.index, y= self.df[column], hue=self.df[second_column]);
             plt.show()
         elif type == "bivariate_scatter":
