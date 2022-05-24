@@ -88,6 +88,12 @@ class EDA:
         return
 
 
+    def between(self,column,start,stop):
+        """
+        - get values in between certain range
+        """
+        return self.df[self.df[column].between(start,stop)]
+
     
     def correlation_analysis(self,column=None,second_column=None,type="all"):
         """
