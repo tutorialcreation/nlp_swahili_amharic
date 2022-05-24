@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from functools import reduce
 import os,sys
+from sklearn.impute import SimpleImputer
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
+from sklearn.pipeline import Pipeline
 from logger import logger
 
 
@@ -140,6 +144,51 @@ class Clean:
         logger.info("Successfully handled outliers")
         return
 
+    def generate_pipeline(self,type_="numeric",x=1):
+        """
+        purpose:
+            - generate_pipelines for the data
+        input:
+            - string and int
+        returns:
+            - pipeline
+        """
+        pipeline = None
+        if type_ == "numeric":
+            pipeline = Pipeline(steps=[
+                ('impute', SimpleImputer(strategy='mean')),
+                ('scale', MinMaxScaler())
+            ])
+        elif type_ == "categorical":
+            pipeline = Pipeline(steps=[
+            ('impute', SimpleImputer(strategy='most_frequent')),
+            ('one-hot', OneHotEncoder(handle_unknown='ignore', sparse=False))
+            ])
+        else:
+            pipeline = np.zeros(x)
+        return pipeline
+    
+    def generate_transformation(self,df,type_,value,trim=None,key=None):
+        """
+        purpose:
+            - generates transformations for the data
+        input:
+            - string,int and df
+        returns:
+            - transformation
+        """
+        transformation = None
+        pipeline = self.generate_pipeline(type_,value)
+        if type_=="numeric":
+            transformation=pipeline.fit_transform(df.select_dtypes(include=value))
+            logger.info("Successfully transformed numerical data")
+        elif type_ == "categorical":
+            transformation=pipeline.fit_transform(df.select_dtypes(exclude=value))
+            logger.info("Successfully transformed categorical data")
+        return transformation
+
+    
+
     def remove_unnamed_cols(self):
         """
         - this algorithm removes columns with unnamed
@@ -147,6 +196,17 @@ class Clean:
         self.df.drop(self.df.columns[self.df.columns.str.contains('unnamed',
         case = False)],axis = 1, inplace = True)
         logger.info("Successfully removed columns with head unnamed")
+    
+    def label_encoding(self,train,test):
+        """
+        - label encode the data
+        """
+        categorical_features=self.store_features("categorical","number")
+        for dataset in (train,test):
+            for f in categorical_features:
+                dataset[categorical_features] = dataset[categorical_features].apply(lambda x: pd.factorize(x)[0])
+        logger.info("Successfully encoded your categorical data")
+
 
     def transfrom_time_series(self,column,date_column):
         """
@@ -175,6 +235,21 @@ class Clean:
         - returns the dataframe
         """
         return self.df
+
+
+    def aggregations(self,df,column=None,second_column=None,
+                    third_column=None,according_to="sum"):
+        """
+        - this is for adding features based on aggregations
+        """
+        if according_to=="sum":
+            grouped_x =  df.groupby([df[column]])[second_column].sum()
+        elif according_to=="mean":
+            grouped_x =  df.groupby([df[column]])[second_column].mean()
+        grouped_y = df.groupby([df[column]])[third_column].count()
+        per_x = grouped_x / grouped_y
+        logger.info("successful aggregation")
+        return dict(per_x)
 
 if __name__ == '__main__':
     train_path = sys.argv[1]
