@@ -17,19 +17,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.TOKEN }}
         run: |
           echo "
-              No they are not similar, we see that there is differences in:
-
-              day of week-slight difference in 4-5 in test set
-              school holiday - difference in number of ones in test set
-              promo 2 since week - has lower values in between the peaks in the test set
-              promo 2 since year - has slight difference in year 2013 and 2014
-              day - has lower days towards the end in the test set
-              month - has no values in between the peaks in the test set
-              year - centered only on one peak that is 2015
-              day of year - has lower values towards the end in the train set
-              week of year - has downward trend in the training set, while in the test set it tries to be consistent
-              no customers and sales columns in test set
-
-
+              We can notice that before the holidays the sales that is when school holidays = 0, the sales are more but when there are school holidays, that is when holidays = 1, we notice that there is a decrease in the sales
+              We can note that when there are no state holidays, that is when stateholiday = 0, there are more sales, and then we notice that during the state holidays, there are fewer sales,
           " > report.md
           cml send-comment report.md

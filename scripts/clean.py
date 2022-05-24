@@ -4,7 +4,7 @@ import warnings
 import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
-
+from functools import reduce
 
 class Clean:
     """
@@ -114,16 +114,17 @@ class Clean:
 
 
 
-    def fix_outliers(self):
+    def fix_outliers(self,column,threshold):
         """
         - this algorithm fixes outliers
         """
         numerical_columns=self.store_features("numeric","number")
         for i in numerical_columns:
-            self.df[i] = np.where(self.df[i] > self.df[i].quantile(0.95), 
-                            self.df[i].median(),self.df[i])
-        
-        return self.df
+            if i == column:
+                self.df = self.df[self.df[column] < threshold]  #Drops samples which have sales more than 25000
+                self.df.reset_index(drop=True)
+                
+        return
 
     def remove_unnamed_cols(self):
         """
@@ -150,7 +151,7 @@ class Clean:
         """
         - returns the dataframes
         """
-        self.df.to_csv(name)
+        self.df.to_csv(name,index=False)
 
 
     def get_df(self):
@@ -168,7 +169,7 @@ if __name__ == '__main__':
     clean_df = Clean(df)
     clean_df.merge_df(store,'Store')
     clean_df.drop_missing_values()
-    clean_df.fix_outliers()
+    clean_df.fix_outliers('Sales',25000)
     clean_df.remove_unnamed_cols()
     clean_df.transfrom_time_series("Store","Date")
     clean_df.save(name="data/training.csv")
@@ -176,7 +177,8 @@ if __name__ == '__main__':
     clean_df = Clean(df)
     clean_df.merge_df(store,'Store')
     clean_df.drop_missing_values()
-    clean_df.fix_outliers()
+    clean_df.fix_outliers('Sales',25000)
     clean_df.remove_unnamed_cols()
     clean_df.transfrom_time_series("Store","Date")
+    clean_df.get_df().drop('Id',axis=1,inplace=True)
     clean_df.save(name="data/testing.csv")
