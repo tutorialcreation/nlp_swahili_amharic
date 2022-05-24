@@ -61,8 +61,17 @@ class EDA:
             sns.countplot(data=self.df, x=second_column, hue=column)
             plt.title(f"{column} vs {second_column}")
             plt.show()
+        elif type == "bivariate_scatter":
+            plt.figure(figsize=(12, 8))
+            plt.scatter(self.df[column],self.df[second_column], alpha=0.1)
+            plt.xlabel(column)
+            plt.ylabel(second_column)
+            plt.plot()
+
         return
 
+
+    
     def correlation_analysis(self):
         """
         expects:
