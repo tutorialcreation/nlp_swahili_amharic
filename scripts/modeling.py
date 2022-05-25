@@ -30,7 +30,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, GaussianNB
 
 # To evaluate end result we have
-from sklearn.metrics import accuracy_score, confusion_matrix, log_loss
+from sklearn.metrics import mean_absolute_error, log_loss
 from sklearn.model_selection import LeaveOneOut
 from sklearn.model_selection import cross_val_score
 
@@ -149,7 +149,7 @@ class Modeler:
         label_encoded_columns = pd.concat(label_encoded_columns, axis=1)
         return label_encoded_columns
     
-    def merge_data(self):
+    def merge_data(self,encoded=False):
         """
         - responsible for bringing all the data together
         """
@@ -160,12 +160,19 @@ class Modeler:
         # "inplace" means replace our data with new one
         # Don't forget to "axis=1"
         categorical_features = self.store_features("categorical","number")
-        X.drop(categorical_features, axis=1, inplace=True)
+        if categorical_features:
+            X.drop(categorical_features, axis=1, inplace=True)
+        else:
+            X = X
 
-        one_hot_encoded_columns = self.hot_encode()
-        label_encoded_columns = self.label_encode()
-        # Merge DataFrames
-        X = pd.concat([X, one_hot_encoded_columns, label_encoded_columns], axis=1)
+        if not encoded:
+            one_hot_encoded_columns = self.hot_encode()
+            label_encoded_columns = self.label_encode()
+            if one_hot_encoded_columns and label_encoded_columns:
+                X = pd.concat([X, one_hot_encoded_columns, label_encoded_columns], axis=1)
+        else:
+            X = X
+
         return X
 
     def groupby_column(self,column="browser_Chrome Mobile",index=1):
@@ -175,33 +182,33 @@ class Modeler:
         grouped_data = self.df[self.df[column]==index]
         return grouped_data
 
-    def get_columns(self,column="yes"):
+    def get_columns(self,column="yes",encoded=False):
         """
         - responsible for getting the columns
         """
 
         # Droping "class" from X
-        X = self.merge_data()
+        X = self.merge_data(encoded)
         y = X[column]
         X.drop([column], axis=1, inplace=True)
         return X,y
 
 
 
-    def split_data(self,column="yes"):
+    def split_data(self,column="yes",encoded=False):
         """
         - responsible for splitting the data
         """
-        X,y =self.get_columns(column)
+        X,y =self.get_columns(column,encoded)
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1,random_state=42)
         X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2,random_state=42)
         return X_train, X_test, X_val, y_train, y_test,y_val
 
-    def model(self,model,**kwargs):
+    def model(self,model,column=None,encoded=False,**kwargs):
         """
         - model the dataset
         """
-        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data()
+        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column,encoded)
         # Define Random Forest Model
         model = model(**kwargs)
         # We fit our model with our train data
@@ -209,10 +216,9 @@ class Modeler:
         # Then predict results from X_test data
         predicted_data = model.predict(X_test)
         # generate a confusion matrix
-        confusion_mat = confusion_matrix(y_test, predicted_data)
         # get accuracy score
-        accuracy = accuracy_score(y_test, predicted_data)
-        return confusion_mat,accuracy
+        return predicted_data
+
     
     def get_model(self,model=LogisticRegression,**kwargs):
         """
@@ -260,19 +266,29 @@ class Modeler:
         cv = KFold(n_splits=fold, random_state=1, shuffle=True)
         return cv
 
-    def evaluate(self,fold=5,model_=LogisticRegression,column="yes",**kwargs):
+    def regr_models(self,inputs=None,model_=LogisticRegression,column="yes",
+                encoded=False,**kwargs):
         """
         - evaluates the algorithm
         """
         # get the dataset
-        cv = self.get_folds(fold)
-        X, y = self.get_columns(column)
         # get the model
+        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column,encoded)
         model = model_(**kwargs)
+        model.fit(X_train,y_train)
+        scores = 0.0
+        # Then predict results from X_test data
+        if not inputs.empty:
+            inputs_ = inputs[:1].to_numpy()
+            predicted_data=model.predict(inputs_[:, :-1])
+            scores = abs(inputs_[0][-1] - predicted_data[0])
+        else:
+            predicted_data = model.predict(X_test)
+            scores = mean_absolute_error(y_test, predicted_data)
+        
         # evaluate the model
-        scores = cross_val_score(model, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
         # return scores
-        return mean(scores), scores.min(), scores.max()
+        return (scores,predicted_data)
 
     def get_df(self):
         """
