@@ -281,7 +281,7 @@ class Modeler:
         if not inputs.empty:
             inputs_ = inputs[:1].to_numpy()
             predicted_data=model.predict(inputs_[:, :-1])
-            scores = mean_absolute_error(inputs_[0][-1],predicted_data)
+            scores = abs(inputs_[0][-1] - predicted_data[0])
         else:
             predicted_data = model.predict(X_test)
             scores = mean_absolute_error(y_test, predicted_data)
