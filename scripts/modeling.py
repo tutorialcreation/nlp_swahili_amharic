@@ -259,13 +259,13 @@ class Modeler:
         return validation_loss
 
 
-    def feature_importance(self,column="yes"):
+    def feature_importance(self,model_,column="yes",**kwargs):
         """
         - an algorithm for checking feature importance
         """
         #initialization
-        model = ExtraTreesClassifier()
-        X,y =self.get_columns(column)
+        model = model_(**kwargs)
+        X,y =self.get_columns(column,True)
         model.fit(X,y)
         #plot graph of feature importances for better visualization
         feat_importances = pd.Series(model.feature_importances_, index=X.columns)
