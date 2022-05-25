@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import math
 
 # To Preproccesing our data
 from sklearn.preprocessing import LabelEncoder
@@ -174,6 +175,8 @@ class Modeler:
             X = X
 
         return X
+    
+
 
     def groupby_column(self,column="browser_Chrome Mobile",index=1):
         """
@@ -227,20 +230,32 @@ class Modeler:
         model_=model(**kwargs)
         return model_
 
-    
+    def custom_log_loss(self,actual,predicted):
+        """
+        - this algorithm finds the log loss
+        """
+        losses = []
+        for i in range(len(actual)):
+            if actual[i] != 0:
+                losses.append(actual[i]*math.log(predicted[i])+(1-actual[i])*math.log(1-predicted[i]))
+        return sum(losses)/len(actual) 
+        
     
     #loss function for models
-    def log_loss(self, model = LogisticRegression,column="yes",**kwargs):
+    def log_loss(self, model = LogisticRegression,column="yes",custom=True,**kwargs):
         """
         - loss function
         """
-        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column)
+        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column,True)
         model_ = model(random_state=0)
         fitted= model_.fit(X_train,y_train)
-        pred_proba =fitted.predict_proba(X_val)
+        pred_proba =fitted.predict(X_test)
         
         # Running Log loss on training
-        validation_loss = log_loss(y_val, pred_proba)
+        if custom:
+            validation_loss = self.custom_log_loss(y_test.to_numpy(), pred_proba)
+        else:
+            validation_loss = log_loss(y_test, pred_proba)
         return validation_loss
 
 
@@ -266,19 +281,19 @@ class Modeler:
         cv = KFold(n_splits=fold, random_state=1, shuffle=True)
         return cv
 
-    def regr_models(self,inputs=None,model_=LogisticRegression,column="yes",
-                encoded=False,**kwargs):
+    def regr_models(self,model_=LogisticRegression,column="yes",inputs=None,
+                connect=True,**kwargs):
         """
         - evaluates the algorithm
         """
         # get the dataset
         # get the model
-        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column,encoded)
+        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column,True)
         model = model_(**kwargs)
         model.fit(X_train,y_train)
         scores = 0.0
         # Then predict results from X_test data
-        if not inputs.empty:
+        if connect:
             inputs_ = inputs[:1].to_numpy()
             predicted_data=model.predict(inputs_[:, :-1])
             scores = abs(inputs_[0][-1] - predicted_data[0])
