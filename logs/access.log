@@ -253,3 +253,8 @@
 2022-05-25 04:58:36,870:logger:Initialized the time series class
 2022-05-25 11:33:20,148:logger:Successfully saved the model
 2022-05-25 11:36:07,382:logger:Successfully saved the model
+2022-05-25 11:57:54,872:logger:Initialized the time series class
+2022-05-25 11:58:50,133:logger:Successfully windowed the dataset
+2022-05-25 12:00:47,359:logger:Successfully windowed the dataset
+2022-05-25 12:00:47,422:logger:Successfully windowed the dataset
+2022-05-25 12:01:04,584:logger:Successfully modeled the neural network
