@@ -42,8 +42,9 @@ docker-compose up --build
 
 # The tests from the modularized scripts are run in the following notebooks
 * EDA analysis ==> notebooks/EDA.ipynb
-* Machine learning ==> notebooks/Modeling.ipynb
-
+* Preprocessing and Feature Engineering ==> notebooks/Preprocessing.ipynb
+* Machine learning ==> notebooks/Forecasting.ipynb
+* Deep learning ==> notebooks/DeepLearning.ipynb
 
 # Dataset Column description
 * Id - an Id that represents a (Store, Date) duple within the test set
