@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 import math
-
+import time
+import pickle
 # To Preproccesing our data
 from sklearn.preprocessing import LabelEncoder
 
@@ -29,7 +30,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, GaussianNB
-
+from logger import logger
 # To evaluate end result we have
 from sklearn.metrics import mean_absolute_error, log_loss
 from sklearn.model_selection import LeaveOneOut
@@ -282,7 +283,7 @@ class Modeler:
         return cv
 
     def regr_models(self,model_=LogisticRegression,column="yes",inputs=None,
-                connect=True,**kwargs):
+                connect=True,serialize=False,**kwargs):
         """
         - evaluates the algorithm
         """
@@ -303,7 +304,18 @@ class Modeler:
         
         # evaluate the model
         # return scores
+        if serialize:
+            self.model_serialization(model)
         return (scores,predicted_data)
+
+    def model_serialization(self,model):
+        """
+        - algorithm for serializing the models
+        """
+        file_name =  time.strftime("%Y%m%d-%H%M%S")
+        with open(f'../models/{file_name}.pkl', 'wb') as files:
+            pickle.dump(model, files)
+        logger.info("Successfully saved the model")
 
     def get_df(self):
         """
