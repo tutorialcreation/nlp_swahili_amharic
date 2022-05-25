@@ -55,7 +55,7 @@ class TimeSeries:
             diff.append(value)
         return pd.Series(diff)
 
-    def split_dataset(series, window_size=48, batch_size=200): 
+    def split_dataset(self,series, window_size=48, batch_size=200): 
         """initialize variables"""
         series = tf.expand_dims(series, axis=-1)
         dataset = tf.data.Dataset.from_tensor_slices(series)
