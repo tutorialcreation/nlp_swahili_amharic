@@ -55,6 +55,18 @@ class TimeSeries:
             diff.append(value)
         return pd.Series(diff)
 
+    def corrPlots(self,array: np.array, prefix: str):
+        """
+        - this algorigthm configures plots for
+        correlation
+        """
+        plt.figure(figsize=(30, 5))
+        plt.title(f"{prefix}  Autocorrelations Plots")
+        plt.bar(range(len(array)), array)
+        plt.grid(True)
+        plt.show()
+        logger.info("Successfully displayed the autocorelation plots")
+
     def split_dataset(self,series, window_size=48, batch_size=200): 
         """initialize variables"""
         series = tf.expand_dims(series, axis=-1)
