@@ -283,7 +283,7 @@ class Modeler:
         cv = KFold(n_splits=fold, random_state=1, shuffle=True)
         return cv
 
-    def regr_models(self,model_=LogisticRegression,column="yes",inputs=None,
+    def regr_models(self,model_=None,column="yes",inputs=None,
                 connect=True,serialize=True,**kwargs):
         """
         - evaluates the algorithm
@@ -296,7 +296,8 @@ class Modeler:
         with mlflow.start_run():
             model = model_(**kwargs)
             model.fit(X_train,y_train)
-            logger.info(f"fitted a {model_} model")
+            mlflow.sklearn.log_model(model,"model_random_forest_regressor")
+            logger.info(f"fitted a {model} model")
             # Then predict results from X_test data
             if connect:
                 inputs_ = inputs[:1].to_numpy()
@@ -307,6 +308,7 @@ class Modeler:
                 predicted_data = model.predict(X_test)
                 scores = mean_absolute_error(y_test, predicted_data)
                 logger.info("predicting for a group instance")
+            mlflow.log_metric("scores",scores)
             # serialize the model
             if serialize:
                 self.model_serialization(model)
@@ -317,8 +319,10 @@ class Modeler:
         - algorithm for serializing the models
         """
         file_name =  time.strftime("%Y%m%d-%H%M%S")
-        with open(f'../models/{file_name}.pkl', 'wb') as files:
+        with open(f'models/{file_name}.pkl', 'wb') as files:
             pickle.dump(model, files)
+        
+        mlflow.log_artifact(f"models/{file_name}.pkl")
         logger.info("Successfully saved the model")
 
     def get_df(self):
@@ -330,8 +334,8 @@ class Modeler:
 
 
 if __name__=="__main__":
-    train_ = pd.read_csv("../data/cleaned_train.csv")
-    test = pd.read_csv("../data/cleaned_test.csv")
+    train_ = pd.read_csv("data/cleaned_train.csv")
+    test = pd.read_csv("data/cleaned_test.csv")
     train_.drop(['DayOfWeek','DayOfYear','WeekOfYear',
                 'Customers',"Month","Day"],axis=1,inplace=True)
     test.drop(["Id",'DayOfWeek','DayOfYear','WeekOfYear'
@@ -345,6 +349,11 @@ if __name__=="__main__":
     test.index.name = 'Year'
     test = test.set_index('Year')
     analyzer = Modeler(train)
+    # mlflow.sklearn.autolog()
+    # with mlflow.start_run():
     forecast = analyzer.regr_models(model_=RandomForestRegressor,column='Sales',
                                 connect=False,n_estimators=10)
+    scores,forecast = forecast
+    # print(scores)
+    # mlflow.log_metric("scores",scores)
     

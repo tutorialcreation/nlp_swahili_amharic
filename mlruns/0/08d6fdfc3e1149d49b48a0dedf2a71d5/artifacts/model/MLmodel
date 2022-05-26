@@ -1,0 +1,28 @@
+artifact_path: model
+flavors:
+  python_function:
+    env: conda.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    python_version: 3.10.4
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.1.1
+mlflow_version: 1.26.0
+model_uuid: bcff852679b748feadf54e549fc0bdec
+run_id: 08d6fdfc3e1149d49b48a0dedf2a71d5
+signature:
+  inputs: '[{"name": "Assortment", "type": "double"}, {"name": "AvgCustomers", "type":
+    "double"}, {"name": "AvgSales", "type": "double"}, {"name": "CompetitionDistance",
+    "type": "double"}, {"name": "CompetitionOpenSinceMonth", "type": "double"}, {"name":
+    "CompetitionOpenSinceYear", "type": "double"}, {"name": "DailyCustomers", "type":
+    "double"}, {"name": "DailySales", "type": "double"}, {"name": "Open", "type":
+    "double"}, {"name": "Promo", "type": "double"}, {"name": "Promo2", "type": "double"},
+    {"name": "Promo2SinceWeek", "type": "double"}, {"name": "Promo2SinceYear", "type":
+    "double"}, {"name": "PromoInterval", "type": "double"}, {"name": "SchoolHoliday",
+    "type": "double"}, {"name": "StateHoliday", "type": "double"}, {"name": "Store",
+    "type": "double"}, {"name": "StoreType", "type": "double"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+utc_time_created: '2022-05-26 02:53:21.755748'

@@ -284,3 +284,45 @@
 2022-05-25 15:00:43,776:logger:Successfully initialized eda class
 2022-05-26 05:16:32,863:logger:fitted a <class 'sklearn.linear_model._logistic.LogisticRegression'> model
 2022-05-26 05:16:32,881:logger:predicting for a group instance
+2022-05-26 05:40:08,618:logger:fitted a <class 'sklearn.linear_model._logistic.LogisticRegression'> model
+2022-05-26 05:40:08,621:logger:predicting for a group instance
+2022-05-26 05:40:50,738:logger:fitted a LogisticRegression() model
+2022-05-26 05:40:50,741:logger:predicting for a group instance
+2022-05-26 05:42:14,743:logger:fitted a LogisticRegression() model
+2022-05-26 05:42:14,746:logger:predicting for a group instance
+2022-05-26 05:44:36,319:logger:fitted a LogisticRegression() model
+2022-05-26 05:44:36,322:logger:predicting for a group instance
+2022-05-26 05:45:43,868:logger:fitted a LogisticRegression() model
+2022-05-26 05:45:43,871:logger:predicting for a group instance
+2022-05-26 05:46:29,784:logger:fitted a LogisticRegression() model
+2022-05-26 05:46:29,788:logger:predicting for a group instance
+2022-05-26 05:49:28,980:logger:fitted a LogisticRegression() model
+2022-05-26 05:49:28,982:logger:predicting for a group instance
+2022-05-26 05:50:39,615:logger:fitted a LogisticRegression() model
+2022-05-26 05:50:39,618:logger:predicting for a group instance
+2022-05-26 05:51:15,600:logger:fitted a LogisticRegression() model
+2022-05-26 05:51:15,603:logger:predicting for a group instance
+2022-05-26 05:52:47,788:logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-26 05:52:47,857:logger:predicting for a group instance
+2022-05-26 05:53:24,752:logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-26 05:53:24,820:logger:predicting for a group instance
+2022-05-26 05:53:24,825:logger:Successfully saved the model
+2022-05-26 05:55:10,105:logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-26 05:55:10,231:logger:predicting for a group instance
+2022-05-26 05:55:10,236:logger:Successfully saved the model
+2022-05-26 05:57:14,606:logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-26 05:57:14,675:logger:predicting for a group instance
+2022-05-26 05:57:14,680:logger:Successfully saved the model
+2022-05-26 05:57:38,122:logger:fitted a LogisticRegression() model
+2022-05-26 05:57:38,126:logger:predicting for a group instance
+2022-05-26 05:59:36,048:logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-26 05:59:36,156:logger:predicting for a group instance
+2022-05-26 05:59:36,162:logger:Successfully saved the model
+2022-05-26 06:01:50,966:logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-26 06:01:51,033:logger:predicting for a group instance
+2022-05-26 06:01:51,039:logger:Successfully saved the model
+2022-05-26 06:08:34,979:logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-26 06:08:35,045:logger:predicting for a group instance
+2022-05-26 06:09:38,729:logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-26 06:09:38,818:logger:predicting for a group instance
+2022-05-26 06:09:38,828:logger:Successfully saved the model

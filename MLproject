@@ -3,18 +3,18 @@ name: abtest
 conda_env: conda.yaml
 
 entry_points:
-  load_data:
-    command: "python3 pipeline/train.py ../data/eda.csv"
+  # load_data:
+  #   command: "python3 pipeline/train.py ../data/eda.csv"
   
-  n_folds:
-    parameters:
-      n_folds: {type: int, default: 5}
-    command: "python3 pipeline/cross_validator.py --n-folds {n_folds} ../data/browser_1.csv"
-  
-  model:
-    command: "python3 scripts/modeling.py"
+  # n_folds:
+  #   parameters:
+  #     n_folds: {type: int, default: 5}
+  #   command: "python3 pipeline/cross_validator.py --n-folds {n_folds} ../data/browser_1.csv"
   
   main:
-    parameters:
-      n_folds: {type: int, default: 5}
-    command: "python3 pipeline/evaluate.py {n_folds} data/validation.csv"
+    command: "python3 scripts/modeling.py"
+  
+  # main:
+  #   parameters:
+  #     n_folds: {type: int, default: 5}
+  #   command: "python3 pipeline/evaluate.py {n_folds} data/validation.csv"
