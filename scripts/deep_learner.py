@@ -8,6 +8,7 @@ print(os.getcwd())
 from logger import logger
 from model_serializer import ModelSerializer
 import mlflow
+import csv
 import seaborn as sns
 sns.set()
 
@@ -118,10 +119,10 @@ class DeepLearn:
 
     def model(self,model_,serialize=True):
         """model the lstm class"""
-        mlflow.set_experiment("deep_learner")
         mlflow.tensorflow.autolog()
         model = model_
-        with mlflow.start_run(run_name='timeseries_deep_learner') as run:
+        with mlflow.start_run(run_name='deep-learner'):
+            mlflow.set_tag("mlflow.runName", "deep-learner")
             learn = DeepLearn(input_width=self.input_width, label_width=self.label_width, shift=self.shift,
                      train_df=self.train_df, val_df=self.val_df, test_df=self.test_df,
                      label_columns=self.label_columns)
@@ -134,9 +135,17 @@ class DeepLearn:
             logger.info("Successfully executed the model")
             
             """forecast the data"""
-            forecast=model(inputs_)
-            with open("data/forecasts_deep.csv","w") as f:
-                f.write(forecast.numpy().tolist())
+            forecast=model(inputs_).numpy().tolist()
+            data = [[i] for i in forecast]
+ 
+            # opening the csv file in 'w+' mode
+            file = open('data/forecast_deep.csv', 'w+', newline ='')
+            
+            # writing the data into the file
+            with file:   
+                write = csv.writer(file)
+                write.writerows(data)
+            mlflow.log_artifact("data/forecast_deep.csv")
             mlflow.log_metric("val_performance",val_performance['val_performance'])
             mlflow.log_metric("performance",performance['performance'])
         if serialize:
