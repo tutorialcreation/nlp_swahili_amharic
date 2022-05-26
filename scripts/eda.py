@@ -153,7 +153,7 @@ class EDA:
     
 if __name__ == '__main__':
     path_1 = sys.argv[1]
-    df = pd.read_csv(file_path)
+    df = pd.read_csv(path_1)
     eda = EDA(df)
     eda_df = eda.get_df()
     eda_df.to_csv("data/eda.csv", index=False)
