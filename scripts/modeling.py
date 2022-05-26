@@ -294,6 +294,7 @@ class Modeler:
         scores = 0.0
         mlflow.sklearn.autolog()
         with mlflow.start_run():
+            mlflow.set_tag("mlflow.runName", "regression_modeling")
             model = model_(**kwargs)
             model.fit(X_train,y_train)
             mlflow.sklearn.log_model(model,"model_random_forest_regressor")
