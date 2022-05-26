@@ -11,6 +11,9 @@ entry_points:
       n_folds: {type: int, default: 5}
     command: "python3 pipeline/cross_validator.py --n-folds {n_folds} ../data/browser_1.csv"
   
+  model:
+    command: "python3 scripts/modeling.py"
+  
   main:
     parameters:
       n_folds: {type: int, default: 5}

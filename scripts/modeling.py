@@ -3,6 +3,7 @@ import numpy as np
 import math
 import time
 import pickle
+import mlflow
 # To Preproccesing our data
 from sklearn.preprocessing import LabelEncoder
 
@@ -26,7 +27,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import Pipeline
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, GaussianNB
@@ -283,29 +284,32 @@ class Modeler:
         return cv
 
     def regr_models(self,model_=LogisticRegression,column="yes",inputs=None,
-                connect=True,serialize=False,**kwargs):
+                connect=True,serialize=True,**kwargs):
         """
         - evaluates the algorithm
         """
         # get the dataset
         # get the model
         X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column,True)
-        model = model_(**kwargs)
-        model.fit(X_train,y_train)
         scores = 0.0
-        # Then predict results from X_test data
-        if connect:
-            inputs_ = inputs[:1].to_numpy()
-            predicted_data=model.predict(inputs_[:, :-1])
-            scores = abs(inputs_[0][-1] - predicted_data[0])
-        else:
-            predicted_data = model.predict(X_test)
-            scores = mean_absolute_error(y_test, predicted_data)
-        
-        # evaluate the model
-        # return scores
-        if serialize:
-            self.model_serialization(model)
+        mlflow.sklearn.autolog()
+        with mlflow.start_run():
+            model = model_(**kwargs)
+            model.fit(X_train,y_train)
+            logger.info(f"fitted a {model_} model")
+            # Then predict results from X_test data
+            if connect:
+                inputs_ = inputs[:1].to_numpy()
+                predicted_data=model.predict(inputs_[:, :-1])
+                scores = abs(inputs_[0][-1] - predicted_data[0])
+                logger.info("predicting for a single instance")
+            else:
+                predicted_data = model.predict(X_test)
+                scores = mean_absolute_error(y_test, predicted_data)
+                logger.info("predicting for a group instance")
+            # serialize the model
+            if serialize:
+                self.model_serialization(model)
         return (scores,predicted_data)
 
     def model_serialization(self,model):
@@ -326,11 +330,21 @@ class Modeler:
 
 
 if __name__=="__main__":
-    df = pd.read_csv("../data/data.csv")
-    analyzer = Modeler(df)
-    numeric_pipeline = analyzer.generate_pipeline("numeric")
-    numeric_transformation =  analyzer.generate_transformation(numeric_pipeline,"numeric","number")
-    numerical_features = analyzer.store_features("numeric","number")
-    categorical_features = analyzer.store_features("categorical","number")
-    x=analyzer.merge_data()
-    print(numeric_transformation)
+    train_ = pd.read_csv("../data/cleaned_train.csv")
+    test = pd.read_csv("../data/cleaned_test.csv")
+    train_.drop(['DayOfWeek','DayOfYear','WeekOfYear',
+                'Customers',"Month","Day"],axis=1,inplace=True)
+    test.drop(["Id",'DayOfWeek','DayOfYear','WeekOfYear'
+            ,"Month","Day"],axis=1,inplace=True)
+    train=train_.loc[:,train_.columns!='Sales']
+    train['Sales']=train_['Sales']
+    train.sort_values(["Year"], ascending=False ,ignore_index=True, inplace=True)
+    test.sort_values(["Year"], ascending=False ,ignore_index=True, inplace=True)
+    train.index.name = 'Year'
+    train = train.set_index('Year')
+    test.index.name = 'Year'
+    test = test.set_index('Year')
+    analyzer = Modeler(train)
+    forecast = analyzer.regr_models(model_=RandomForestRegressor,column='Sales',
+                                connect=False,n_estimators=10)
+    

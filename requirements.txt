@@ -10,3 +10,9 @@ mlflow
 tensorflow
 prophet
 statsmodels
+pandoc
+nbconvert
+joblib
+Django
+djangorestframework
+streamlit

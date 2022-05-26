@@ -282,3 +282,5 @@
 2022-05-25 14:54:11,354:logger:Successfully transformed data to time series data
 2022-05-25 14:54:11,679:logger:Successfully saved the dataframe
 2022-05-25 15:00:43,776:logger:Successfully initialized eda class
+2022-05-26 05:16:32,863:logger:fitted a <class 'sklearn.linear_model._logistic.LogisticRegression'> model
+2022-05-26 05:16:32,881:logger:predicting for a group instance
