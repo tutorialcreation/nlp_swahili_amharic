@@ -329,3 +329,28 @@
 2022-05-26 06:33:09,311:logger:fitted a RandomForestRegressor(n_estimators=10) model
 2022-05-26 06:33:09,417:logger:predicting for a group instance
 2022-05-26 06:33:09,462:logger:Successfully saved the model
+2022-05-26 10:32:04,069:logger:Initialized the time series class
+2022-05-26 10:32:04,751:logger:Successfully windowed the dataset
+2022-05-26 10:32:04,795:logger:Successfully windowed the dataset
+2022-05-26 10:32:07,639:logger:Successfully set up the model for deep learning
+2022-05-26 10:32:07,683:logger:Successfully windowed the dataset
+2022-05-26 10:32:07,742:logger:Successfully windowed the dataset
+2022-05-26 10:38:08,846:logger:Initialized the time series class
+2022-05-26 10:38:08,997:logger:Successfully windowed the dataset
+2022-05-26 10:38:09,053:logger:Successfully windowed the dataset
+2022-05-26 10:38:10,085:logger:Successfully set up the model for deep learning
+2022-05-26 10:38:10,130:logger:Successfully windowed the dataset
+2022-05-26 10:38:10,171:logger:Successfully windowed the dataset
+2022-05-26 10:45:07,206:logger:Successfult fitted the model
+2022-05-26 10:52:37,776:logger:Initialized the time series class
+2022-05-26 10:52:38,983:logger:Successfully windowed the dataset
+2022-05-26 10:52:39,028:logger:Successfully windowed the dataset
+2022-05-26 10:52:40,871:logger:Successfully set up the model for deep learning
+2022-05-26 10:52:40,914:logger:Successfully windowed the dataset
+2022-05-26 10:52:40,970:logger:Successfully windowed the dataset
+2022-05-26 11:01:27,354:logger:Successfult fitted the model
+2022-05-26 13:12:47,776:logger:Successfully executed the model
+2022-05-26 13:22:13,109:logger:Successfully executed the model
+2022-05-26 13:31:52,146:logger:Successfully executed the model
+2022-05-26 13:31:52,225:logger:initializing serializer
+2022-05-26 13:31:58,590:logger:Successfully saved the model

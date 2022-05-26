@@ -32,6 +32,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, GaussianNB
 from logger import logger
+from model_serializer import ModelSerializer
 # To evaluate end result we have
 from sklearn.metrics import mean_absolute_error, log_loss
 from sklearn.model_selection import LeaveOneOut
@@ -312,19 +313,10 @@ class Modeler:
             mlflow.log_metric("scores",scores)
             # serialize the model
             if serialize:
-                self.model_serialization(model)
+                serializer = ModelSerializer(model)
+                serializer.pickle_serialize()
         return (scores,predicted_data)
 
-    def model_serialization(self,model):
-        """
-        - algorithm for serializing the models
-        """
-        file_name =  time.strftime("%Y%m%d-%H%M%S")
-        with open(f'models/{file_name}.pkl', 'wb') as files:
-            pickle.dump(model, files)
-        
-        mlflow.log_artifact(f"models/{file_name}.pkl")
-        logger.info("Successfully saved the model")
 
     def get_df(self):
         """
