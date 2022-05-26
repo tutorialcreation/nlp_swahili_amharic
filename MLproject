@@ -3,15 +3,11 @@ name: abtest
 conda_env: conda.yaml
 
 entry_points:
-  load_data:
-    command: "cd pipeline && python3 train.py ../data/eda.csv"
-  
-  n_folds:
-    parameters:
-      n_folds: {type: int, default: 5}
-    command: "cd pipeline && python3 cross_validator.py --n-folds {n_folds} ../data/browser_1.csv"
-  
+  deep-learner:
+    command: "python3 scripts/deep_learner.py "
+
+  regression-modeling:
+    command: "python3 scripts/modeling.py"
+
   main:
-    parameters:
-      n_folds: {type: int, default: 5}
-    command: "cd pipeline && python3 evaluate.py {n_folds} ../data/validation.csv"
+    command: "python3 pipeline/main.py"

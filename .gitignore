@@ -16,4 +16,7 @@ data/*
 !data/data.csv
 env/
 .env
-
+/models/*
+/pipeline/mlruns/*
+mlruns/*
+logs/*
