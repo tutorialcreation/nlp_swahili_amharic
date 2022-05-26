@@ -31,7 +31,7 @@ def run():
     st.session_state.page_select = st.sidebar.radio('SiteMap', 
             [
                 'make_forecast', 
-                'view_forecast'
+                'view_forecast_chart'
             ])
     # routes
     router(page=st.session_state.page_select)    
