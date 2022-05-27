@@ -32,3 +32,174 @@
 2022-05-27 13:35:57,786:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
 2022-05-27 13:35:57,786:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
 2022-05-27 13:35:57,786:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:43:53,411:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:44:02,080:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:44:16,515:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:44:28,357:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:44:35,751:scripts.logger:Successfully initialized clean class
+2022-05-27 13:44:35,849:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:44:35,850:scripts.logger:Successfully stored the features
+2022-05-27 13:44:35,855:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:44:35,974:scripts.logger:Successfully initialized clean class
+2022-05-27 13:44:36,012:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:46:39,953:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-27 13:46:40,117:scripts.logger:predicting for a single instance
+2022-05-27 13:46:40,120:scripts.logger:initializing serializer
+2022-05-27 13:46:45,681:scripts.logger:Successfully saved the model
+2022-05-27 13:47:37,199:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:47:37,199:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:47:55,436:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:47:55,436:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:04,498:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:04,498:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:14,416:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:14,416:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:22,648:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:22,648:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:35,923:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:35,923:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:48,086:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:48,086:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:56,230:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:48:56,230:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:04,515:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:04,515:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:15,217:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:15,217:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:22,471:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:22,471:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:28,339:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:28,339:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:44,187:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:44,187:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:55,720:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:49:55,720:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:06,985:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:06,985:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:30,505:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:30,505:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:38,903:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:38,903:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:54,164:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:54,164:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:59,189:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:50:59,189:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:51:03,843:scripts.logger:Successfully initialized clean class
+2022-05-27 13:51:03,843:scripts.logger:Successfully initialized clean class
+2022-05-27 13:51:03,950:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:51:03,950:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:51:03,951:scripts.logger:Successfully stored the features
+2022-05-27 13:51:03,951:scripts.logger:Successfully stored the features
+2022-05-27 13:51:03,955:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:51:03,955:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:51:04,081:scripts.logger:Successfully initialized clean class
+2022-05-27 13:51:04,081:scripts.logger:Successfully initialized clean class
+2022-05-27 13:51:04,085:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:51:04,085:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:52:18,107:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-27 13:52:18,107:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-27 13:54:05,436:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:54:05,436:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:54:05,436:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:54:34,826:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:54:34,826:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:54:34,826:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:54:40,284:scripts.logger:Successfully initialized clean class
+2022-05-27 13:54:40,284:scripts.logger:Successfully initialized clean class
+2022-05-27 13:54:40,284:scripts.logger:Successfully initialized clean class
+2022-05-27 13:54:40,309:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:54:40,309:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:54:40,309:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:54:40,312:scripts.logger:Successfully stored the features
+2022-05-27 13:54:40,312:scripts.logger:Successfully stored the features
+2022-05-27 13:54:40,312:scripts.logger:Successfully stored the features
+2022-05-27 13:54:40,319:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:54:40,319:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:54:40,319:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:54:40,476:scripts.logger:Successfully initialized clean class
+2022-05-27 13:54:40,476:scripts.logger:Successfully initialized clean class
+2022-05-27 13:54:40,476:scripts.logger:Successfully initialized clean class
+2022-05-27 13:54:40,492:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:54:40,492:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:54:40,492:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:56:49,178:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:56:49,178:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:56:49,178:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:56:49,178:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:20,127:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:20,127:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:20,127:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:20,127:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:20,127:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:38,562:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:38,562:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:38,562:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:38,562:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:38,562:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:38,562:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:45,524:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:45,524:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:45,524:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:45,524:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:45,524:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:45,524:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-27 13:57:51,258:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,258:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,258:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,258:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,258:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,258:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,296:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:57:51,296:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:57:51,296:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:57:51,296:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:57:51,296:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:57:51,296:scripts.logger:Successfully transformed data to time series data
+2022-05-27 13:57:51,308:scripts.logger:Successfully stored the features
+2022-05-27 13:57:51,308:scripts.logger:Successfully stored the features
+2022-05-27 13:57:51,308:scripts.logger:Successfully stored the features
+2022-05-27 13:57:51,308:scripts.logger:Successfully stored the features
+2022-05-27 13:57:51,308:scripts.logger:Successfully stored the features
+2022-05-27 13:57:51,308:scripts.logger:Successfully stored the features
+2022-05-27 13:57:51,321:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:57:51,321:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:57:51,321:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:57:51,321:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:57:51,321:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:57:51,321:scripts.logger:Successfully encoded your categorical data
+2022-05-27 13:57:51,408:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,408:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,408:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,408:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,408:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,408:scripts.logger:Successfully initialized clean class
+2022-05-27 13:57:51,416:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:57:51,416:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:57:51,416:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:57:51,416:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:57:51,416:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:57:51,416:scripts.logger:Successfully removed columns with head unnamed
+2022-05-27 13:59:06,439:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-27 13:59:06,439:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-27 13:59:06,439:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-27 13:59:06,439:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-27 13:59:06,439:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-27 13:59:06,439:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-27 13:59:06,456:scripts.logger:predicting for a single instance
+2022-05-27 13:59:06,456:scripts.logger:predicting for a single instance
+2022-05-27 13:59:06,456:scripts.logger:predicting for a single instance
+2022-05-27 13:59:06,456:scripts.logger:predicting for a single instance
+2022-05-27 13:59:06,456:scripts.logger:predicting for a single instance
+2022-05-27 13:59:06,456:scripts.logger:predicting for a single instance
+2022-05-27 13:59:06,465:scripts.logger:initializing serializer
+2022-05-27 13:59:06,465:scripts.logger:initializing serializer
+2022-05-27 13:59:06,465:scripts.logger:initializing serializer
+2022-05-27 13:59:06,465:scripts.logger:initializing serializer
+2022-05-27 13:59:06,465:scripts.logger:initializing serializer
+2022-05-27 13:59:06,465:scripts.logger:initializing serializer
+2022-05-27 13:59:12,131:scripts.logger:Successfully saved the model
+2022-05-27 13:59:12,131:scripts.logger:Successfully saved the model
+2022-05-27 13:59:12,131:scripts.logger:Successfully saved the model
+2022-05-27 13:59:12,131:scripts.logger:Successfully saved the model
+2022-05-27 13:59:12,131:scripts.logger:Successfully saved the model
+2022-05-27 13:59:12,131:scripts.logger:Successfully saved the model

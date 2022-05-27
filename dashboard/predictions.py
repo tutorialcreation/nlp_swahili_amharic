@@ -63,7 +63,7 @@ def make_prediction(page=None):
         st.subheader('Regressing Forecasts')
         if st.checkbox("Do you wish to upload file in order to make batch predictions,\
             if not then please proceed to make a single sales prediction"):
-            st.text("Start by downloading the template")
+            st.text("Start by downloading the template then upload it, to make predictions")
             template = convert_df(pd.DataFrame(train[train.columns.difference(['Sales'])])[:10])
             st.download_button(
                         label="Download template",
@@ -90,10 +90,7 @@ def make_prediction(page=None):
                         data=csv,
                         file_name='predictions.csv',
                         mime='text/csv',
-                    )
-            
-                
-                
+                    )        
         else:
             columns = train.columns.difference(['Sales','DayOfYear',
                             'WeekOfYear','Year','Month','Day'])
@@ -105,7 +102,7 @@ def make_prediction(page=None):
                 unclean_data = pd.DataFrame([params])
                 unclean_data.to_csv("data/training_single.csv")
                 clean("data/training_single.csv")
-                cleaned_data = pd.read_csv("data/cleaned_train_batch.csv")
+                cleaned_data = pd.read_csv("data/cleaned_train_single.csv")
                 prediction=predict(train,'Sales',data = cleaned_data,type='single').tolist()
                 cleaned_data['sales_predictions'] = prediction
                 cleaned_data.to_csv("data/cleaned_train_batch.csv",index=False)
