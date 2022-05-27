@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import os,sys
 print(os.getcwd())
+sys.path.append(os.path.abspath(os.path.join('../scripts')))
 from logger import logger
 from model_serializer import ModelSerializer
 import mlflow
@@ -128,10 +129,6 @@ class DeepLearn:
                      label_columns=self.label_columns)
             inputs_, _ = learn.get_input_labels
             _ = self.compile_and_fit(model, learn)
-            val_performance = {}
-            performance = {}
-            val_performance['val_performance'] = model.evaluate(learn.val)
-            performance['performance'] = model.evaluate(learn.test, verbose=0)
             logger.info("Successfully executed the model")
             
             """forecast the data"""
@@ -146,8 +143,6 @@ class DeepLearn:
                 write = csv.writer(file)
                 write.writerows(data)
             mlflow.log_artifact("data/forecast_deep.csv")
-            mlflow.log_metric("val_performance",val_performance['val_performance'])
-            mlflow.log_metric("performance",performance['performance'])
         if serialize:
             serializer = ModelSerializer(model)
             serializer.pickle_serialize()
@@ -189,6 +184,7 @@ class DeepLearn:
     
 if __name__=='__main__':
     train_ = pd.read_csv("data/cleaned_train.csv")
+    train_.set_index('Date',inplace=True)
     """make sales to be last column"""
     train=train_.loc[:,train_.columns!='Sales']
     train['Sales']=train_['Sales']

@@ -31,6 +31,9 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, GaussianNB
+
+import os,sys
+# sys.path.append(os.path.abspath(os.path.join('../scripts')))
 from scripts.logger import logger
 from scripts.model_serializer import ModelSerializer
 # To evaluate end result we have

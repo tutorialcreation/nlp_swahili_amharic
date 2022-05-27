@@ -3,6 +3,9 @@ import mlflow
 import pickle
 import time
 import joblib
+
+import os,sys
+# sys.path.append(os.path.abspath(os.path.join('../scripts')))
 from scripts.logger import logger
 
 class ModelSerializer:
