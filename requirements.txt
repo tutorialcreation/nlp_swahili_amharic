@@ -8,7 +8,6 @@ dvc
 xgboost==0.90
 mlflow
 tensorflow
-prophet
 statsmodels
 pandoc
 nbconvert
