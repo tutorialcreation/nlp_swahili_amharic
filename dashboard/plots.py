@@ -12,6 +12,9 @@ def view_predictions(page=None,results=None):
         df = pd.read_sql('select * from pharmaceuticalData',db.get_engine())
         df.set_index('Date',inplace=True)
         fig = plt.figure(figsize=(10, 4))
-        sns.lineplot(df.index, y=df['Sales'], hue=df['Customers']);
+        sns.lineplot(data=df['Sales'],hue=df['Customers'])
         st.pyplot(fig)
+        # fig = plt.figure(figsize=(10, 4))
+        # sns.lineplot(data=df['Customers'])
+        # st.pyplot(fig)
         
