@@ -152,6 +152,7 @@ class EDA:
 
     
 if __name__ == '__main__':
+    """testing eda"""
     path_1 = sys.argv[1]
     df = pd.read_csv(path_1)
     eda = EDA(df)
