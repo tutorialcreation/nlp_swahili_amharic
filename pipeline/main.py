@@ -1,11 +1,6 @@
 import mlflow
 import click
-user = 'root'
-pwd = 'password'
-hostname = 'localhost'
-port = 3306
-database = 'mlflow'
-# uri = 'mysql://{user}:{password}@{hostname}:{port}/{databse}'
+uri = 'sqlite:///data_science.db'
 
 def _run(entrypoint, parameters={}, source_version=None, use_cache=True):
     #existing_run = _already_ran(entrypoint, parameters, source_version)
@@ -19,9 +14,10 @@ def _run(entrypoint, parameters={}, source_version=None, use_cache=True):
 
 @click.command()
 def workflow():
-    with mlflow.start_run(run_name ="pipeline") as active_run:
+    with mlflow.start_run(run_name ="ml_pipeline") as active_run:
+        mlflow.set_experiment("mlpipelines")
         # mlflow.set_tracking_uri(uri)
-        mlflow.set_tag("mlflow.runName", "pipeline")
+        mlflow.set_tag("mlflow.runName", "ml_pipeline")
         _run("regression-modeling",{"backend":"local","use_conda":False})
         _run("deep-learner",{"backend":"local","use_conda":False})
         

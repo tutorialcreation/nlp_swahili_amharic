@@ -31,8 +31,11 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, GaussianNB
-from logger import logger
-from model_serializer import ModelSerializer
+
+import os,sys
+# sys.path.append(os.path.abspath(os.path.join('../scripts')))
+from scripts.logger import logger
+from scripts.model_serializer import ModelSerializer
 # To evaluate end result we have
 from sklearn.metrics import mean_absolute_error, log_loss
 from sklearn.model_selection import LeaveOneOut
@@ -291,7 +294,8 @@ class Modeler:
         """
         # get the dataset
         # get the model
-        X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column,True)
+        if column:
+            X_train, X_test, X_val, y_train, y_test,y_val = self.split_data(column,True)
         scores = 0.0
         mlflow.sklearn.autolog()
         with mlflow.start_run(run_name="regression-modeling") as run:
@@ -302,9 +306,8 @@ class Modeler:
             logger.info(f"fitted a {model} model")
             # Then predict results from X_test data
             if connect:
-                inputs_ = inputs[:1].to_numpy()
-                predicted_data=model.predict(inputs_[:, :-1])
-                scores = abs(inputs_[0][-1] - predicted_data[0])
+                inputs_ = inputs.to_numpy()
+                predicted_data=model.predict(inputs_)
                 logger.info("predicting for a single instance")
             else:
                 predicted_data = model.predict(X_test)

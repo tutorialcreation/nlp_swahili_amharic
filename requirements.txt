@@ -16,3 +16,4 @@ joblib
 Django
 djangorestframework
 streamlit
+SQLAlchemy
