@@ -8,13 +8,11 @@ sns.set()
 def view_predictions(page=None,results=None):
     if st.session_state.page_select == page:
         st.subheader('Predictions Chart')
-        db = DBOps(is_online=True)
-        df = pd.read_sql('select * from pharmaceuticalData',db.get_engine())
-        df.set_index('Date',inplace=True)
+        df = pd.read_csv("data/cleaned_train_batch.csv")
+        df.reset_index(drop=True)
+        if df.empty:
+            st.error("Please upload batch files to view predictions")    
         fig = plt.figure(figsize=(10, 4))
-        sns.lineplot(data=df['Sales'],hue=df['Customers'])
+        sns.lineplot(data=df,x='Customers',y='sales_prediction')
         st.pyplot(fig)
-        # fig = plt.figure(figsize=(10, 4))
-        # sns.lineplot(data=df['Customers'])
-        # st.pyplot(fig)
         
