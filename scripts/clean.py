@@ -9,7 +9,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import Pipeline
-from logger import logger
+from scripts.logger import logger
 
 
 class Clean:
@@ -197,23 +197,20 @@ class Clean:
         case = False)],axis = 1, inplace = True)
         logger.info("Successfully removed columns with head unnamed")
     
-    def label_encoding(self,train,test):
+    def label_encoding(self,train,test=None):
         """
         - label encode the data
         """
         categorical_features=self.store_features("categorical","number")
-        for dataset in (train,test):
-            for f in categorical_features:
-                dataset[categorical_features] = dataset[categorical_features].apply(lambda x: pd.factorize(x)[0])
+        train[categorical_features] = train[categorical_features].apply(lambda x: pd.factorize(x)[0])
         logger.info("Successfully encoded your categorical data")
 
 
-    def transfrom_time_series(self,column,date_column):
+    def transfrom_time_series(self,date_column):
         """
         - transform the data into a 
         time series dataset
         """
-        self.df.sort_values([column,date_column], ignore_index=True, inplace=True)    
         self.df[date_column] = pd.to_datetime(self.df[date_column],errors='coerce')
         self.df['Day'] = self.df[date_column].dt.day
         self.df['Month'] = self.df[date_column].dt.month
@@ -252,26 +249,32 @@ class Clean:
         return dict(per_x)
 
 if __name__ == '__main__':
-    train_path = sys.argv[1]
-    test_path = sys.argv[2]
-    store_path = sys.argv[3]
-    store = pd.read_csv(store_path)
-    df = pd.read_csv(train_path)
+    df = pd.read_csv('data/train.csv')
+    store = pd.read_csv('data/store.csv')
     clean_df = Clean(df)
     clean_df.merge_df(store,'Store')
     clean_df.save(name='data/unclean_train.csv')
     clean_df.drop_missing_values()
     clean_df.fix_outliers('Sales',25000)
-    clean_df.remove_unnamed_cols()
-    clean_df.transfrom_time_series("Store","Date")
-    clean_df.save(name="data/training.csv")
-    df = pd.read_csv(test_path)
-    clean_df = Clean(df)
-    clean_df.merge_df(store,'Store')
-    clean_df.save(name='data/unclean_test.csv')
-    clean_df.drop_missing_values()
-    clean_df.fix_outliers('Sales',25000)
-    clean_df.remove_unnamed_cols()
-    clean_df.transfrom_time_series("Store","Date")
-    clean_df.get_df().drop('Id',axis=1,inplace=True)
-    clean_df.save(name="data/testing.csv")
+    clean_df.transfrom_time_series('Date')
+    train = clean_df.get_df()
+    train['SchoolHoliday'] = train['SchoolHoliday'].astype(int)
+    daily_sales = clean_df.aggregations(train,'Store','Sales','Open','sum')
+    daily_customers = clean_df.aggregations(train,'Store','Customers','Open','sum')
+    avg_sales = clean_df.aggregations(train,'Store','Sales','Open','mean')
+    avg_customers = clean_df.aggregations(train,'Store','Customers','Open','mean')
+    clean_df.label_encoding(train)
+    indexes = ['DayOfWeek','Day', 'Month', 'Year', 'DayOfYear','WeekOfYear','Sales']
+    training_data_ = train[train.columns.difference(indexes)]
+    train_transformation=clean_df.generate_transformation(training_data_,"numeric","number")
+    train_transformed = pd.DataFrame(train_transformation,columns=train.columns.difference(indexes))
+    train_index = train[indexes]
+    train_index = train_index.reset_index()
+    train = pd.concat([train_index,train_transformed],axis=1)
+    train.to_csv("data/cleaned_train.csv",index=False)
+    train['DailySales'] = train['Store'].map(daily_sales)
+    train['DailyCustomers'] = train['Store'].map(daily_customers)
+    train['AvgSales'] = train['Store'].map(avg_sales)
+    train['AvgCustomers'] = train['Store'].map(avg_customers)
+    train.sort_values(["Year","Month","Day"], ascending=False ,ignore_index=True, inplace=True)
+    train.to_csv("data/cleaned_aggregated_train.csv",index=False)

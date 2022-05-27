@@ -3,7 +3,7 @@ import mlflow
 import pickle
 import time
 import joblib
-from logger import logger
+from scripts.logger import logger
 
 class ModelSerializer:
     """
