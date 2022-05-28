@@ -225,3 +225,24 @@
 2022-05-28 22:13:48,916:scripts.logger:initializing serializer
 2022-05-28 22:14:54,929:scripts.logger:fitted a LGBMRegressor(n_estimators=10) model
 2022-05-28 22:14:54,974:scripts.logger:predicting for a group instance
+2022-05-28 23:01:03,495:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:02:34,758:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:03:00,354:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:03:21,128:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:03:33,871:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:03:39,277:scripts.logger:Successfully initialized clean class
+2022-05-28 23:03:39,680:scripts.logger:Successfully transformed data to time series data
+2022-05-28 23:03:39,681:scripts.logger:Successfully stored the features
+2022-05-28 23:03:39,818:scripts.logger:Successfully encoded your categorical data
+2022-05-28 23:03:40,394:scripts.logger:Successfully initialized clean class
+2022-05-28 23:03:40,397:scripts.logger:Successfully removed columns with head unnamed
+2022-05-28 23:05:37,168:scripts.logger:fitted a RandomForestRegressor(n_estimators=10) model
+2022-05-28 23:05:38,200:scripts.logger:predicting for a single instance
+2022-05-28 23:05:38,211:scripts.logger:initializing serializer
+2022-05-28 23:05:45,318:scripts.logger:Successfully saved the model
+2022-05-28 23:12:34,004:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:13:00,062:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:14:38,495:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:15:00,954:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:15:35,175:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
+2022-05-28 23:15:53,967:scripts.logger:SQLITE Connection Sucessfull!!!!!!!!!!!
