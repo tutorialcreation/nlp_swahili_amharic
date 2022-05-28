@@ -8,7 +8,7 @@ from scripts.clean import Clean
 from scripts.database import DBOps
 from sklearn.ensemble import RandomForestRegressor
 from dashboard.plots import view_predictions
-import os
+# import os
 import subprocess
 
 def clean(train_path,size='single'):
