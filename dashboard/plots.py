@@ -18,4 +18,6 @@ def view_predictions(page=None,results=None):
             sns.lineplot(data=df,x='Customers',y='sales_prediction')
             st.pyplot(fig)
         except Exception as e:
-            st.error(e)
+            st.error(f'{e} - this means there is no batch prediction you have made start by \
+                making uploading a file, make a batch prediction and then come back and view the forecast \
+                    you shall find me here waiting for you')
