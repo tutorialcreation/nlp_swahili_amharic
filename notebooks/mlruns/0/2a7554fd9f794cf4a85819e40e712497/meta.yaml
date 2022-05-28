@@ -1,0 +1,15 @@
+artifact_uri: file:///home/martin/Documents/pharm_sales/notebooks/mlruns/0/2a7554fd9f794cf4a85819e40e712497/artifacts
+end_time: 1653763766415
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 2a7554fd9f794cf4a85819e40e712497
+run_uuid: 2a7554fd9f794cf4a85819e40e712497
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1653763121557
+status: 3
+tags: []
+user_id: martin

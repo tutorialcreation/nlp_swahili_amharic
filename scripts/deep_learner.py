@@ -118,7 +118,7 @@ class DeepLearn:
                             callbacks=[early_stopping])
         return history
 
-    def model(self,model_,serialize=True):
+    def model(self,model_,serialize=False):
         """model the lstm class"""
         mlflow.tensorflow.autolog()
         model = model_

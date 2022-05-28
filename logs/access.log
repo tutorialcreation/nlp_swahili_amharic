@@ -203,3 +203,25 @@
 2022-05-27 13:59:12,131:scripts.logger:Successfully saved the model
 2022-05-27 13:59:12,131:scripts.logger:Successfully saved the model
 2022-05-27 13:59:12,131:scripts.logger:Successfully saved the model
+2022-05-28 21:05:30,298:logger:Initialized the time series class
+2022-05-28 21:06:38,622:logger:Initialized the time series class
+2022-05-28 21:09:43,454:logger:Initialized the time series class
+2022-05-28 21:10:02,797:logger:Successfully displayed the autocorelation plots
+2022-05-28 21:11:10,620:logger:Initialized the time series class
+2022-05-28 21:11:11,794:logger:Initialized the time series class
+2022-05-28 21:11:44,196:logger:Successfully displayed the autocorelation plots
+2022-05-28 21:23:30,921:logger:Successfully executed the model
+2022-05-28 21:25:52,781:logger:Initialized the time series class
+2022-05-28 21:36:28,598:logger:Successfully executed the model
+2022-05-28 21:36:28,685:scripts.logger:initializing serializer
+2022-05-28 21:38:29,868:logger:Initialized the time series class
+2022-05-28 21:49:26,338:logger:Successfully executed the model
+2022-05-28 21:49:26,417:scripts.logger:initializing serializer
+2022-05-28 21:51:32,930:logger:Initialized the time series class
+2022-05-28 22:03:18,989:scripts.logger:fitted a LGBMRegressor(n_estimators=10) model
+2022-05-28 22:03:25,701:logger:Successfully executed the model
+2022-05-28 22:13:48,811:scripts.logger:fitted a LGBMRegressor(n_estimators=10) model
+2022-05-28 22:13:48,912:scripts.logger:predicting for a group instance
+2022-05-28 22:13:48,916:scripts.logger:initializing serializer
+2022-05-28 22:14:54,929:scripts.logger:fitted a LGBMRegressor(n_estimators=10) model
+2022-05-28 22:14:54,974:scripts.logger:predicting for a group instance
