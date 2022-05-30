@@ -289,6 +289,22 @@ class Clean:
 
         return new_text, new_labels 
 
+
+    def get_duration(self, train_path, test_path, label_data):
+        duration_of_recordings=[]
+        for k in label_data:
+            filename= train_path + k +".wav"
+            if exists(filename):
+                audio, fs = librosa.load(filename, sr=None)
+                duration_of_recordings.append(float(len(audio)/fs))
+
+            else:
+                filename = test_path + k +'.wav'
+                audio, fs = librosa.load(filename, sr=None)
+                duration_of_recordings.append(float(len(audio)/fs))
+                
+        logger.info("The audio files duration is successfully computed")          
+        return duration_of_recordings 
         
 
 if __name__ == '__main__':
