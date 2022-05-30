@@ -291,6 +291,9 @@ class Clean:
 
 
     def get_duration(self, train_path, test_path, label_data):
+        '''
+            The function which computes the duration of the audio files
+        '''
         duration_of_recordings=[]
         for k in label_data:
             filename= train_path + k +".wav"
