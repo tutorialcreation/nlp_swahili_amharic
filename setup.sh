@@ -1,11 +1,12 @@
-mkdir -p ~/.streamlit/echo "\
+mkdir -p ~/.streamlit/
+echo "\
+[general]\n\
+email = \"tutorialcreation81@gmail.com\"\n\
+" > ~/.streamlit/credentials.toml
+echo "\
 [server]\n\
 headless = true\n\
+enableCORS=false\n\
 port = $PORT\n\
-enableCORS = false\n\
-\n\
 " > ~/.streamlit/config.toml
 
-streamlit run app.py
-
-# mlflow run /app/ --env-manager=local && mlflow ui

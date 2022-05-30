@@ -14,5 +14,7 @@ nbconvert
 joblib
 Django
 djangorestframework
-streamlit
 SQLAlchemy
+protobuf~=3.19.0
+streamlit==1.8.1
+click==7.1

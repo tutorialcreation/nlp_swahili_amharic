@@ -19,6 +19,9 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 COPY . /app/
 RUN ls -la /app/
-EXPOSE 5000
 RUN pip3 install -r requirements.txt
-ENTRYPOINT [ "setup.sh" ]
+EXPOSE 8080
+
+# CMD ["/bin/bash", "-c", "/app/setup.sh"]
+# ENTRYPOINT streamlit run app.py --server.port
+CMD streamlit run --server.port 8080 --server.enableCORS false app.py
