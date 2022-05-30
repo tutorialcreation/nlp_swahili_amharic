@@ -1,7 +1,10 @@
+import imp
+import librosa
 import numpy as np
 import pandas as pd
 import warnings
 import matplotlib.pyplot as plt
+from os.path import exists
 import seaborn as sns
 from functools import reduce
 import os,sys
@@ -9,7 +12,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import Pipeline
-from scripts.logger import logger
+from logger import logger
 
 
 class Clean:
@@ -18,9 +21,10 @@ class Clean:
     Cleaning Tasks
     """
 
-    def __init__(self, df):
+    def __init__(self):
         """initialize the cleaning class"""
-        self.df = df
+        # self.df = df
+        pass
         logger.info("Successfully initialized clean class")
 
     def has_missing_values(self):
@@ -188,7 +192,6 @@ class Clean:
         return transformation
 
     
-
     def remove_unnamed_cols(self):
         """
         - this algorithm removes columns with unnamed
@@ -247,6 +250,23 @@ class Clean:
         per_x = grouped_x / grouped_y
         logger.info("successful aggregation")
         return dict(per_x)
+
+
+    def read_text(self, text_path):
+        '''
+            The function for reading the text
+        '''
+        text = []
+        
+        with open(text_path, encoding='utf-8') as fp:
+            line = fp.readline()
+            while line:
+                text.append(line)
+                line = fp.readline()
+
+        return text
+
+        
 
 if __name__ == '__main__':
     df = pd.read_csv('data/train.csv')
