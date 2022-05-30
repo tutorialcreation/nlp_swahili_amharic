@@ -266,6 +266,29 @@ class Clean:
 
         return text
 
+    def read_data(self, train_text_path, test_text_path, train_labels, test_labels):
+        '''
+            The function for reading the data from training and testing file paths
+        '''
+        train_text = self.read_text(train_text_path)
+        test_text = self.read_text(test_text_path)
+
+        train_text.extend(test_text)
+        train_labels.extend(test_labels)
+
+        new_text = []
+        new_labels = []
+        for i in train_text:
+            result = i.split()
+
+            if result[0] in train_labels:  # if the audio file exists
+                new_text.append(' '.join([elem for elem in result[1:]]))
+                new_labels.append(result[0])
+        
+        logger.info("Successfully read the data")          
+
+        return new_text, new_labels 
+
         
 
 if __name__ == '__main__':
