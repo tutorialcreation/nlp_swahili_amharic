@@ -23,10 +23,9 @@ class Clean:
     Cleaning Tasks
     """
 
-    def __init__(self):
+    def __init__(self,df = None):
         """initialize the cleaning class"""
-        # self.df = df
-        pass
+        self.df = df
         logger.info("Successfully initialized clean class")
 
     def has_missing_values(self):
@@ -253,7 +252,7 @@ class Clean:
         logger.info("successful aggregation")
         return dict(per_x)
 
-    def load_audios(prefix,language,start=0,stop=10):
+    def load_audios(self,prefix,language,start=0,stop=10):
         """
         author: Martin Luther
         date: 31/05/2022
@@ -284,9 +283,11 @@ class Clean:
         if language == 'swahili':
             for wav_file in swahili_wavs[start:stop]:
                 loaded_files.append(librosa.load(wav_file, sr=44100))
+                logger.info(f"successfully loaded {wav_file}")
         else:
-            for wav_file in amharic_wav_folders:
+            for wav_file in amharic_wav_folders[start:stop]:
                 loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
+                logger.info(f"successfully loaded {wav_file}")
         return loaded_files
 
 
