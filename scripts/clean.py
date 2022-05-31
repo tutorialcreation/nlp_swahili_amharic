@@ -252,12 +252,11 @@ class Clean:
         logger.info("successful aggregation")
         return dict(per_x)
 
-    def load_audios(self,prefix,language,start=0,stop=10):
+    def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):
         """
         author: Martin Luther
         date: 31/05/2022
         how to use it :
-            prefix = '/home/martin/Documents/ALFFA_PUBLIC/ASR/'
             swahilis = load_audios(prefix,'swahili',0,10)
             amharics = load_audios(prefix,'amharics',0,10)
         expects:
@@ -268,30 +267,43 @@ class Clean:
         returns:
             - samples and audio rates in 44.1khz
         """
-        swahili_train_audio_path = prefix+'SWAHILI/data/train/wav/'
-        os.chdir(swahili_train_audio_path)
-        swahili_wav_folders = os.listdir()
-        amharic_train_audio_path = prefix+'AMHARIC/data/train/wav/'
-        os.chdir(amharic_train_audio_path)
-        amharic_wav_folders = os.listdir()
+
+        swahili_train_audio_path = f'../data/swahili_{wav_type}_wav/'
+        swahili_wav_folders = os.listdir(path=swahili_train_audio_path)
+        amharic_train_audio_path = f'../data/amharic_{wav_type}_wav/'
+        amharic_wav_folders = os.listdir(path=amharic_train_audio_path)
         swahili_wavs = []
+        transformed_files=[]
+        if files:
+            transformed_files =  [x+'.wav' for x in files]
         for wav_folder in swahili_wav_folders:
-            os.chdir(swahili_train_audio_path+wav_folder)
-            for wav_file in os.listdir():
-                swahili_wavs.append(swahili_train_audio_path+wav_folder+'/'+wav_file)
+            for wav_file in os.listdir(path=swahili_train_audio_path+wav_folder):
+                if len(transformed_files) > 1:
+                    if wav_file in transformed_files:
+                        swahili_wavs.append(swahili_train_audio_path+wav_folder+'/'+wav_file)
+                else:
+                    swahili_wavs.append(swahili_train_audio_path+wav_folder+'/'+wav_file)
         loaded_files = []
+        
         if language == 'swahili':
-            for wav_file in swahili_wavs[start:stop]:
+
+            for wav_file in swahili_wavs[start:len(swahili_wavs) if not stop else stop]:
                 try:
                     loaded_files.append(librosa.load(wav_file, sr=44100))
                     logger.info(f"successfully loaded {wav_file}")
                 except Exception as e:
                     logger.error(e)
         else:
-            for wav_file in amharic_wav_folders[start:stop]:
+            for wav_file in amharic_wav_folders[start:len(amharic_wav_folders) if not stop else stop]:
                 try:
-                    loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
-                    logger.info(f"successfully loaded {wav_file}")
+                    if len(transformed_files) > 1:
+                        if wav_file in transformed_files:
+                            loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
+                            logger.info(f"successfully loaded {wav_file}")
+                    else:
+                        loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
+                        logger.info(f"successfully loaded {wav_file}")
+
                 except Exception as e:
                     logger.error(e)
         result = []
@@ -300,24 +312,57 @@ class Clean:
             result.append((audio,rate,self.get_duration(audio,rate)))
         return result
 
+    def get_labels(self,type='swahili',wav_type='train'):
+        """
+        author: Martin Luther
+        date: 31/05/2022
+        how it works
+            - get_labels('swahili','train')
+        expects:
+            string
+        returns: 
+            string
+        """
+        labels = []
+        if type=='swahili':
+            swahili_wav_path=f'../data/swahili_{wav_type}_wav/'
+            swahili_wav_folder = os.listdir(swahili_wav_path)
+            for wav_folder in swahili_wav_folder:
+                for wav_file in os.listdir(path=swahili_wav_path+wav_folder):
+                    labels.append(wav_file)
+        else:
+            amharic_wav_path=f'../data/amharic_{wav_type}_wav/'
+            amharic_wav_folder= os.listdir(amharic_wav_path)
+            for wav_file in amharic_wav_folder:
+                labels.append(wav_file)
+        labels=[i.strip('.wav') for i in labels]
+        return labels
 
     def read_text(self, text_path):
         '''
-            The function for reading the text
+        author: Biruk
+        date: 30/05/2022
+        The function for reading the text
         '''
         text = []
         
-        with open(text_path, encoding='utf-8') as fp:
-            line = fp.readline()
-            while line:
-                text.append(line)
-                line = fp.readline()
+        try:
+            with open(os.path.join(os.getcwd(),text_path), encoding='utf-8') as fp:
+                    line = fp.readline()
+                    while line:
+                        text.append(line)
+                        line = fp.readline()
+                    logger.info("successfully read file")
+        except FileNotFoundError as e:
+            logger.error(e)
 
         return text
 
     def read_data(self, train_text_path, test_text_path, train_labels, test_labels):
         '''
-            The function for reading the data from training and testing file paths
+        author: Biruk
+        date: 30/05/2022
+        The function for reading the data from training and testing file paths
         '''
         train_text = self.read_text(train_text_path)
         test_text = self.read_text(test_text_path)
@@ -341,7 +386,9 @@ class Clean:
 
     def get_duration(self, audio, rate):
         '''
-            The function which computes the duration of the audio files
+        author: Biruk
+        date: 30/05/2022
+        The function which computes the duration of the audio files
         '''
         duration_of_recordings=None   
         try:
@@ -351,6 +398,21 @@ class Clean:
             logger.error(e)
         return duration_of_recordings 
         
+    def get_durations(self, filenames, label_data):
+        """
+        author: Biruk
+        date: 30/05/2022
+        """
+        duration_of_recordings=[]
+        for k in label_data:
+            try:
+                if k in filenames:
+                    audio, fs = librosa.load(k+'.wav', sr=None)
+                    duration_of_recordings.append(float(len(audio)/fs))
+            except Exception as e:
+                logger.error(f"has obtained an error {e}")                
+        logger.info("The audio files duration is successfully computed")          
+        return duration_of_recordings 
 
 if __name__ == '__main__':
     df = pd.read_csv('data/train.csv')
