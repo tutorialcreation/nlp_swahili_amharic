@@ -282,13 +282,23 @@ class Clean:
         loaded_files = []
         if language == 'swahili':
             for wav_file in swahili_wavs[start:stop]:
-                loaded_files.append(librosa.load(wav_file, sr=44100))
-                logger.info(f"successfully loaded {wav_file}")
+                try:
+                    loaded_files.append(librosa.load(wav_file, sr=44100))
+                    logger.info(f"successfully loaded {wav_file}")
+                except Exception as e:
+                    logger.error(e)
         else:
             for wav_file in amharic_wav_folders[start:stop]:
-                loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
-                logger.info(f"successfully loaded {wav_file}")
-        return loaded_files
+                try:
+                    loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
+                    logger.info(f"successfully loaded {wav_file}")
+                except Exception as e:
+                    logger.error(e)
+        result = []
+        for file in loaded_files:
+            audio,rate = file
+            result.append((audio,rate,self.get_duration(audio,rate)))
+        return result
 
 
     def read_text(self, text_path):
@@ -329,23 +339,16 @@ class Clean:
         return new_text, new_labels 
 
 
-    def get_duration(self, train_path, test_path, label_data):
+    def get_duration(self, audio, rate):
         '''
             The function which computes the duration of the audio files
         '''
-        duration_of_recordings=[]
-        for k in label_data:
-            filename= train_path + k +".wav"
-            if exists(filename):
-                audio, fs = librosa.load(filename, sr=None)
-                duration_of_recordings.append(float(len(audio)/fs))
-
-            else:
-                filename = test_path + k +'.wav'
-                audio, fs = librosa.load(filename, sr=None)
-                duration_of_recordings.append(float(len(audio)/fs))
-                
-        logger.info("The audio files duration is successfully computed")          
+        duration_of_recordings=None   
+        try:
+            duration_of_recordings = float(len(audio)/rate)
+            logger.info("The audio files duration is successfully computed")          
+        except Exception as e:
+            logger.error(e)
         return duration_of_recordings 
         
 
