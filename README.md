@@ -1,16 +1,17 @@
-# Project Overview
-You work at Rossmann Pharmaceuticals as a Machine Learning Engineer. The finance team wants to forecast sales in all their stores across several cities six weeks ahead of time. Managers in individual stores rely on their years of experience as well as their personal judgment to forecast sales. 
 
-The data team identified factors such as promotions, competition, school and state holidays, seasonality, and locality as necessary for predicting the sales across the various stores.
+# Project Overview
+Speech recognition technology allows for hands-free control of smartphones, speakers, and even vehicles in a wide variety of languages. Companies have moved towards the goal of enabling machines to understand and respond to more and more of our verbalized commands. There are many matured speech recognition systems available, such as Google Assistant, Amazon Alexa, and Apple’s Siri. However, all of those voice assistants work for limited languages only.
+
+The World Food Program wants to deploy an intelligent form that collects nutritional information of food bought and sold at markets in two different countries in Africa - Ethiopia and Kenya. The design of this intelligent form requires selected people to install an app on their mobile phone, and whenever they buy food, they use their voice to activate the app to register the list of items they just bought in their own language. The intelligent systems in the app are expected to live to transcribe the speech-to-text and organize the information in an easy-to-process way in a database.
+
 
 # Business Objective
-Your job is to build and serve an end-to-end product that delivers this prediction to analysts in the finance team. 
+Tenacious data science consultancy, which is chosen to deliver speech-to-text technology for two languages: Amharic and Swahili. Key responsibility is to build a deep learning model that is capable of transcribing a speech to text. The model produced should be accurate and is robust against background noise. 
 
 # Skills implemented in the project:
 * Advanced use of scikit-learn 
 * Feature Engineering
-* ML Model building and fine-tuning
-* CI/CD deployment of ML models  
+* ML Model building and fine-tunin* CI/CD deployment of ML models  
 * Python logging
 * Unit testing  
 * Building dashboards
@@ -19,7 +20,7 @@ Your job is to build and serve an end-to-end product that delivers this predicti
 # Manual Installation
 ### Step 1: Downloading source code
 ```
-git clone https://github.com/tutorialcreation/pharm_sales.git
+git clone https://github.com/tutorialcreation/nlp_swahili_amharic.git
 ```
 ### Step 2: Installation of dependencies
 ```
@@ -40,7 +41,7 @@ dvc dag
 docker-compose up --build
 ```
 
-# The tests from the modularized scripts are run in the following notebooks
+The tests from the modularized scripts are run in the following notebooks
 * EDA analysis ==> notebooks/EDA.ipynb
 * Preprocessing and Feature Engineering ==> notebooks/Preprocessing.ipynb
 * Machine learning ==> notebooks/Forecasting.ipynb
@@ -61,5 +62,5 @@ docker-compose up --build
 * Promo - indicates whether a store is running a promo on that day
 * Promo2 - Promo2 is a continuing and consecutive promotion for some stores: 0 = store is not participating, 1 = store is participating
 * Promo2Since[Year/Week] - describes the year and calendar week when the store started participating in Promo2
-* PromoInterval - describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store
+ PromoInterval - describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store
 
