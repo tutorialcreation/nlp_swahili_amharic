@@ -44702,3 +44702,30 @@
 2022-05-31 16:32:21,161:logger:successfully loaded tr_747_tr08047.wav
 2022-05-31 16:32:21,567:logger:successfully loaded tr_10560_tr30121.wav
 2022-05-31 16:32:22,023:logger:successfully loaded tr_3785_tr38086.wav
+2022-05-31 16:37:04,803:logger:Successfully initialized clean class
+2022-05-31 16:37:07,998:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 16:37:08,332:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 16:37:08,554:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part474.wav
+2022-05-31 16:37:09,033:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part10.wav
+2022-05-31 16:37:09,410:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part13.wav
+2022-05-31 16:37:09,411:logger:The audio files duration is successfully computed
+2022-05-31 16:37:09,413:logger:The audio files duration is successfully computed
+2022-05-31 16:37:09,415:logger:The audio files duration is successfully computed
+2022-05-31 16:37:09,418:logger:The audio files duration is successfully computed
+2022-05-31 16:37:09,420:logger:The audio files duration is successfully computed
+2022-05-31 16:37:10,508:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 16:37:11,161:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 16:37:11,471:logger:successfully loaded tr_5611_tr57012.wav
+2022-05-31 16:37:11,801:logger:successfully loaded tr_7251_tr73052.wav
+2022-05-31 16:37:12,470:logger:successfully loaded tr_953_tr10054.wav
+2022-05-31 16:37:12,471:logger:The audio files duration is successfully computed
+2022-05-31 16:37:12,477:logger:The audio files duration is successfully computed
+2022-05-31 16:37:12,481:logger:The audio files duration is successfully computed
+2022-05-31 16:37:12,483:logger:The audio files duration is successfully computed
+2022-05-31 16:37:12,490:logger:The audio files duration is successfully computed
+2022-05-31 16:39:05,349:logger:successfully read file
+2022-05-31 16:39:05,409:logger:successfully read file
+2022-05-31 16:39:07,114:logger:Successfully read the data
+2022-05-31 16:39:07,136:logger:successfully read file
+2022-05-31 16:39:07,208:logger:successfully read file
+2022-05-31 16:39:08,820:logger:Successfully read the data
