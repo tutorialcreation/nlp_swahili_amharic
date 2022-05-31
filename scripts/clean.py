@@ -12,6 +12,7 @@ from sklearn.pipeline import Pipeline
 from scripts.logger import logger
 import torch
 import torchaudio
+import random
 
 class Clean:
     """
@@ -281,7 +282,7 @@ class Clean:
 
             sig = torch.cat((pad_begin, sig, pad_end), 1)
 
-            return (sig, sr)
+        return (sig, sr)
 
 
 if __name__ == '__main__':
