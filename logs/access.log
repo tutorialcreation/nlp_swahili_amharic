@@ -300,3 +300,63 @@
 2022-05-31 05:38:25,828:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
 2022-05-31 05:38:26,659:logger:successfully loaded tr_2426_tr25027.wav
 2022-05-31 05:38:27,135:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 05:58:15,002:logger:Successfully initialized clean class
+2022-05-31 05:58:16,409:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 05:58:16,623:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 05:58:17,436:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 05:58:17,890:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 05:59:27,914:logger:Successfully initialized eda class
+2022-05-31 06:01:33,158:logger:Successfully initialized clean class
+2022-05-31 06:01:36,719:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 06:01:36,916:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 06:01:37,681:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 06:01:38,148:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 06:01:45,129:logger:Successfully initialized eda class
+2022-05-31 06:03:42,347:logger:Successfully initialized clean class
+2022-05-31 06:03:43,414:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 06:03:43,624:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 06:03:44,355:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 06:03:44,795:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 06:03:57,854:logger:Successfully initialized eda class
+2022-05-31 06:06:22,490:logger:Successfully initialized clean class
+2022-05-31 06:06:23,581:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 06:06:23,793:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 06:06:24,630:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 06:06:25,092:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 06:06:32,995:logger:Successfully initialized eda class
+2022-05-31 06:08:26,329:logger:Successfully initialized clean class
+2022-05-31 06:08:29,482:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 06:08:29,675:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 06:08:30,433:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 06:08:30,895:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 06:08:36,968:logger:Successfully initialized eda class
+2022-05-31 06:15:05,565:logger:Successfully initialized clean class
+2022-05-31 06:15:07,953:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 06:15:08,144:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 06:15:08,908:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 06:15:09,349:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 06:15:18,197:logger:Successfully initialized eda class
+2022-05-31 06:21:51,078:logger:Successfully initialized clean class
+2022-05-31 06:21:52,179:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 06:21:52,390:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 06:21:53,238:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 06:21:53,745:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 06:22:00,769:logger:Successfully initialized eda class
+2022-05-31 06:26:03,109:logger:Successfully initialized clean class
+2022-05-31 06:26:04,914:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 06:26:05,109:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 06:26:05,849:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 06:26:06,287:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 06:26:40,255:logger:Successfully initialized eda class
+2022-05-31 06:29:52,428:logger:Successfully initialized clean class
+2022-05-31 06:29:54,924:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 06:29:55,115:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 06:29:55,876:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 06:29:56,341:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 06:30:03,803:logger:Successfully initialized eda class
+2022-05-31 06:31:28,006:logger:Successfully initialized clean class
+2022-05-31 06:31:29,172:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 06:31:29,375:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 06:31:30,144:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 06:31:30,613:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 06:31:35,160:logger:Successfully initialized eda class
