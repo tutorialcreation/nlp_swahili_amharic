@@ -13,7 +13,9 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import Pipeline
 from logger import logger
-
+import IPython.display as ipd
+import warnings
+warnings.filterwarnings("ignore")
 
 class Clean:
     """
@@ -21,10 +23,9 @@ class Clean:
     Cleaning Tasks
     """
 
-    def __init__(self):
+    def __init__(self,df = None):
         """initialize the cleaning class"""
-        # self.df = df
-        pass
+        self.df = df
         logger.info("Successfully initialized clean class")
 
     def has_missing_values(self):
@@ -250,6 +251,44 @@ class Clean:
         per_x = grouped_x / grouped_y
         logger.info("successful aggregation")
         return dict(per_x)
+
+    def load_audios(self,prefix,language,start=0,stop=10):
+        """
+        author: Martin Luther
+        date: 31/05/2022
+        how to use it :
+            prefix = '/home/martin/Documents/ALFFA_PUBLIC/ASR/'
+            swahilis = load_audios(prefix,'swahili',0,10)
+            amharics = load_audios(prefix,'amharics',0,10)
+        expects:
+            - prefix - string
+            - language - string
+            - start - int, stop - int (if you want 10 samples do 
+            start = 0, stop = 10)
+        returns:
+            - samples and audio rates in 44.1khz
+        """
+        swahili_train_audio_path = prefix+'SWAHILI/data/train/wav/'
+        os.chdir(swahili_train_audio_path)
+        swahili_wav_folders = os.listdir()
+        amharic_train_audio_path = prefix+'AMHARIC/data/train/wav/'
+        os.chdir(amharic_train_audio_path)
+        amharic_wav_folders = os.listdir()
+        swahili_wavs = []
+        for wav_folder in swahili_wav_folders:
+            os.chdir(swahili_train_audio_path+wav_folder)
+            for wav_file in os.listdir():
+                swahili_wavs.append(swahili_train_audio_path+wav_folder+'/'+wav_file)
+        loaded_files = []
+        if language == 'swahili':
+            for wav_file in swahili_wavs[start:stop]:
+                loaded_files.append(librosa.load(wav_file, sr=44100))
+                logger.info(f"successfully loaded {wav_file}")
+        else:
+            for wav_file in amharic_wav_folders[start:stop]:
+                loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
+                logger.info(f"successfully loaded {wav_file}")
+        return loaded_files
 
 
     def read_text(self, text_path):
