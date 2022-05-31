@@ -360,3 +360,71 @@
 2022-05-31 06:31:30,144:logger:successfully loaded tr_2426_tr25027.wav
 2022-05-31 06:31:30,613:logger:successfully loaded tr_7707_tr78008.wav
 2022-05-31 06:31:35,160:logger:Successfully initialized eda class
+2022-05-31 07:09:01,958:logger:Successfully initialized clean class
+2022-05-31 07:09:09,323:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:09:09,552:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:09:09,553:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:09:09,554:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:09:10,445:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 07:09:10,928:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 07:09:10,930:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:09:10,933:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:10:29,884:logger:Successfully initialized clean class
+2022-05-31 07:10:34,094:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:10:34,294:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:10:34,375:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:10:34,378:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:10:35,155:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 07:10:35,595:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 07:10:35,598:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:10:35,601:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:11:57,855:logger:Successfully initialized clean class
+2022-05-31 07:11:59,787:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:11:59,982:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:14:19,950:logger:Successfully initialized clean class
+2022-05-31 07:14:21,082:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:14:21,283:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:14:49,519:logger:Successfully initialized clean class
+2022-05-31 07:14:50,541:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:14:50,743:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:16:04,939:logger:Successfully initialized clean class
+2022-05-31 07:16:06,038:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:16:06,240:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:16:06,242:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:16:06,243:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:16:07,013:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 07:16:07,521:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 07:16:07,523:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:16:07,525:logger:'NoneType' object has no attribute 'append'
+2022-05-31 07:16:47,105:logger:Successfully initialized clean class
+2022-05-31 07:16:49,204:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:16:49,393:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:16:49,395:logger:The audio files duration is successfully computed
+2022-05-31 07:16:49,396:logger:The audio files duration is successfully computed
+2022-05-31 07:16:50,189:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 07:16:50,630:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 07:16:50,632:logger:The audio files duration is successfully computed
+2022-05-31 07:16:50,635:logger:The audio files duration is successfully computed
+2022-05-31 07:17:56,043:logger:Successfully initialized clean class
+2022-05-31 07:17:57,951:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:17:58,142:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:17:58,144:logger:The audio files duration is successfully computed
+2022-05-31 07:17:58,145:logger:The audio files duration is successfully computed
+2022-05-31 07:20:36,928:logger:Successfully initialized clean class
+2022-05-31 07:20:37,955:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:20:38,163:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:20:38,165:logger:The audio files duration is successfully computed
+2022-05-31 07:20:38,169:logger:The audio files duration is successfully computed
+2022-05-31 07:21:57,655:logger:Successfully initialized clean class
+2022-05-31 07:22:00,587:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:22:00,803:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:22:00,805:logger:The audio files duration is successfully computed
+2022-05-31 07:22:32,725:logger:Successfully initialized clean class
+2022-05-31 07:22:33,857:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 07:22:34,063:logger:successfully loaded /home/martin/Documents/ALFFA_PUBLIC/ASR/SWAHILI/data/train/wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 07:22:34,065:logger:The audio files duration is successfully computed
+2022-05-31 07:22:34,066:logger:The audio files duration is successfully computed
+2022-05-31 07:22:34,873:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 07:22:35,395:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 07:22:35,396:logger:The audio files duration is successfully computed
+2022-05-31 07:22:35,398:logger:The audio files duration is successfully computed
