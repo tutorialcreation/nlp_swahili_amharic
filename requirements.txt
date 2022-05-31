@@ -21,3 +21,4 @@ click==7.1
 librosa
 python_speech_features
 ipython
+Wave
