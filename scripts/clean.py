@@ -15,6 +15,7 @@ from sklearn.pipeline import Pipeline
 from logger import logger
 import IPython.display as ipd
 import warnings
+import wave, array
 warnings.filterwarnings("ignore")
 
 class Clean:
@@ -413,6 +414,36 @@ class Clean:
                 logger.error(f"has obtained an error {e}")                
         logger.info("The audio files duration is successfully computed")          
         return duration_of_recordings 
+
+
+    def convert_channels(self,file1, output):
+        """
+        author: Martin Luther
+        date: 31/05/2022
+        how to use it: convert_channels("Input.wav", "Output.wav")
+        expects:
+            - wav file
+        returns:
+            - wav file
+        """
+
+        ifile = wave.open(file1)
+        print(ifile.getparams())
+        # (1, 2, 44100, 2013900, 'NONE', 'not compressed')
+        (nchannels, sampwidth, framerate, nframes, comptype, compname) = ifile.getparams()
+        assert comptype == 'NONE'  # Compressed not supported yet
+        array_type = {1:'B', 2: 'h', 4: 'l'}[sampwidth]
+        left_channel = array.array(array_type, ifile.readframes(nframes))[::nchannels]
+        ifile.close()
+
+        stereo = 2 * left_channel
+        stereo[0::2] = stereo[1::2] = left_channel
+
+        ofile = wave.open(output, 'w')
+        ofile.setparams((2, sampwidth, framerate, nframes, comptype, compname))
+        ofile.writeframes(stereo.tostring())
+        ofile.close()
+
 
 if __name__ == '__main__':
     df = pd.read_csv('data/train.csv')
