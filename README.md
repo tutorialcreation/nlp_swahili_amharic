@@ -1,25 +1,28 @@
 # Project Overview
-You work at Rossmann Pharmaceuticals as a Machine Learning Engineer. The finance team wants to forecast sales in all their stores across several cities six weeks ahead of time. Managers in individual stores rely on their years of experience as well as their personal judgment to forecast sales. 
+Speech recognition technology allows for hands-free control of smartphones, speakers, and even vehicles in a wide variety of languages. Companies have moved towards the goal of enabling machines to understand and respond to more and more of our verbalized commands. There are many matured speech recognition systems available, such as Google Assistant, Amazon Alexa, and Apple’s Siri. However, all of those voice assistants work for limited languages only. 
 
-The data team identified factors such as promotions, competition, school and state holidays, seasonality, and locality as necessary for predicting the sales across the various stores.
 
 # Business Objective
-Your job is to build and serve an end-to-end product that delivers this prediction to analysts in the finance team. 
+The World Food Program wants to deploy an intelligent form that collects nutritional information of food bought and sold at markets in two different countries in Africa - Ethiopia and Kenya. The design of this intelligent form requires selected people to install an app on their mobile phone, and whenever they buy food, they use their voice to activate the app to register the list of items they just bought in their own language. The intelligent systems in the app are expected to live to transcribe the speech-to-text and organize the information in an easy-to-process way in a database. 
+You work for the Tenacious data science consultancy, which is chosen to deliver speech-to-text technology for two languages: Amharic and Swahili. Your responsibility is to build a deep learning model that is capable of transcribing a speech to text. The model you produce should be accurate and is robust against background noise.
+ 
 
 # Skills implemented in the project:
-* Advanced use of scikit-learn 
-* Feature Engineering
-* ML Model building and fine-tuning
-* CI/CD deployment of ML models  
-* Python logging
-* Unit testing  
-* Building dashboards
+* Working with audio as well as text files
+* Familiarity with the deep learning architecture
+* Model management (building ML catalog containing models, feature labels, and training model version)
+* Comparing multiple Deep learning techniques; 
+* Training and validating DL models; 
+* Choosing appropriate architecture, loss function, and regularisers; hyperparameter tuning; choosing suitable evaluation metrics. 
+* MLOps  with DVC, CML, and MLFlow
 
+# ML Pipeline Design
+![Test Image 4](https://miro.medium.com/max/1400/1*rBUXN2u1Yh-9pxKzUGjmMg.png)
 
 # Manual Installation
 ### Step 1: Downloading source code
 ```
-git clone https://github.com/tutorialcreation/pharm_sales.git
+git clone https://github.com/tutorialcreation/nlp_swahili_amharic.git
 ```
 ### Step 2: Installation of dependencies
 ```
@@ -41,25 +44,9 @@ docker-compose up --build
 ```
 
 # The tests from the modularized scripts are run in the following notebooks
-* EDA analysis ==> notebooks/EDA.ipynb
-* Preprocessing and Feature Engineering ==> notebooks/Preprocessing.ipynb
-* Machine learning ==> notebooks/Forecasting.ipynb
-* Deep learning ==> notebooks/DeepLearning.ipynb
+* EDA analysis and Preprocessing ==> notebooks/Audio_preprocessing.ipynb
+* Deep learning ==> notebooks/Audio_Modelling.ipynb
 
 # Dataset Column description
-* Id - an Id that represents a (Store, Date) duple within the test set
-* Store - a unique Id for each store
-* Sales - the turnover for any given day (this is what you are predicting)
-* Customers - the number of customers on a given day
-* Open - an indicator for whether the store was open: 0 = closed, 1 = open
-* StateHoliday - indicates a state holiday. Normally all stores, with few exceptions, are closed on state holidays. Note that all schools are closed on public holidays and weekends. a = public holiday, b = Easter holiday, c = Christmas, 0 = None
-* SchoolHoliday - indicates if the (Store, Date) was affected by the closure of public schools
-* StoreType - differentiates between 4 different store models: a, b, c, d
-* Assortment - describes an assortment level: a = basic, b = extra, c = extended. Read more about assortment here
-* CompetitionDistance - distance in meters to the nearest competitor store
-* CompetitionOpenSince[Month/Year] - gives the approximate year and month of the time the nearest competitor was opened
-* Promo - indicates whether a store is running a promo on that day
-* Promo2 - Promo2 is a continuing and consecutive promotion for some stores: 0 = store is not participating, 1 = store is participating
-* Promo2Since[Year/Week] - describes the year and calendar week when the store started participating in Promo2
-* PromoInterval - describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store
-
+* Input features (X): audio clips of spoken words
+* Target labels (y): a text transcript of what was spoken
