@@ -3,7 +3,7 @@
 - [African Language Speech Recognition Modeling](#African-Language-Speech-Recognition-Modeling)
   - [Project Overview](#project-overview)
   - [Business Objective](#business-objective)
-  - [Skills Implemented in the Project](#skills-implemented-in-the-project:)
+  - [Skills Implemented in the Project](#skills-implemented-in-the-project)
   - [ML Pipeline Design](#ML-pipeline-design)
   - [Manual Installation](#manual-installation)
   - [Automatic Installation](#automatic-installation)
