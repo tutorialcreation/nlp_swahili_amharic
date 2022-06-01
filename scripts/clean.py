@@ -334,7 +334,7 @@ class Clean:
         }
         
         return lc
-        
+
     def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):
         """
         author: Martin Luther
@@ -373,7 +373,6 @@ class Clean:
             for wav_file in swahili_wavs[start:len(swahili_wavs) if not stop else stop]:
                 try:
                     loaded_files.append(librosa.load(wav_file, sr=44100))
-                    logger.info(f"successfully loaded {wav_file}")
                 except Exception as e:
                     logger.error(e)
         else:
@@ -382,10 +381,8 @@ class Clean:
                     if len(transformed_files) > 1:
                         if wav_file in transformed_files:
                             loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
-                            logger.info(f"successfully loaded {wav_file}")
                     else:
                         loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
-                        logger.info(f"successfully loaded {wav_file}")
 
                 except Exception as e:
                     logger.error(e)
@@ -393,6 +390,7 @@ class Clean:
         for file in loaded_files:
             audio,rate = file
             result.append((audio,rate,self.get_duration(audio,rate)))
+        logger.info("successful in operation of loading audios")
         return result
 
     def get_labels(self,type='swahili',wav_type='train'):
