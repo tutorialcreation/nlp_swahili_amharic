@@ -45081,3 +45081,6 @@
 2022-06-01 05:46:18,658:logger:successful in operation of loading audios
 2022-06-01 05:46:24,812:logger:succesffully converted to stereo
 2022-06-01 05:46:26,027:logger:Successfully initialized eda class
+2022-06-01 10:55:09,945:logger:Successfully executed the model
+2022-06-01 10:56:38,443:logger:Successfully executed the model
+2022-06-01 10:57:05,090:logger:Successfully executed the model
