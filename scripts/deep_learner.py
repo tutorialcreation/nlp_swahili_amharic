@@ -133,16 +133,6 @@ class DeepLearn:
             
             """forecast the data"""
             forecast=model(inputs_).numpy().tolist()
-            data = [[i] for i in forecast]
- 
-            # opening the csv file in 'w+' mode
-            file = open('data/forecast_deep.csv', 'w+', newline ='')
-            
-            # writing the data into the file
-            with file:   
-                write = csv.writer(file)
-                write.writerows(data)
-            mlflow.log_artifact("data/forecast_deep.csv")
         if serialize:
             serializer = ModelSerializer(model)
             serializer.pickle_serialize()
