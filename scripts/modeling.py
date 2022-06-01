@@ -125,10 +125,10 @@ class Modeler:
         """
         train = train.drop([columns_to_drop],axis=1)#Encoding the Labels
         train=self.make_last(train,target_variable)
-        genre_list = train.iloc[:, -1]
-        encoder = LabelEncoder()
-        y = encoder.fit_transform(genre_list)#Scaling the Feature columns
-        train[target_variable] = y
+        # genre_list = train.iloc[:, -1]
+        # encoder = LabelEncoder()
+        # y = encoder.fit_transform(genre_list)#Scaling the Feature columns
+        # train[target_variable] = y
         n = len(train)
         train_df = train[0:int(n*0.7)]
         val_df = train[int(n*0.7):int(n*0.9)]

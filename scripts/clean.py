@@ -316,6 +316,13 @@ class Clean:
         return (sig, sr)
 
 
+    def clean_text(self,df,column):
+        """
+        todo: Biruk / amharic (nltk) ... Amal / swahili
+        """
+        df['text'] = 0
+        return df
+
     def store_audio_features(self,y,sr):
         """
         author: Martin Luther
