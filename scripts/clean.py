@@ -287,7 +287,7 @@ class Clean:
         return (sig, sr)
 
 
-    def pad_trunc(sig,sr, max_ms):
+    def pad_trunc(self,sig,sr, max_ms):
         """
         author:Edenwork
         - Pad (or truncate) the signal to a fixed length 'max_ms' in milliseconds
@@ -316,7 +316,24 @@ class Clean:
         return (sig, sr)
 
 
-
+    def store_audio_features(y,sr):
+        """
+        author: Martin Luther
+        function: returns different features from the audio
+        """
+        
+        y, sr = y,sr
+        lc = {
+            "rmse":np.mean(librosa.feature.rms(y=y)),
+            "chroma_stft":np.mean(librosa.feature.chroma_stft(y=y, sr=sr)),
+            "spec_cent":np.mean(librosa.feature.spectral_centroid(y=y, sr=sr)),
+            "spec_bw":np.mean(librosa.feature.spectral_bandwidth(y=y, sr=sr)),
+            "rolloff":np.mean(librosa.feature.spectral_rolloff(y=y, sr=sr)),
+            "zcr":np.mean(librosa.feature.zero_crossing_rate(y)),
+            "mfcc":np.mean(librosa.feature.mfcc(y=y, sr=sr))
+        }
+        
+        return lc
     def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):
         """
         author: Martin Luther
