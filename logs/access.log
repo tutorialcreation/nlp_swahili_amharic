@@ -45084,3 +45084,16 @@
 2022-06-01 10:55:09,945:logger:Successfully executed the model
 2022-06-01 10:56:38,443:logger:Successfully executed the model
 2022-06-01 10:57:05,090:logger:Successfully executed the model
+2022-06-01 11:29:31,760:logger:Successfully initialized clean class
+2022-06-01 11:29:38,979:logger:successful in operation of loading audios
+2022-06-01 11:29:40,637:logger:successful in operation of loading audios
+2022-06-01 11:29:41,635:logger:successfully read file
+2022-06-01 11:29:41,748:logger:successfully read file
+2022-06-01 11:29:43,297:logger:Successfully read the data
+2022-06-01 11:29:43,399:logger:successfully read file
+2022-06-01 11:29:43,436:logger:successfully read file
+2022-06-01 11:29:44,809:logger:Successfully read the data
+2022-06-01 11:29:48,613:logger:successful in operation of loading audios
+2022-06-01 11:29:52,739:logger:successful in operation of loading audios
+2022-06-01 11:30:10,338:logger:succesffully converted to stereo
+2022-06-01 11:30:11,015:logger:Successfully initialized eda class
