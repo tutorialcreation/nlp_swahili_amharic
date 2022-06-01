@@ -325,7 +325,7 @@ class Clean:
         return df
 
     
-    def char_index(alphabet):
+    def char_index(self,alphabet):
         a_map = {} # map letter to number
         rev_a_map = {} # map number to letter
         for i, a in enumerate(alphabet):
