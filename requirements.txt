@@ -22,3 +22,6 @@ librosa
 python_speech_features
 ipython
 Wave
+torch
+torchaudio
+kaleido
