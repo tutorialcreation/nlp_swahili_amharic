@@ -5,7 +5,7 @@ import time
 import pickle
 import mlflow
 # To Preproccesing our data
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder,StandardScaler
 
 # To fill missing values
 from sklearn.impute import SimpleImputer
@@ -47,7 +47,7 @@ class Modeler:
     - this class is responsible for modeling
     """
 
-    def __init__(self,df):
+    def __init__(self,df=None):
         """
         - Initialization of the class
         """
@@ -99,7 +99,25 @@ class Modeler:
                 transformation=pipeline.fit_transform(pd.DataFrame(self.split_data(key,0.3,trim)).select_dtypes(exclude=value))
         return transformation
 
+    def make_last(self, data_,target_variable):
+        """this functions allows one choose which column to be last"""
+        data=data_.loc[:,data_.columns!=target_variable]
+        data[target_variable]=data_[target_variable]
+        return data
     
+    def preprocessor_audio(self,data,columns_to_drop,target_variable):
+        """
+        this function is for preprocessing audio data
+        """
+        data = data.drop([columns_to_drop],axis=1)#Encoding the Labels
+        data=self.make_last(data,target_variable)
+        genre_list = data.iloc[:, -1]
+        encoder = LabelEncoder()
+        y = encoder.fit_transform(genre_list)#Scaling the Feature columns
+        scaler = StandardScaler()
+        X = scaler.fit_transform(np.array(data.iloc[:, :-1], dtype = float))#Dividing data into training and Testing set
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+        return (X_train, X_test, y_train, y_test)
 
     def store_features(self,type_,value):
         """
