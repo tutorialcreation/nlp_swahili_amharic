@@ -474,7 +474,6 @@ class Clean:
         duration_of_recordings=None   
         try:
             duration_of_recordings = float(len(audio)/rate)
-            logger.info("The audio files duration is successfully computed")          
         except Exception as e:
             logger.error(e)
         return duration_of_recordings 
