@@ -44729,3 +44729,259 @@
 2022-05-31 16:39:07,136:logger:successfully read file
 2022-05-31 16:39:07,208:logger:successfully read file
 2022-05-31 16:39:08,820:logger:Successfully read the data
+2022-05-31 17:50:49,858:logger:Successfully initialized clean class
+2022-05-31 17:50:57,646:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-05-31 17:50:58,166:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-05-31 17:50:58,407:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part474.wav
+2022-05-31 17:50:59,121:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part10.wav
+2022-05-31 17:50:59,635:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part13.wav
+2022-05-31 17:50:59,640:logger:The audio files duration is successfully computed
+2022-05-31 17:50:59,650:logger:The audio files duration is successfully computed
+2022-05-31 17:50:59,655:logger:The audio files duration is successfully computed
+2022-05-31 17:50:59,660:logger:The audio files duration is successfully computed
+2022-05-31 17:50:59,661:logger:The audio files duration is successfully computed
+2022-05-31 17:51:01,039:logger:successfully loaded tr_2426_tr25027.wav
+2022-05-31 17:51:01,659:logger:successfully loaded tr_7707_tr78008.wav
+2022-05-31 17:51:01,971:logger:successfully loaded tr_5611_tr57012.wav
+2022-05-31 17:51:02,515:logger:successfully loaded tr_7251_tr73052.wav
+2022-05-31 17:51:03,251:logger:successfully loaded tr_953_tr10054.wav
+2022-05-31 17:51:03,252:logger:The audio files duration is successfully computed
+2022-05-31 17:51:03,253:logger:The audio files duration is successfully computed
+2022-05-31 17:51:03,254:logger:The audio files duration is successfully computed
+2022-05-31 17:51:03,256:logger:The audio files duration is successfully computed
+2022-05-31 17:51:03,257:logger:The audio files duration is successfully computed
+2022-05-31 17:57:03,234:logger:successfully read file
+2022-05-31 17:57:03,348:logger:successfully read file
+2022-05-31 17:57:05,800:logger:Successfully read the data
+2022-05-31 17:57:05,840:logger:successfully read file
+2022-05-31 17:57:05,857:logger:successfully read file
+2022-05-31 17:57:07,973:logger:Successfully read the data
+2022-05-31 18:40:57,156:logger:successfully read file
+2022-05-31 18:40:57,197:logger:successfully read file
+2022-05-31 18:40:59,377:logger:Successfully read the data
+2022-05-31 18:40:59,418:logger:successfully read file
+2022-05-31 18:40:59,433:logger:successfully read file
+2022-05-31 18:41:01,334:logger:Successfully read the data
+2022-05-31 18:41:15,262:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part108.wav
+2022-05-31 18:41:15,600:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part107.wav
+2022-05-31 18:41:15,770:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part104.wav
+2022-05-31 18:41:16,002:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part10.wav
+2022-05-31 18:41:16,287:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part102.wav
+2022-05-31 18:41:16,588:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part101.wav
+2022-05-31 18:41:16,846:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part105.wav
+2022-05-31 18:41:17,117:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part106.wav
+2022-05-31 18:41:17,353:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part103.wav
+2022-05-31 18:41:17,650:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part100.wav
+2022-05-31 18:41:17,656:logger:The audio files duration is successfully computed
+2022-05-31 18:41:17,664:logger:The audio files duration is successfully computed
+2022-05-31 18:41:17,674:logger:The audio files duration is successfully computed
+2022-05-31 18:41:17,676:logger:The audio files duration is successfully computed
+2022-05-31 18:41:17,678:logger:The audio files duration is successfully computed
+2022-05-31 18:41:17,681:logger:The audio files duration is successfully computed
+2022-05-31 18:41:17,682:logger:The audio files duration is successfully computed
+2022-05-31 18:41:17,688:logger:The audio files duration is successfully computed
+2022-05-31 18:41:17,694:logger:The audio files duration is successfully computed
+2022-05-31 18:41:17,696:logger:The audio files duration is successfully computed
+2022-05-31 18:41:18,493:logger:successfully loaded tr_10007_tr097089.wav
+2022-05-31 18:41:18,856:logger:successfully loaded tr_10008_tr097090.wav
+2022-05-31 18:41:19,191:logger:successfully loaded tr_10009_tr097091.wav
+2022-05-31 18:41:19,961:logger:successfully loaded tr_10000_tr097082.wav
+2022-05-31 18:41:20,381:logger:successfully loaded tr_10003_tr097085.wav
+2022-05-31 18:41:20,819:logger:successfully loaded tr_10002_tr097084.wav
+2022-05-31 18:41:21,302:logger:successfully loaded tr_10004_tr097086.wav
+2022-05-31 18:41:21,764:logger:successfully loaded tr_10001_tr097083.wav
+2022-05-31 18:41:22,241:logger:successfully loaded tr_10006_tr097088.wav
+2022-05-31 18:41:22,903:logger:successfully loaded tr_10005_tr097087.wav
+2022-05-31 18:41:22,907:logger:The audio files duration is successfully computed
+2022-05-31 18:41:22,910:logger:The audio files duration is successfully computed
+2022-05-31 18:41:22,913:logger:The audio files duration is successfully computed
+2022-05-31 18:41:22,915:logger:The audio files duration is successfully computed
+2022-05-31 18:41:22,928:logger:The audio files duration is successfully computed
+2022-05-31 18:41:22,940:logger:The audio files duration is successfully computed
+2022-05-31 18:41:22,941:logger:The audio files duration is successfully computed
+2022-05-31 18:41:22,943:logger:The audio files duration is successfully computed
+2022-05-31 18:41:22,947:logger:The audio files duration is successfully computed
+2022-05-31 18:41:22,949:logger:The audio files duration is successfully computed
+2022-06-01 03:11:54,345:logger:Successfully initialized clean class
+2022-06-01 03:11:59,303:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-06-01 03:11:59,536:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-06-01 03:11:59,767:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part474.wav
+2022-06-01 03:12:00,170:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part10.wav
+2022-06-01 03:12:00,436:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part13.wav
+2022-06-01 03:12:00,437:logger:The audio files duration is successfully computed
+2022-06-01 03:12:00,439:logger:The audio files duration is successfully computed
+2022-06-01 03:12:00,439:logger:The audio files duration is successfully computed
+2022-06-01 03:12:00,443:logger:The audio files duration is successfully computed
+2022-06-01 03:12:00,445:logger:The audio files duration is successfully computed
+2022-06-01 03:12:01,271:logger:successfully loaded tr_2426_tr25027.wav
+2022-06-01 03:12:01,747:logger:successfully loaded tr_7707_tr78008.wav
+2022-06-01 03:12:01,972:logger:successfully loaded tr_5611_tr57012.wav
+2022-06-01 03:12:02,257:logger:successfully loaded tr_7251_tr73052.wav
+2022-06-01 03:12:02,771:logger:successfully loaded tr_953_tr10054.wav
+2022-06-01 03:12:02,773:logger:The audio files duration is successfully computed
+2022-06-01 03:12:02,777:logger:The audio files duration is successfully computed
+2022-06-01 03:12:02,778:logger:The audio files duration is successfully computed
+2022-06-01 03:12:02,780:logger:The audio files duration is successfully computed
+2022-06-01 03:12:02,781:logger:The audio files duration is successfully computed
+2022-06-01 03:12:03,485:logger:successfully read file
+2022-06-01 03:12:03,532:logger:successfully read file
+2022-06-01 03:12:04,659:logger:Successfully read the data
+2022-06-01 03:12:04,815:logger:successfully read file
+2022-06-01 03:12:04,868:logger:successfully read file
+2022-06-01 03:12:06,017:logger:Successfully read the data
+2022-06-01 03:12:06,456:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part108.wav
+2022-06-01 03:12:06,697:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part107.wav
+2022-06-01 03:12:06,870:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part104.wav
+2022-06-01 03:12:07,057:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part10.wav
+2022-06-01 03:12:07,280:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part102.wav
+2022-06-01 03:12:07,485:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part101.wav
+2022-06-01 03:12:07,634:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part105.wav
+2022-06-01 03:12:07,776:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part106.wav
+2022-06-01 03:12:07,945:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part103.wav
+2022-06-01 03:12:08,133:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part100.wav
+2022-06-01 03:12:08,135:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,138:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,139:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,141:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,143:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,145:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,147:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,149:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,151:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,153:logger:The audio files duration is successfully computed
+2022-06-01 03:12:08,579:logger:successfully loaded tr_10007_tr097089.wav
+2022-06-01 03:12:08,867:logger:successfully loaded tr_10008_tr097090.wav
+2022-06-01 03:12:09,155:logger:successfully loaded tr_10009_tr097091.wav
+2022-06-01 03:12:09,697:logger:successfully loaded tr_10000_tr097082.wav
+2022-06-01 03:12:10,013:logger:successfully loaded tr_10003_tr097085.wav
+2022-06-01 03:12:10,383:logger:successfully loaded tr_10002_tr097084.wav
+2022-06-01 03:12:10,684:logger:successfully loaded tr_10004_tr097086.wav
+2022-06-01 03:12:10,996:logger:successfully loaded tr_10001_tr097083.wav
+2022-06-01 03:12:11,354:logger:successfully loaded tr_10006_tr097088.wav
+2022-06-01 03:12:11,772:logger:successfully loaded tr_10005_tr097087.wav
+2022-06-01 03:12:11,775:logger:The audio files duration is successfully computed
+2022-06-01 03:12:11,776:logger:The audio files duration is successfully computed
+2022-06-01 03:12:11,777:logger:The audio files duration is successfully computed
+2022-06-01 03:12:11,782:logger:The audio files duration is successfully computed
+2022-06-01 03:12:11,783:logger:The audio files duration is successfully computed
+2022-06-01 03:12:11,785:logger:The audio files duration is successfully computed
+2022-06-01 03:12:11,787:logger:The audio files duration is successfully computed
+2022-06-01 03:12:11,788:logger:The audio files duration is successfully computed
+2022-06-01 03:12:11,789:logger:The audio files duration is successfully computed
+2022-06-01 03:12:11,791:logger:The audio files duration is successfully computed
+2022-06-01 03:40:19,872:logger:Successfully initialized clean class
+2022-06-01 03:42:00,493:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-06-01 03:42:00,703:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-06-01 03:42:00,875:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part474.wav
+2022-06-01 03:42:01,182:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part10.wav
+2022-06-01 03:42:01,513:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part13.wav
+2022-06-01 03:42:01,515:logger:The audio files duration is successfully computed
+2022-06-01 03:42:01,516:logger:The audio files duration is successfully computed
+2022-06-01 03:42:01,518:logger:The audio files duration is successfully computed
+2022-06-01 03:42:01,522:logger:The audio files duration is successfully computed
+2022-06-01 03:42:01,527:logger:The audio files duration is successfully computed
+2022-06-01 03:42:02,329:logger:successfully loaded tr_2426_tr25027.wav
+2022-06-01 03:42:02,803:logger:successfully loaded tr_7707_tr78008.wav
+2022-06-01 03:42:03,025:logger:successfully loaded tr_5611_tr57012.wav
+2022-06-01 03:42:03,338:logger:successfully loaded tr_7251_tr73052.wav
+2022-06-01 03:42:03,839:logger:successfully loaded tr_953_tr10054.wav
+2022-06-01 03:42:03,841:logger:The audio files duration is successfully computed
+2022-06-01 03:42:03,842:logger:The audio files duration is successfully computed
+2022-06-01 03:42:03,844:logger:The audio files duration is successfully computed
+2022-06-01 03:42:03,845:logger:The audio files duration is successfully computed
+2022-06-01 03:42:03,846:logger:The audio files duration is successfully computed
+2022-06-01 03:42:13,181:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part12.wav
+2022-06-01 03:42:13,433:logger:successfully loaded ../data/swahili_train_wav/SWH-15-20110224/SWH-15-20110224_16k-emission_swahili_15h00_-_16h00_tu_20110224_part131.wav
+2022-06-01 03:42:13,435:logger:The audio files duration is successfully computed
+2022-06-01 03:42:13,436:logger:The audio files duration is successfully computed
+2022-06-01 03:42:14,282:logger:successfully loaded tr_2426_tr25027.wav
+2022-06-01 03:42:14,752:logger:successfully loaded tr_7707_tr78008.wav
+2022-06-01 03:42:14,753:logger:The audio files duration is successfully computed
+2022-06-01 03:42:14,755:logger:The audio files duration is successfully computed
+2022-06-01 03:42:37,162:logger:successfully read file
+2022-06-01 03:42:37,180:logger:successfully read file
+2022-06-01 03:42:38,319:logger:Successfully read the data
+2022-06-01 03:42:38,350:logger:successfully read file
+2022-06-01 03:42:38,359:logger:successfully read file
+2022-06-01 03:42:39,414:logger:Successfully read the data
+2022-06-01 03:42:44,014:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part108.wav
+2022-06-01 03:42:44,221:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part107.wav
+2022-06-01 03:42:44,376:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part104.wav
+2022-06-01 03:42:44,564:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part10.wav
+2022-06-01 03:42:44,785:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part102.wav
+2022-06-01 03:42:45,007:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part101.wav
+2022-06-01 03:42:45,162:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part105.wav
+2022-06-01 03:42:45,307:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part106.wav
+2022-06-01 03:42:45,503:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part103.wav
+2022-06-01 03:42:45,695:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part100.wav
+2022-06-01 03:42:45,698:logger:The audio files duration is successfully computed
+2022-06-01 03:42:45,700:logger:The audio files duration is successfully computed
+2022-06-01 03:42:45,705:logger:The audio files duration is successfully computed
+2022-06-01 03:42:45,706:logger:The audio files duration is successfully computed
+2022-06-01 03:42:45,708:logger:The audio files duration is successfully computed
+2022-06-01 03:42:45,709:logger:The audio files duration is successfully computed
+2022-06-01 03:42:45,712:logger:The audio files duration is successfully computed
+2022-06-01 03:42:45,714:logger:The audio files duration is successfully computed
+2022-06-01 03:42:45,715:logger:The audio files duration is successfully computed
+2022-06-01 03:42:45,717:logger:The audio files duration is successfully computed
+2022-06-01 03:42:46,118:logger:successfully loaded tr_10007_tr097089.wav
+2022-06-01 03:42:46,401:logger:successfully loaded tr_10008_tr097090.wav
+2022-06-01 03:42:46,739:logger:successfully loaded tr_10009_tr097091.wav
+2022-06-01 03:42:47,306:logger:successfully loaded tr_10000_tr097082.wav
+2022-06-01 03:42:47,630:logger:successfully loaded tr_10003_tr097085.wav
+2022-06-01 03:42:47,981:logger:successfully loaded tr_10002_tr097084.wav
+2022-06-01 03:42:48,279:logger:successfully loaded tr_10004_tr097086.wav
+2022-06-01 03:42:48,597:logger:successfully loaded tr_10001_tr097083.wav
+2022-06-01 03:42:48,959:logger:successfully loaded tr_10006_tr097088.wav
+2022-06-01 03:42:49,360:logger:successfully loaded tr_10005_tr097087.wav
+2022-06-01 03:42:49,363:logger:The audio files duration is successfully computed
+2022-06-01 03:42:49,364:logger:The audio files duration is successfully computed
+2022-06-01 03:42:49,365:logger:The audio files duration is successfully computed
+2022-06-01 03:42:49,366:logger:The audio files duration is successfully computed
+2022-06-01 03:42:49,370:logger:The audio files duration is successfully computed
+2022-06-01 03:42:49,372:logger:The audio files duration is successfully computed
+2022-06-01 03:42:49,374:logger:The audio files duration is successfully computed
+2022-06-01 03:42:49,375:logger:The audio files duration is successfully computed
+2022-06-01 03:42:49,376:logger:The audio files duration is successfully computed
+2022-06-01 03:42:49,378:logger:The audio files duration is successfully computed
+2022-06-01 03:44:52,932:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part108.wav
+2022-06-01 03:44:53,169:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part107.wav
+2022-06-01 03:44:53,341:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part104.wav
+2022-06-01 03:44:53,535:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part10.wav
+2022-06-01 03:44:53,753:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part102.wav
+2022-06-01 03:44:53,977:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part101.wav
+2022-06-01 03:44:54,128:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part105.wav
+2022-06-01 03:44:54,271:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part106.wav
+2022-06-01 03:44:54,444:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part103.wav
+2022-06-01 03:44:54,658:logger:successfully loaded ../data/swahili_train_wav/SWH-05-20101106/SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part100.wav
+2022-06-01 03:44:54,659:logger:The audio files duration is successfully computed
+2022-06-01 03:44:54,660:logger:The audio files duration is successfully computed
+2022-06-01 03:44:54,661:logger:The audio files duration is successfully computed
+2022-06-01 03:44:54,669:logger:The audio files duration is successfully computed
+2022-06-01 03:44:54,671:logger:The audio files duration is successfully computed
+2022-06-01 03:44:54,673:logger:The audio files duration is successfully computed
+2022-06-01 03:44:54,676:logger:The audio files duration is successfully computed
+2022-06-01 03:44:54,678:logger:The audio files duration is successfully computed
+2022-06-01 03:44:54,682:logger:The audio files duration is successfully computed
+2022-06-01 03:44:54,684:logger:The audio files duration is successfully computed
+2022-06-01 03:44:55,148:logger:successfully loaded tr_10007_tr097089.wav
+2022-06-01 03:44:55,433:logger:successfully loaded tr_10008_tr097090.wav
+2022-06-01 03:44:55,720:logger:successfully loaded tr_10009_tr097091.wav
+2022-06-01 03:44:56,260:logger:successfully loaded tr_10000_tr097082.wav
+2022-06-01 03:44:56,617:logger:successfully loaded tr_10003_tr097085.wav
+2022-06-01 03:44:56,981:logger:successfully loaded tr_10002_tr097084.wav
+2022-06-01 03:44:57,282:logger:successfully loaded tr_10004_tr097086.wav
+2022-06-01 03:44:57,602:logger:successfully loaded tr_10001_tr097083.wav
+2022-06-01 03:44:57,974:logger:successfully loaded tr_10006_tr097088.wav
+2022-06-01 03:44:58,364:logger:successfully loaded tr_10005_tr097087.wav
+2022-06-01 03:44:58,366:logger:The audio files duration is successfully computed
+2022-06-01 03:44:58,367:logger:The audio files duration is successfully computed
+2022-06-01 03:44:58,370:logger:The audio files duration is successfully computed
+2022-06-01 03:44:58,373:logger:The audio files duration is successfully computed
+2022-06-01 03:44:58,375:logger:The audio files duration is successfully computed
+2022-06-01 03:44:58,376:logger:The audio files duration is successfully computed
+2022-06-01 03:44:58,377:logger:The audio files duration is successfully computed
+2022-06-01 03:44:58,379:logger:The audio files duration is successfully computed
+2022-06-01 03:44:58,380:logger:The audio files duration is successfully computed
+2022-06-01 03:44:58,382:logger:The audio files duration is successfully computed
+2022-06-01 04:45:18,865:logger:Successfully initialized eda class

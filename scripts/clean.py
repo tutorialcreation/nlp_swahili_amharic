@@ -3,6 +3,7 @@ import librosa
 import numpy as np
 import pandas as pd
 import warnings
+import random
 import matplotlib.pyplot as plt
 from os.path import exists
 import seaborn as sns
@@ -12,7 +13,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import Pipeline
-from scripts.logger import logger
+from logger import logger
 import torch
 import torchaudio
 import random
@@ -140,6 +141,27 @@ class Clean:
         logger.info("Successfully converted the column to datetime")
         return self.df
 
+    def store_audio_features(self,type='amharic'):
+        data = []
+        amharic_path = '../data/amharic_train_wav/'
+        for filename in os.listdir(amharic_path)[0:10]:
+            y, sr = librosa.load(amharic_path+filename, mono=False)
+            lc = {
+                "filename":filename,
+                "rmse":np.mean(librosa.feature.rms(y=y)),
+                "chroma_stft":np.mean(librosa.feature.chroma_stft(y=y, sr=sr)),
+                "spec_cent":np.mean(librosa.feature.spectral_centroid(y=y, sr=sr)),
+                "spec_bw":np.mean(librosa.feature.spectral_bandwidth(y=y, sr=sr)),
+                "rolloff":np.mean(librosa.feature.spectral_rolloff(y=y, sr=sr)),
+                "zcr":np.mean(librosa.feature.zero_crossing_rate(y)),
+                "mfcc":np.mean(librosa.feature.mfcc(y=y, sr=sr))
+            }
+            data.append(lc)
+            
+        
+        df = pd.DataFrame(data)
+        return df
+
 
 
     def fix_outliers(self,column,threshold):
@@ -257,7 +279,7 @@ class Clean:
         logger.info("successful aggregation")
         return dict(per_x)
 
-    def openfile(audio_file):
+    def openfile(self,audio_file):
         """
         - to open audio file and return the signal and sampling rate
         """
@@ -265,31 +287,53 @@ class Clean:
         return (sig, sr)
 
 
-    def pad_trunc(aud, max_ms):
-
+    def pad_trunc(self,sig,sr, max_ms):
         """
+        author:Edenwork
         - Pad (or truncate) the signal to a fixed length 'max_ms' in milliseconds
         """
-        sig, sr = openfile(aud)
+        sig, sr = sig,sr
+        sig = sig.reshape(-1,1)
+        sig = sig.T
         num_rows, sig_len = sig.shape
         max_len = sr//1000 * max_ms
 
         if (sig_len > max_len):
         # Truncate the signal to the given length
-            sig = sig[:,:max_len]
+            sig = sig[:,:int(max_len)]
 
         elif (sig_len < max_len):
         # Length of padding to add at the beginning and end of the signal
-            pad_begin_len = random.randint(0, max_len - sig_len)
+            pad_begin_len = random.randint(0, int(max_len) - int(sig_len))
             pad_end_len = max_len - sig_len - pad_begin_len
 
         # Pad with 0s
             pad_begin = torch.zeros((num_rows, pad_begin_len))
-            pad_end = torch.zeros((num_rows, pad_end_len))
+            pad_end = torch.zeros((int(num_rows), int(pad_end_len)))
 
-            sig = torch.cat((pad_begin, sig, pad_end), 1)
+            sig = torch.cat((pad_begin,  torch.from_numpy(sig), pad_end), 1)
 
         return (sig, sr)
+
+
+    def store_audio_features(y,sr):
+        """
+        author: Martin Luther
+        function: returns different features from the audio
+        """
+        
+        y, sr = y,sr
+        lc = {
+            "rmse":np.mean(librosa.feature.rms(y=y)),
+            "chroma_stft":np.mean(librosa.feature.chroma_stft(y=y, sr=sr)),
+            "spec_cent":np.mean(librosa.feature.spectral_centroid(y=y, sr=sr)),
+            "spec_bw":np.mean(librosa.feature.spectral_bandwidth(y=y, sr=sr)),
+            "rolloff":np.mean(librosa.feature.spectral_rolloff(y=y, sr=sr)),
+            "zcr":np.mean(librosa.feature.zero_crossing_rate(y)),
+            "mfcc":np.mean(librosa.feature.mfcc(y=y, sr=sr))
+        }
+        
+        return lc
     def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):
         """
         author: Martin Luther
