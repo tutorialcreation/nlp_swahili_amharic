@@ -316,7 +316,7 @@ class Clean:
         return (sig, sr)
 
 
-    def store_audio_features(y,sr):
+    def store_audio_features(self,y,sr):
         """
         author: Martin Luther
         function: returns different features from the audio
@@ -334,6 +334,7 @@ class Clean:
         }
         
         return lc
+        
     def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):
         """
         author: Martin Luther
