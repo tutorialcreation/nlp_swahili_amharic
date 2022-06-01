@@ -16,6 +16,7 @@ from sklearn.pipeline import Pipeline
 from logger import logger
 import torch
 import torchaudio
+from tensorflow import keras
 import random
 from logger import logger
 import IPython.display as ipd
@@ -322,6 +323,32 @@ class Clean:
         """
         df['text'] = 0
         return df
+
+    
+    def char_index(alphabet):
+        a_map = {} # map letter to number
+        rev_a_map = {} # map number to letter
+        for i, a in enumerate(alphabet):
+            a_map[a] = i
+            rev_a_map[i] = a
+        return rev_a_map
+
+    def vocab(self,alphabet):
+
+        # Mapping characters to integers
+        characters = [x for x in alphabet]
+        char_to_num = keras.layers.StringLookup(vocabulary=characters, oov_token="")
+        # Mapping integers back to original characters
+        num_to_char = keras.layers.StringLookup(
+            vocabulary=char_to_num.get_vocabulary(), oov_token="", invert=True
+        )
+
+        print(
+            f"The vocabulary is: {char_to_num.get_vocabulary()} "
+            f"(size ={char_to_num.vocabulary_size()})"
+        )
+        return (char_to_num,num_to_char)
+
 
     def store_audio_features(self,y,sr):
         """
