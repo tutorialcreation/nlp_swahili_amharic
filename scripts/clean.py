@@ -545,6 +545,29 @@ class Clean:
 
         return new_text, new_labels 
 
+    def get_clean_word(self, words, position):
+        clean_word_dict = self.read_text("../data/amharic_dictionary.txt")
+        clean_word_list = []
+        for i in clean_word_dict:
+            clean_word_list.append(i.split(" ")[0])
+
+        word = temp_word = words[position]
+        position = position + 1
+        move_with_error = 0
+
+        while((position < len(words) - 1) and (move_with_error < 5)):  # Give it five tries
+            new_word = temp_word + words[position]
+            if(new_word in clean_word_list):
+                temp_word = new_word
+                word = temp_word
+                position = position + 1
+                move_with_error = 0
+            else:
+                temp_word = new_word
+                move_with_error = move_with_error + 1
+
+        return word, position
+
 
     def get_duration(self, audio, rate):
         '''
