@@ -17,6 +17,7 @@ from logger import logger
 import torch
 import torchaudio
 from tensorflow import keras
+import tensorflow as tf
 import random
 from logger import logger
 import IPython.display as ipd
@@ -357,6 +358,7 @@ class Clean:
         """
         
         y, sr = y,sr
+        mfcc = librosa.feature.mfcc(y=y, sr=sr)
         lc = {
             "rmse":np.mean(librosa.feature.rms(y=y)),
             "chroma_stft":np.mean(librosa.feature.chroma_stft(y=y, sr=sr)),
@@ -364,10 +366,68 @@ class Clean:
             "spec_bw":np.mean(librosa.feature.spectral_bandwidth(y=y, sr=sr)),
             "rolloff":np.mean(librosa.feature.spectral_rolloff(y=y, sr=sr)),
             "zcr":np.mean(librosa.feature.zero_crossing_rate(y)),
-            "mfcc":np.mean(librosa.feature.mfcc(y=y, sr=sr))
         }
+        for i,e in enumerate(mfcc):
+            lc.update({f'mfcc-{i}':f' {np.mean(e)}'})
         
         return lc
+
+
+    def encode_single_sample(self,wav_file, label,type='amharic',frame_length=256,
+    frame_step=160,fft_length=384):
+        ###########################################
+        ##  Process the Audio
+        ##########################################
+        # 1. Read wav file
+        file=None
+        if type == 'swahili':
+            wavs_path='../data/swahili_train_wav/'
+            wav_file_ = wav_file+".wav"
+            for inner_wav_folder in os.listdir(wavs_path):
+                for fetched_file in inner_wav_folder:
+                    if fetched_file == wav_file_:
+                        file = tf.io.read_file(wavs_path + wav_file_)
+        else:
+            wavs_path='../data/amharic_train_wav//'
+            wav_file_ = wav_file+".wav"
+            file = tf.io.read_file(wavs_path + wav_file_)
+
+        # 2. Decode the wav file
+        audio, _ = tf.audio.decode_wav(file)
+        audio = tf.squeeze(audio, axis=-1)
+        # 3. Change type to float
+        audio = tf.cast(audio, tf.float32)
+        # 4. Get the spectrogram
+        spectrogram = tf.signal.stft(
+            audio, frame_length=frame_length, frame_step=frame_step, fft_length=fft_length
+        )
+        # 5. We only need the magnitude, which can be derived by applying tf.abs
+        spectrogram = tf.abs(spectrogram)
+        spectrogram = tf.math.pow(spectrogram, 0.5)
+        # 6. normalisation
+        means = tf.math.reduce_mean(spectrogram, 1, keepdims=True)
+        stddevs = tf.math.reduce_std(spectrogram, 1, keepdims=True)
+        spectrogram = (spectrogram - means) / (stddevs + 1e-10)
+        ###########################################
+        ##  Process the label
+        ##########################################
+        # 7. Convert label to Lower case
+        label = tf.strings.lower(label)
+        # 8. Split the label
+        label = tf.strings.unicode_split(label, input_encoding="UTF-8")
+        # 9. Map the characters in label to numbers
+        char_to_num=None
+        if type == 'amharic':
+            AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
+            vocabs = self.vocab(AM_ALPHABET)
+            char_to_num,_ = vocabs
+        else:
+            EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
+            vocabs = self.vocab(EN_ALPHABET)
+            char_to_num,_ = vocabs
+        label = char_to_num(label)
+        # 10. Return a dict as our model is expecting two inputs
+        return spectrogram, label
 
     def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):
         """
