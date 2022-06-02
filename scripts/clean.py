@@ -503,7 +503,7 @@ class Clean:
                     while line:
                         text.append(line)
                         line = fp.readline()
-                    logger.info("successfully read file")
+            # logger.info("successfully read file")
         except FileNotFoundError as e:
             logger.error(e)
 
