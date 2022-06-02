@@ -23,6 +23,9 @@ class Audio(models.Model):
     audio_file = models.FileField(upload_to="media/audio/",null=True,blank=True)
 
 class Performance(models.Model):
+    wer_rate = models.FloatField(null=True,blank=True)
     target=models.TextField(null=True,blank=True)
     prediction=models.TextField(null=True,blank=True)
+
+
     
