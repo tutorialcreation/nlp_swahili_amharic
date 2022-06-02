@@ -33,7 +33,7 @@ class Clean:
     - this class is responsible for performing 
     Cleaning Tasks
     """
-    char_to_num,_=vocab(AM_ALPHABET)
+    char_to_num,_=vocab(EN_ALPHABET)
 
     def __init__(self,df = None):
         """initialize the cleaning class"""
@@ -323,13 +323,6 @@ class Clean:
         return (sig, sr)
 
 
-    def clean_text(self,df,column):
-        """
-        todo: Biruk / amharic (nltk) ... Amal / swahili
-        """
-        df['text'] = 0
-        return df
-
     
     def char_index(self,alphabet):
         a_map = {} # map letter to number
@@ -365,40 +358,36 @@ class Clean:
     
     
 
-    def encode_single_sample(self,wav_file, label,type='amharic',frame_length=256,
-    frame_step=160,fft_length=384,char_to_num=char_to_num):
-        ###########################################
-        ##  Process the Audio
-        ##########################################
-        # 1. Read wav file
+    def encode_single_sample(self,wav_file, label,frame_length=2,
+                            frame_step=2,fft_length=2,char_to_num=char_to_num):
+        """
+        this algorithm does the following:
+            - Read wav file 
+            - Decode the wav file
+            - Change type to float
+            - Get the spectrogram
+            - We only need the magnitude, which can be derived by applying tf.abs
+            - normalisation
+            - Convert label to Lower case
+            - Split the label
+            - Map the characters in label to numbers
+            -. Return a dict as our model is expecting two inputs
+        """
         file = tf.io.read_file(wav_file)
-        # 2. Decode the wav file
         audio, _ = tf.audio.decode_wav(file)
         audio = tf.squeeze(audio, axis=-1)
-        # 3. Change type to float
         audio = tf.cast(audio, tf.float32)
-        # 4. Get the spectrogram
         spectrogram = tf.signal.stft(
             audio, frame_length=frame_length, frame_step=frame_step, fft_length=fft_length
         )
-        # 5. We only need the magnitude, which can be derived by applying tf.abs
         spectrogram = tf.abs(spectrogram)
         spectrogram = tf.math.pow(spectrogram, 0.5)
-        # 6. normalisation
         means = tf.math.reduce_mean(spectrogram, 1, keepdims=True)
         stddevs = tf.math.reduce_std(spectrogram, 1, keepdims=True)
         spectrogram = (spectrogram - means) / (stddevs + 1e-10)
-        ###########################################
-        ##  Process the label
-        ##########################################
-        # 7. Convert label to Lower case
         label = tf.strings.lower(label)
-        # 8. Split the label
-        label = tf.strings.unicode_split(label, input_encoding="UTF-8")
-        # 9. Map the characters in label to numbers
-        
+        label = tf.strings.unicode_split(label, input_encoding="UTF-8")        
         label = char_to_num(label)
-        # 10. Return a dict as our model is expecting two inputs
         return spectrogram, label
 
     def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):

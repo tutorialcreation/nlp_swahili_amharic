@@ -191,7 +191,7 @@ class DeepLearn:
 
         
 
-    def build_asr_model(self,input_dim, output_dim, rnn_layers=5, rnn_units=128):
+    def build_asr_model(self,input_dim, output_dim, rnn_layers=1, rnn_units=1):
         """Model similar to DeepSpeech2."""
         # Model's input
         input_spectrogram = layers.Input((None, input_dim), name="input")
@@ -199,8 +199,8 @@ class DeepLearn:
         x = layers.Reshape((-1, input_dim, 1), name="expand_dim")(input_spectrogram)
         # Convolution layer 1
         x = layers.Conv2D(
-            filters=32,
-            kernel_size=[11, 41],
+            filters=2,
+            kernel_size=[1, 2],
             strides=[2, 2],
             padding="same",
             use_bias=False,
@@ -210,8 +210,8 @@ class DeepLearn:
         x = layers.ReLU(name="conv_1_relu")(x)
         # Convolution layer 2
         x = layers.Conv2D(
-            filters=32,
-            kernel_size=[11, 21],
+            filters=2,
+            kernel_size=[1, 1],
             strides=[1, 2],
             padding="same",
             use_bias=False,
