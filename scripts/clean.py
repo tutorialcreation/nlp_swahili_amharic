@@ -14,25 +14,32 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import Pipeline
 from logger import logger
+from utils import vocab
 import torch
 import torchaudio
+from tensorflow import keras
+import tensorflow as tf
 import random
 from logger import logger
 import IPython.display as ipd
 import warnings
 import wave, array
 warnings.filterwarnings("ignore")
+AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
+EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
 
 class Clean:
     """
     - this class is responsible for performing 
     Cleaning Tasks
     """
+    char_to_num,_=vocab(AM_ALPHABET)
 
     def __init__(self,df = None):
         """initialize the cleaning class"""
         self.df = df
         logger.info("Successfully initialized clean class")
+        
 
     def has_missing_values(self):
         """
@@ -316,6 +323,24 @@ class Clean:
         return (sig, sr)
 
 
+    def clean_text(self,df,column):
+        """
+        todo: Biruk / amharic (nltk) ... Amal / swahili
+        """
+        df['text'] = 0
+        return df
+
+    
+    def char_index(self,alphabet):
+        a_map = {} # map letter to number
+        rev_a_map = {} # map number to letter
+        for i, a in enumerate(alphabet):
+            a_map[a] = i
+            rev_a_map[i] = a
+        return rev_a_map
+
+    
+
     def store_audio_features(self,y,sr):
         """
         author: Martin Luther
@@ -323,6 +348,7 @@ class Clean:
         """
         
         y, sr = y,sr
+        mfcc = librosa.feature.mfcc(y=y, sr=sr)
         lc = {
             "rmse":np.mean(librosa.feature.rms(y=y)),
             "chroma_stft":np.mean(librosa.feature.chroma_stft(y=y, sr=sr)),
@@ -330,10 +356,50 @@ class Clean:
             "spec_bw":np.mean(librosa.feature.spectral_bandwidth(y=y, sr=sr)),
             "rolloff":np.mean(librosa.feature.spectral_rolloff(y=y, sr=sr)),
             "zcr":np.mean(librosa.feature.zero_crossing_rate(y)),
-            "mfcc":np.mean(librosa.feature.mfcc(y=y, sr=sr))
         }
+        for i,e in enumerate(mfcc):
+            lc.update({f'mfcc-{i}':f' {np.mean(e)}'})
         
         return lc
+
+    
+    
+
+    def encode_single_sample(self,wav_file, label,type='amharic',frame_length=256,
+    frame_step=160,fft_length=384,char_to_num=char_to_num):
+        ###########################################
+        ##  Process the Audio
+        ##########################################
+        # 1. Read wav file
+        file = tf.io.read_file(wav_file)
+        # 2. Decode the wav file
+        audio, _ = tf.audio.decode_wav(file)
+        audio = tf.squeeze(audio, axis=-1)
+        # 3. Change type to float
+        audio = tf.cast(audio, tf.float32)
+        # 4. Get the spectrogram
+        spectrogram = tf.signal.stft(
+            audio, frame_length=frame_length, frame_step=frame_step, fft_length=fft_length
+        )
+        # 5. We only need the magnitude, which can be derived by applying tf.abs
+        spectrogram = tf.abs(spectrogram)
+        spectrogram = tf.math.pow(spectrogram, 0.5)
+        # 6. normalisation
+        means = tf.math.reduce_mean(spectrogram, 1, keepdims=True)
+        stddevs = tf.math.reduce_std(spectrogram, 1, keepdims=True)
+        spectrogram = (spectrogram - means) / (stddevs + 1e-10)
+        ###########################################
+        ##  Process the label
+        ##########################################
+        # 7. Convert label to Lower case
+        label = tf.strings.lower(label)
+        # 8. Split the label
+        label = tf.strings.unicode_split(label, input_encoding="UTF-8")
+        # 9. Map the characters in label to numbers
+        
+        label = char_to_num(label)
+        # 10. Return a dict as our model is expecting two inputs
+        return spectrogram, label
 
     def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):
         """
@@ -355,6 +421,7 @@ class Clean:
         swahili_wav_folders = os.listdir(path=swahili_train_audio_path)
         amharic_train_audio_path = f'../data/amharic_{wav_type}_wav/'
         amharic_wav_folders = os.listdir(path=amharic_train_audio_path)
+        file_path = []
         swahili_wavs = []
         transformed_files=[]
         if files:
@@ -373,6 +440,7 @@ class Clean:
             for wav_file in swahili_wavs[start:len(swahili_wavs) if not stop else stop]:
                 try:
                     loaded_files.append(librosa.load(wav_file, sr=44100))
+                    loaded_files.append(wav_file)
                 except Exception as e:
                     logger.error(e)
         else:
@@ -381,15 +449,28 @@ class Clean:
                     if len(transformed_files) > 1:
                         if wav_file in transformed_files:
                             loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
+                            loaded_files.append(amharic_train_audio_path+wav_file)
+                            
                     else:
                         loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
+                        loaded_files.append(amharic_train_audio_path+wav_file)
 
                 except Exception as e:
                     logger.error(e)
         result = []
-        for file in loaded_files:
-            audio,rate = file
-            result.append((audio,rate,self.get_duration(audio,rate)))
+        audio,rate,file_path=[],[],[]
+        for i,file in enumerate(loaded_files):
+            if isinstance(file,tuple):
+                audio_,rate_ = file
+                audio.append(audio_)
+                rate.append(rate_)
+            else:
+                file_path_ = file
+                file_path.append(file_path_)
+
+        for i in range(len(audio)):                
+            result.append((audio[i],rate[i],self.get_duration(audio[i],rate[i]),file_path[i]))
+
         logger.info("successful in operation of loading audios")
         return result
 
