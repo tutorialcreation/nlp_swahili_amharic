@@ -1,4 +1,5 @@
 # importing of libraries
+from bleach import Cleaner
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,6 +11,7 @@ from logger import logger
 from tensorflow import keras
 from tensorflow.keras import layers
 from model_serializer import ModelSerializer
+from clean import Clean
 import mlflow
 import csv
 import seaborn as sns
@@ -187,6 +189,8 @@ class DeepLearn:
         loss = keras.backend.ctc_batch_cost(y_true, y_pred, input_length, label_length)
         return loss
 
+        
+
     def build_asr_model(self,input_dim, output_dim, rnn_layers=5, rnn_units=128):
         """Model similar to DeepSpeech2."""
         # Model's input
@@ -247,12 +251,15 @@ class DeepLearn:
         model.compile(optimizer=opt, loss=self.CTCLoss)
         return model
 
-    def decode_batch_predictions(self,pred):
+    def decode_batch_predictions(self,pred,alphabet):
         input_len = np.ones(pred.shape[0]) * pred.shape[1]
         # Use greedy search. For complex tasks, you can use beam search
         results = keras.backend.ctc_decode(pred, input_length=input_len, greedy=True)[0][0]
         # Iterate over the results and get back the text
         output_text = []
+        cleaner = Clean()
+        vocabs = cleaner.vocab(alphabet)
+        _,num_to_char = vocabs
         for result in results:
             result = tf.strings.reduce_join(num_to_char(result)).numpy().decode("utf-8")
             output_text.append(result)
