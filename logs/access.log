@@ -45234,3 +45234,136 @@
 2022-06-02 04:05:54,680:logger:Successfully initialized clean class
 2022-06-02 04:33:41,657:logger:Successfully initialized clean class
 2022-06-02 04:37:35,526:logger:Successfully initialized clean class
+2022-06-02 04:51:43,042:logger:Successfully initialized clean class
+2022-06-02 04:51:46,570:logger:successful in operation of loading audios
+2022-06-02 04:51:47,809:logger:successful in operation of loading audios
+2022-06-02 04:51:48,816:logger:successfully read file
+2022-06-02 04:51:48,884:logger:successfully read file
+2022-06-02 04:51:50,010:logger:Successfully read the data
+2022-06-02 04:51:50,049:logger:successfully read file
+2022-06-02 04:51:50,063:logger:successfully read file
+2022-06-02 04:51:51,091:logger:Successfully read the data
+2022-06-02 04:51:53,163:logger:successful in operation of loading audios
+2022-06-02 04:51:56,399:logger:successful in operation of loading audios
+2022-06-02 04:52:10,400:logger:succesffully converted to stereo
+2022-06-02 04:52:12,657:logger:Successfully initialized eda class
+2022-06-02 04:54:39,155:logger:Successfully initialized clean class
+2022-06-02 05:01:00,393:logger:Successfully initialized clean class
+2022-06-02 05:08:24,054:logger:Successfully initialized clean class
+2022-06-02 05:13:26,243:logger:Successfully initialized clean class
+2022-06-02 05:20:38,161:logger:Successfully initialized clean class
+2022-06-02 05:29:46,635:logger:Successfully initialized clean class
+2022-06-02 05:32:31,616:logger:Successfully initialized clean class
+2022-06-02 05:51:37,103:logger:Successfully initialized clean class
+2022-06-02 05:51:44,688:logger:Successfully initialized clean class
+2022-06-02 05:57:57,582:logger:Successfully initialized clean class
+2022-06-02 05:58:27,423:logger:Successfully initialized clean class
+2022-06-02 06:06:19,000:logger:Successfully initialized clean class
+2022-06-02 06:17:40,960:logger:Successfully initialized clean class
+2022-06-02 06:18:28,215:logger:Successfully initialized clean class
+2022-06-02 06:37:07,028:logger:Successfully initialized clean class
+2022-06-02 06:37:18,945:logger:successful in operation of loading audios
+2022-06-02 06:37:20,423:logger:successful in operation of loading audios
+2022-06-02 06:41:20,507:logger:Successfully initialized clean class
+2022-06-02 06:41:21,891:logger:successful in operation of loading audios
+2022-06-02 06:41:23,138:logger:successful in operation of loading audios
+2022-06-02 06:41:25,672:logger:successfully read file
+2022-06-02 06:41:25,704:logger:successfully read file
+2022-06-02 06:41:26,818:logger:Successfully read the data
+2022-06-02 06:41:26,895:logger:successfully read file
+2022-06-02 06:41:26,917:logger:successfully read file
+2022-06-02 06:41:28,002:logger:Successfully read the data
+2022-06-02 06:41:30,691:logger:successful in operation of loading audios
+2022-06-02 06:41:34,595:logger:successful in operation of loading audios
+2022-06-02 06:44:20,351:logger:Successfully initialized clean class
+2022-06-02 06:44:21,801:logger:successful in operation of loading audios
+2022-06-02 06:44:23,155:logger:successful in operation of loading audios
+2022-06-02 06:48:08,845:logger:Successfully initialized clean class
+2022-06-02 06:48:11,338:logger:successful in operation of loading audios
+2022-06-02 06:48:12,855:logger:successful in operation of loading audios
+2022-06-02 06:51:11,693:logger:Successfully initialized clean class
+2022-06-02 06:51:13,387:logger:successful in operation of loading audios
+2022-06-02 06:51:14,592:logger:successful in operation of loading audios
+2022-06-02 06:53:01,666:logger:Successfully initialized clean class
+2022-06-02 06:53:03,015:logger:successful in operation of loading audios
+2022-06-02 06:53:04,213:logger:successful in operation of loading audios
+2022-06-02 06:54:48,945:logger:Successfully initialized clean class
+2022-06-02 06:54:50,523:logger:successful in operation of loading audios
+2022-06-02 06:55:39,656:logger:Successfully initialized clean class
+2022-06-02 06:55:41,055:logger:successful in operation of loading audios
+2022-06-02 07:01:20,745:logger:Successfully initialized clean class
+2022-06-02 07:01:22,907:logger:successful in operation of loading audios
+2022-06-02 07:04:55,343:logger:Successfully initialized clean class
+2022-06-02 07:04:56,618:logger:successful in operation of loading audios
+2022-06-02 07:04:57,927:logger:successful in operation of loading audios
+2022-06-02 07:05:49,643:logger:Successfully initialized clean class
+2022-06-02 07:05:55,869:logger:successful in operation of loading audios
+2022-06-02 07:05:57,103:logger:successful in operation of loading audios
+2022-06-02 07:10:51,438:logger:Successfully initialized clean class
+2022-06-02 07:19:44,418:logger:Successfully initialized clean class
+2022-06-02 07:19:45,692:logger:successful in operation of loading audios
+2022-06-02 07:19:46,890:logger:successful in operation of loading audios
+2022-06-02 07:19:48,036:logger:successfully read file
+2022-06-02 07:19:48,181:logger:successfully read file
+2022-06-02 07:19:49,419:logger:Successfully read the data
+2022-06-02 07:19:49,716:logger:successfully read file
+2022-06-02 07:19:49,778:logger:successfully read file
+2022-06-02 07:19:50,873:logger:Successfully read the data
+2022-06-02 07:19:52,956:logger:successful in operation of loading audios
+2022-06-02 07:19:56,423:logger:successful in operation of loading audios
+2022-06-02 07:20:18,634:logger:succesffully converted to stereo
+2022-06-02 07:21:49,947:logger:Successfully initialized clean class
+2022-06-02 07:21:51,141:logger:successful in operation of loading audios
+2022-06-02 07:21:52,453:logger:successful in operation of loading audios
+2022-06-02 07:21:53,072:logger:successfully read file
+2022-06-02 07:21:53,110:logger:successfully read file
+2022-06-02 07:21:54,403:logger:Successfully read the data
+2022-06-02 07:21:54,443:logger:successfully read file
+2022-06-02 07:21:54,456:logger:successfully read file
+2022-06-02 07:21:55,531:logger:Successfully read the data
+2022-06-02 07:21:57,601:logger:successful in operation of loading audios
+2022-06-02 07:22:01,069:logger:successful in operation of loading audios
+2022-06-02 07:22:08,425:logger:succesffully converted to stereo
+2022-06-02 07:24:37,740:logger:Successfully initialized clean class
+2022-06-02 07:24:39,592:logger:successful in operation of loading audios
+2022-06-02 07:24:40,790:logger:successful in operation of loading audios
+2022-06-02 07:24:41,040:logger:successfully read file
+2022-06-02 07:24:41,117:logger:successfully read file
+2022-06-02 07:24:42,425:logger:Successfully read the data
+2022-06-02 07:24:42,449:logger:successfully read file
+2022-06-02 07:24:42,457:logger:successfully read file
+2022-06-02 07:24:43,585:logger:Successfully read the data
+2022-06-02 07:24:45,602:logger:successful in operation of loading audios
+2022-06-02 07:24:48,949:logger:successful in operation of loading audios
+2022-06-02 07:24:55,650:logger:succesffully converted to stereo
+2022-06-02 07:24:59,048:logger:Successfully initialized eda class
+2022-06-02 07:28:37,761:logger:Successfully initialized clean class
+2022-06-02 07:28:39,829:logger:successful in operation of loading audios
+2022-06-02 07:28:41,095:logger:successful in operation of loading audios
+2022-06-02 07:28:41,661:logger:successfully read file
+2022-06-02 07:28:41,666:logger:successfully read file
+2022-06-02 07:28:42,850:logger:Successfully read the data
+2022-06-02 07:28:42,865:logger:successfully read file
+2022-06-02 07:28:42,869:logger:successfully read file
+2022-06-02 07:28:44,051:logger:Successfully read the data
+2022-06-02 07:28:46,223:logger:successful in operation of loading audios
+2022-06-02 07:28:49,566:logger:successful in operation of loading audios
+2022-06-02 07:28:54,092:logger:succesffully converted to stereo
+2022-06-02 07:43:02,227:logger:Successfully initialized clean class
+2022-06-02 07:43:04,027:logger:successful in operation of loading audios
+2022-06-02 07:43:05,282:logger:successful in operation of loading audios
+2022-06-02 07:43:05,479:logger:successfully read file
+2022-06-02 07:43:05,567:logger:successfully read file
+2022-06-02 07:43:06,713:logger:Successfully read the data
+2022-06-02 07:43:06,731:logger:successfully read file
+2022-06-02 07:43:06,752:logger:successfully read file
+2022-06-02 07:43:07,879:logger:Successfully read the data
+2022-06-02 07:43:09,722:logger:successful in operation of loading audios
+2022-06-02 07:43:13,018:logger:successful in operation of loading audios
+2022-06-02 07:43:19,262:logger:succesffully converted to stereo
+2022-06-02 07:43:20,097:logger:Successfully initialized eda class
+2022-06-02 07:43:53,377:logger:Successfully initialized clean class
+2022-06-02 07:46:17,200:logger:Successfully initialized clean class
+2022-06-02 07:50:53,939:logger:Successfully initialized clean class
+2022-06-02 07:52:00,984:logger:Successfully initialized clean class
+2022-06-02 08:09:18,883:logger:Successfully initialized clean class

@@ -14,6 +14,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.pipeline import Pipeline
 from logger import logger
+from utils import vocab
 import torch
 import torchaudio
 from tensorflow import keras
@@ -24,17 +25,21 @@ import IPython.display as ipd
 import warnings
 import wave, array
 warnings.filterwarnings("ignore")
+AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
+EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
 
 class Clean:
     """
     - this class is responsible for performing 
     Cleaning Tasks
     """
+    char_to_num,_=vocab(AM_ALPHABET)
 
     def __init__(self,df = None):
         """initialize the cleaning class"""
         self.df = df
         logger.info("Successfully initialized clean class")
+        
 
     def has_missing_values(self):
         """
@@ -334,22 +339,7 @@ class Clean:
             rev_a_map[i] = a
         return rev_a_map
 
-    def vocab(self,alphabet):
-
-        # Mapping characters to integers
-        characters = [x for x in alphabet]
-        char_to_num = keras.layers.StringLookup(vocabulary=characters, oov_token="")
-        # Mapping integers back to original characters
-        num_to_char = keras.layers.StringLookup(
-            vocabulary=char_to_num.get_vocabulary(), oov_token="", invert=True
-        )
-
-        print(
-            f"The vocabulary is: {char_to_num.get_vocabulary()} "
-            f"(size ={char_to_num.vocabulary_size()})"
-        )
-        return (char_to_num,num_to_char)
-
+    
 
     def store_audio_features(self,y,sr):
         """
@@ -372,26 +362,16 @@ class Clean:
         
         return lc
 
+    
+    
 
     def encode_single_sample(self,wav_file, label,type='amharic',frame_length=256,
-    frame_step=160,fft_length=384):
+    frame_step=160,fft_length=384,char_to_num=char_to_num):
         ###########################################
         ##  Process the Audio
         ##########################################
         # 1. Read wav file
-        file=None
-        if type == 'swahili':
-            wavs_path='../data/swahili_train_wav/'
-            wav_file_ = wav_file+".wav"
-            for inner_wav_folder in os.listdir(wavs_path):
-                for fetched_file in inner_wav_folder:
-                    if fetched_file == wav_file_:
-                        file = tf.io.read_file(wavs_path + wav_file_)
-        else:
-            wavs_path='../data/amharic_train_wav//'
-            wav_file_ = wav_file+".wav"
-            file = tf.io.read_file(wavs_path + wav_file_)
-
+        file = tf.io.read_file(wav_file)
         # 2. Decode the wav file
         audio, _ = tf.audio.decode_wav(file)
         audio = tf.squeeze(audio, axis=-1)
@@ -416,15 +396,7 @@ class Clean:
         # 8. Split the label
         label = tf.strings.unicode_split(label, input_encoding="UTF-8")
         # 9. Map the characters in label to numbers
-        char_to_num=None
-        if type == 'amharic':
-            AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
-            vocabs = self.vocab(AM_ALPHABET)
-            char_to_num,_ = vocabs
-        else:
-            EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
-            vocabs = self.vocab(EN_ALPHABET)
-            char_to_num,_ = vocabs
+        
         label = char_to_num(label)
         # 10. Return a dict as our model is expecting two inputs
         return spectrogram, label
@@ -449,6 +421,7 @@ class Clean:
         swahili_wav_folders = os.listdir(path=swahili_train_audio_path)
         amharic_train_audio_path = f'../data/amharic_{wav_type}_wav/'
         amharic_wav_folders = os.listdir(path=amharic_train_audio_path)
+        file_path = []
         swahili_wavs = []
         transformed_files=[]
         if files:
@@ -467,6 +440,7 @@ class Clean:
             for wav_file in swahili_wavs[start:len(swahili_wavs) if not stop else stop]:
                 try:
                     loaded_files.append(librosa.load(wav_file, sr=44100))
+                    loaded_files.append(wav_file)
                 except Exception as e:
                     logger.error(e)
         else:
@@ -475,15 +449,28 @@ class Clean:
                     if len(transformed_files) > 1:
                         if wav_file in transformed_files:
                             loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
+                            loaded_files.append(amharic_train_audio_path+wav_file)
+                            
                     else:
                         loaded_files.append(librosa.load(amharic_train_audio_path+wav_file, sr=44100))
+                        loaded_files.append(amharic_train_audio_path+wav_file)
 
                 except Exception as e:
                     logger.error(e)
         result = []
-        for file in loaded_files:
-            audio,rate = file
-            result.append((audio,rate,self.get_duration(audio,rate)))
+        audio,rate,file_path=[],[],[]
+        for i,file in enumerate(loaded_files):
+            if isinstance(file,tuple):
+                audio_,rate_ = file
+                audio.append(audio_)
+                rate.append(rate_)
+            else:
+                file_path_ = file
+                file_path.append(file_path_)
+
+        for i in range(len(audio)):                
+            result.append((audio[i],rate[i],self.get_duration(audio[i],rate[i]),file_path[i]))
+
         logger.info("successful in operation of loading audios")
         return result
 
