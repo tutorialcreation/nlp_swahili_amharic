@@ -286,12 +286,6 @@ class Clean:
         logger.info("successful aggregation")
         return dict(per_x)
 
-    def openfile(self,audio_file):
-        """
-        - to open audio file and return the signal and sampling rate
-        """
-        sig, sr = torchaudio.load(audio_file)
-        return (sig, sr)
 
 
     def pad_trunc(self,sig,sr, max_ms):
