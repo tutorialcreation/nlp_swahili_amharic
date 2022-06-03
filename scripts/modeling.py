@@ -34,8 +34,8 @@ from sklearn.naive_bayes import BernoulliNB, GaussianNB
 
 import os,sys
 # sys.path.append(os.path.abspath(os.path.join('../scripts')))
-from scripts.logger import logger
-from scripts.model_serializer import ModelSerializer
+from logger import logger
+from model_serializer import ModelSerializer
 # To evaluate end result we have
 from sklearn.metrics import mean_absolute_error, log_loss
 from sklearn.model_selection import LeaveOneOut
