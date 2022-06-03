@@ -200,7 +200,7 @@ class DeepLearn:
         # Convolution layer 1
         x = layers.Conv2D(
             filters=2,
-            kernel_size=[1, 2],
+            kernel_size=[11, 41],
             strides=[2, 2],
             padding="same",
             use_bias=False,
@@ -211,7 +211,7 @@ class DeepLearn:
         # Convolution layer 2
         x = layers.Conv2D(
             filters=2,
-            kernel_size=[1, 1],
+            kernel_size=[11, 21],
             strides=[1, 2],
             padding="same",
             use_bias=False,

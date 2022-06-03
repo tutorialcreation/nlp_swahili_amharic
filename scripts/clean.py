@@ -358,8 +358,8 @@ class Clean:
     
     
 
-    def encode_single_sample(self,wav_file, label,frame_length=2,
-                            frame_step=2,fft_length=2,char_to_num=char_to_num):
+    def encode_single_sample(self,wav_file, label,frame_length=256,
+                            frame_step=160,fft_length=384,char_to_num=char_to_num):
         """
         this algorithm does the following:
             - Read wav file 
