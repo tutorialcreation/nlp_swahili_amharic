@@ -27,7 +27,7 @@ stages:
     outs:
     - models/model.pkl
   evaluate:
-    cmd: python scripts/modeling.py models/model.pkl
+    cmd: mlflow run ......
     deps:
     - models/model.pkl
     - scripts/modeling.py
@@ -40,3 +40,4 @@ stages:
     - pipeline/evaluate.py
     outs:
     - data/results.csv
+
