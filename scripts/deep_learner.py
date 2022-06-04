@@ -267,6 +267,53 @@ class DeepLearn:
         model.compile(optimizer=opt, loss=self.CTCLoss)
         return model
 
+    def cnn_rnn_model(self, input_dim, filters, kernels, pool_sizes, mx_stride, cnn_stride, output_dim=224, num_cnn = 3, num_lstm = 4 ):
+
+        input_spectrogram = layers.Input(name='the_input', shape=(None, input_dim))
+        x = layers.Reshape((-1, input_dim, 1), dtype="float32")(input_spectrogram)
+        
+        # Activation function used LeakyReLU, we can also use ReLU
+        # Conv Layers
+        for i in range(num_cnn):
+            x = layers.Conv2D(filters=filters[i], kernel_size=kernels[i], strides=1, padding='valid', name='cnn_{}'.format(i))(x)
+            x = layers.LeakyReLU(.1)(x)
+            x = layers.MaxPooling2D( pool_size=pool_sizes[i], strides=(1,2), padding="valid")(x)
+            x = layers.BatchNormalization(name='bn_cnn_{}'.format(i))(x)
+            
+        x = layers.Reshape((-1, x.shape[-1] * x.shape[-2] ))(x)
+
+        # RNN Layers
+        for i in range(num_lstm):
+            x = layers.Bidirectional(layers.GRU(units=512, return_sequences=True, implementation=2, name='rnn_{}'.format(i)))(x)
+            x = layers.LeakyReLU(.1)(x)
+            x = layers.BatchNormalization(name='bn_rnn_{}'.format(i))(x)
+
+            if i < num_lstm:
+                x = layers.Dropout(rate=0.5)(x)
+
+        # Dense Layer
+        x = layers.TimeDistributed(layers.Dense(output_dim))(x)
+
+        # Prediction Layer
+        y_pred = layers.Activation('softmax', name='softmax')(x)
+        y_pred = layers.LeakyReLU(name="dense_1_relu")(y_pred) 
+        y_pred = layers.Dropout(rate=0.5)(y_pred)
+
+        # Model
+        model = keras.Model( inputs=input_spectrogram, outputs=y_pred, name="CONV_RNN" )
+
+        # Optimizer
+        opt = keras.optimizers.Adam(learning_rate=1e-4)
+        
+        # Compile the model and print its summary 
+        model.compile(optimizer=opt, loss=self.CTCLoss)
+        print(model.summary())
+
+        # Calculate the output length
+        model.output_length = lambda x: self.output_length(x, kernels, pool_sizes, cnn_stride, mx_stride)
+
+        return model
+
     def decode_batch_predictions(self,pred,alphabet):
         input_len = np.ones(pred.shape[0]) * pred.shape[1]
         # Use greedy search. For complex tasks, you can use beam search
