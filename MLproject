@@ -3,10 +3,10 @@ name: abtest
 conda_env: conda.yaml
 
 entry_points:
-  deep-learner:
+  preprocessing:
     command: "python3 scripts/deep_learner.py "
 
-  regression-modeling:
+  deep_learner:
     command: "python3 scripts/modeling.py"
 
   main:

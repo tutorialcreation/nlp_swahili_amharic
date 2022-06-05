@@ -191,7 +191,7 @@ class DeepLearn:
 
         
 
-    def build_asr_model(self,input_dim, output_dim, rnn_layers=5, rnn_units=128):
+    def build_asr_model(self,input_dim, output_dim, rnn_layers=5, rnn_units=12):
         """Model similar to DeepSpeech2."""
         # Model's input
         input_spectrogram = layers.Input((None, input_dim), name="input")
