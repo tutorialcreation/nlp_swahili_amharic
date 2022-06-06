@@ -1,10 +1,2 @@
-validation:
-  folds: 5
 dataset:
   no_observations: 20
-language:
-  type: 'swahili'
-model:
-  rnn_units: 512
-  filters: 10
-  

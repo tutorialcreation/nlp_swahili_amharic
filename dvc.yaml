@@ -1,5 +1,5 @@
 stages:
-  setup:
+  prepare:
     cmd: python clean.py
     deps:
     - data/amharic_train_text.txt
