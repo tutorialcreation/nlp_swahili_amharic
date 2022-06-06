@@ -11,3 +11,14 @@ stages:
     outs:
     - data/amharic.csv
     - data/swahili.csv
+  train:
+    cmd: cd scripts && python deep_learner.py ${model.epochs} ${model.learning_rate}
+    deps:
+    - data/amharic.csv
+    - data/swahili.csv
+    - scripts/deep_learner.py
+    params:
+    - model.epochs
+    - model.learning_rate
+    outs:
+    - models/model.pkl

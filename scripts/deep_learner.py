@@ -315,7 +315,7 @@ if __name__=='__main__':
         lr=learning_rate
     )
     model.summary(line_length=110)
-    epochs = 1
+    epochs = no_epochs
     # Callback function to check transcription on the val set.
     validation_callback = CallbackEval(model,validation_dataset)
     # Train the model
