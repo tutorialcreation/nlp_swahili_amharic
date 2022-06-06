@@ -281,4 +281,23 @@ if __name__=='__main__':
     swahili_preprocessed = pre_model.preprocessing_learn(swahili_df,'key','file')
     amharic_preprocessed = pre_model.preprocessing_learn(amharic_df,'key','file')
     train_df,val_df,test_df = swahili_preprocessed
-    
+    batch_size = 32
+    # Define the trainig dataset
+    train_dataset = tf.data.Dataset.from_tensor_slices(
+        (list(train_df["file"]), list(train_df["text"]))
+    )
+    train_dataset = (
+        train_dataset.map(cleaner.encode_single_sample, num_parallel_calls=tf.data.AUTOTUNE)
+        .padded_batch(batch_size)
+        .prefetch(buffer_size=tf.data.AUTOTUNE)
+    )
+
+    # Define the validation dataset
+    validation_dataset = tf.data.Dataset.from_tensor_slices(
+        (list(val_df["file"]), list(val_df["text"]))
+    )
+    validation_dataset = (
+        validation_dataset.map(cleaner.encode_single_sample, num_parallel_calls=tf.data.AUTOTUNE)
+        .padded_batch(batch_size)
+        .prefetch(buffer_size=tf.data.AUTOTUNE)
+    )
