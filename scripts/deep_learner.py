@@ -279,5 +279,5 @@ if __name__=='__main__':
     language_df = lang.append(amharic_df, ignore_index=True)
     pre_model = Modeler()
     swahili_preprocessed = pre_model.preprocessing_learn(swahili_df,'key','file')
-
+    amharic_preprocessed = pre_model.preprocessing_learn(amharic_df,'key','file')
     
