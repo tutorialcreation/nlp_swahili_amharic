@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import os,sys
 
-from scripts.modeling import Modeler
 print(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join('../scripts')))
+from modeling import Modeler
 from logger import logger
 from tensorflow import keras
 from tensorflow.keras import layers
