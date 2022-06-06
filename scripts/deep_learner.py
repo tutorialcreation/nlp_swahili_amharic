@@ -301,3 +301,11 @@ if __name__=='__main__':
         .padded_batch(batch_size)
         .prefetch(buffer_size=tf.data.AUTOTUNE)
     )
+    fft_length = 384
+    model = learn.build_asr_model(
+        input_dim=fft_length // 2 + 1,
+        output_dim=char_to_num.vocabulary_size(),
+        rnn_units=512,
+    )
+    model.summary(line_length=110)
+    
