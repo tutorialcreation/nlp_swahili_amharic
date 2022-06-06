@@ -280,4 +280,5 @@ if __name__=='__main__':
     pre_model = Modeler()
     swahili_preprocessed = pre_model.preprocessing_learn(swahili_df,'key','file')
     amharic_preprocessed = pre_model.preprocessing_learn(amharic_df,'key','file')
+    train_df,val_df,test_df = swahili_preprocessed
     
