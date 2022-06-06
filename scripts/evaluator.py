@@ -4,6 +4,10 @@ from jiwer import wer
 import tensorflow as tf
 import numpy as np
 import mlflow
+from dvclive import Live
+
+
+dvclive = Live()
 
 AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
 EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
@@ -34,6 +38,7 @@ class CallbackEval(keras.callbacks.Callback):
                 targets.append(label)
         wer_score = wer(targets, predictions)
         mlflow.log_metric('wer-rate',wer_score)
+        dvclive.log(wer_score)
         print("-" * 100)
         print(f"Word Error Rate: {wer_score:.4f}")
         print("-" * 100)
