@@ -1,43 +1,11 @@
 stages:
-  cleaning:
-    cmd: python scripts/clean.py data/train.csv data/test.csv data/store.csv
+  setup:
+    cmd: python clean.py
     deps:
-    - data/train.csv
-    - data/test.csv
-    - data/store.csv
-    - scripts/clean.py
+    - data/amharic_train_text.txt
+    - data/amharic_train_wav/
+    - data/swahili_train_text.txt
+    - data/swahili_train_wav/
     outs:
-    - data/training.csv
-    - data/testing.csv
-  features:
-    cmd: python scripts/clean.py data/training.csv data/testing.csv
-    deps:
-    - data/testing.csv
-    - data/training.csv
-    - scripts/clean.py
-    outs:
-    - data/cleaned_test.csv
-    - data/cleaned_train.csv
-  model:
-    cmd: python scripts/modeling.py data/cleaned_train.csv data/cleaned_test.csv
-    deps:
-    - data/cleaned_test.csv
-    - data/cleaned_train.csv
-    - scripts/modeling.py
-    outs:
-    - models/model.pkl
-  evaluate:
-    cmd: mlflow run ......
-    deps:
-    - models/model.pkl
-    - scripts/modeling.py
-    outs:
-    - models/evaluate.pkl
-  deployment:
-    cmd: python pipeline/evaluate.py models/evaluate.pkl
-    deps:
-    - models/evaluate.pkl
-    - pipeline/evaluate.py
-    outs:
-    - data/results.csv
-
+    - amharic.csv
+    - swahili.csv

@@ -199,7 +199,7 @@ class DeepLearn:
         x = layers.Reshape((-1, input_dim, 1), name="expand_dim")(input_spectrogram)
         # Convolution layer 1
         x = layers.Conv2D(
-            filters=2,
+            filters=3,
             kernel_size=[11, 41],
             strides=[2, 2],
             padding="same",
