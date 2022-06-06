@@ -271,7 +271,7 @@ class DeepLearn:
     
 if __name__=='__main__':
     no_epochs = int(sys.argv[1])
-    learning_rate = int(sys.argv[2])
+    learning_rate = float(sys.argv[2])
     cleaner = Clean()
     char_to_num,num_to_char=vocab(EN_ALPHABET)
     swahili_df = pd.read_csv('../data/swahili.csv')
