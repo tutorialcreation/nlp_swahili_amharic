@@ -1,7 +1,7 @@
 schema: '2.0'
 stages:
   prepare:
-    cmd: cd scripts && python clean.py 10
+    cmd: cd scripts && python clean.py 15
     deps:
     - path: data/amharic_train_text.txt
       md5: 837b41c84f2fff5e5cb87d49a784c6a7
@@ -19,11 +19,11 @@ stages:
       nfiles: 10180
     params:
       params.yaml:
-        dataset.no_observations: 10
+        dataset.no_observations: 15
     outs:
     - path: data/amharic.csv
-      md5: 67e2fc2db6516ce7fdc997cc52ec7b77
-      size: 7047
+      md5: 079e8ee474472978ef4d70328f2279df
+      size: 10443
     - path: data/swahili.csv
-      md5: 04211f3e01ed733d6b5706b82e66bcce
-      size: 7711
+      md5: 9de5c4b3008d6fc723d16bd9bd1215e2
+      size: 11533
