@@ -5,6 +5,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import os,sys
+
+from scripts.modeling import Modeler
 print(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join('../scripts')))
 from logger import logger
@@ -12,12 +14,14 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from model_serializer import ModelSerializer
 from clean import Clean
+from utils import vocab
 import mlflow
 import csv
 import seaborn as sns
 sns.set()
 
-
+AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
+EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
 class DeepLearn:
     """
     - this class is responsible for deep learning
@@ -265,26 +269,15 @@ class DeepLearn:
 
     
 if __name__=='__main__':
-    train_ = pd.read_csv("data/cleaned_train.csv")
-    train_.set_index('Date',inplace=True)
-    """make sales to be last column"""
-    train=train_.loc[:,train_.columns!='Sales']
-    train['Sales']=train_['Sales']
-    n = len(train)
-    train_df = train[0:int(n*0.7)]
-    val_df = train[int(n*0.7):int(n*0.9)]
-    test_df = train[int(n*0.9):]
-    num_features = train.shape[1]
-    learn = DeepLearn(input_width=1, label_width=1, shift=1,epochs=5,
-                     train_df=train_df, val_df=val_df, test_df=test_df,
-                     label_columns=['Sales'])
-    forecast = learn.model(
-        model_=tf.keras.models.Sequential([
-            # Shape [batch, time, features] => [batch, time, lstm_units]
-            tf.keras.layers.LSTM(32, return_sequences=True),
-            # Shape => [batch, time, features]
-            tf.keras.layers.Dense(units=1)
-        ])
-    )
-    
+    cleaner = Clean()
+    char_to_num,num_to_char=vocab(EN_ALPHABET)
+    swahili_df = pd.read_csv('../data/swahili.csv')
+    lang = pd.read_csv("../data/swahili.csv")
+    lang['type']='swahili'
+    amharic_df = pd.read_csv("../data/amharic.csv")
+    amharic_df['type']='amharic'
+    language_df = lang.append(amharic_df, ignore_index=True)
+    pre_model = Modeler()
+       
+
     
