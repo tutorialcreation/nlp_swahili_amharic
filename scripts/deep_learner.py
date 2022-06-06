@@ -15,6 +15,7 @@ from tensorflow.keras import layers
 from model_serializer import ModelSerializer
 from clean import Clean
 from utils import vocab
+from evaluator import CallbackEval
 import mlflow
 import csv
 import seaborn as sns
@@ -311,3 +312,13 @@ if __name__=='__main__':
         rnn_units=512,
     )
     model.summary(line_length=110)
+    epochs = 1
+    # Callback function to check transcription on the val set.
+    validation_callback = CallbackEval(model,validation_dataset)
+    # Train the model
+    history = model.fit(
+        train_dataset,
+        validation_data=validation_dataset,
+        epochs=epochs,
+        callbacks=[validation_callback],
+    )
