@@ -45421,3 +45421,6 @@
 2022-06-06 16:57:01,509:logger:Successfully initialized clean class
 2022-06-06 16:57:11,179:logger:Successfully run the deep learing model
 2022-06-06 16:57:11,182:scripts.logger:initializing serializer
+2022-06-06 16:59:42,741:logger:Successfully initialized clean class
+2022-06-06 16:59:53,778:logger:Successfully run the deep learing model
+2022-06-06 16:59:53,782:scripts.logger:initializing serializer
