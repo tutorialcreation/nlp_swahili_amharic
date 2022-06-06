@@ -251,7 +251,7 @@ class DeepLearn:
         # Compile the model and return
         model.compile(optimizer=opt, loss=self.CTCLoss)
         if serialize:
-            serializer = ModelSerializer()
+            serializer = ModelSerializer(model)
             serializer.pickle_serialize()
         return model
 
