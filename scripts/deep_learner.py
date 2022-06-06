@@ -250,6 +250,9 @@ class DeepLearn:
         opt = keras.optimizers.Adam(learning_rate=1e-4)
         # Compile the model and return
         model.compile(optimizer=opt, loss=self.CTCLoss)
+        if serialize:
+            serializer = ModelSerializer()
+            serializer.pickle_serialize()
         return model
 
     
