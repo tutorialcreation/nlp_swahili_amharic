@@ -238,18 +238,23 @@ class DeepLearn:
             )(x)
             if i < rnn_layers:
                 x = layers.Dropout(rate=0.5)(x)
-        # Dense layer
+        # Dense layer                                                                        
         x = layers.Dense(units=rnn_units * 2, name="dense_1")(x)
         x = layers.ReLU(name="dense_1_relu")(x)
         x = layers.Dropout(rate=0.5)(x)
         # Classification layer
         output = layers.Dense(units=output_dim + 1, activation="softmax")(x)
         # Model
+        mlflow.tensorflow.autolog()
         model = keras.Model(input_spectrogram, output, name="DeepSpeech_2")
         # Optimizer
-        opt = keras.optimizers.Adam(learning_rate=1e-4)
-        # Compile the model and return
-        model.compile(optimizer=opt, loss=self.CTCLoss)
+        with mlflow.start_run(run_name='audio-deep-learner'):
+            mlflow.set_tag("mlflow.runName", "audio-deep-learner")
+            opt = keras.optimizers.Adam(learning_rate=1e-4)
+            # Compile the model and return
+            model.compile(optimizer=opt, loss=self.CTCLoss)
+            logger.info("Successfully run the deep learing model")
+
         if serialize:
             serializer = ModelSerializer(model)
             serializer.pickle_serialize()
