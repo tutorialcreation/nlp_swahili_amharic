@@ -26,7 +26,7 @@ import warnings
 import string
 import wave, array
 warnings.filterwarnings("ignore")
-AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
+AM_ALPHABET='ሀለሐመሠረሰሸቀቐበቨተቸኀነኘአከኸወዐዘዠየደዸጀገጠጨጰጸፀፈፐፙፘፚauiāeəo''
 EN_ALPHABET=string.ascii_lowercase
 
 class Clean:
