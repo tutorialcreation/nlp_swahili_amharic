@@ -197,7 +197,7 @@ class DeepLearn:
         
 
     def build_asr_model(self,input_dim, output_dim, rnn_layers=5, rnn_units=12,
-                        serialize=True):
+                        lr=1e-4,serialize=True):
         """
         this functions works like this
         - input spectogram
@@ -258,7 +258,7 @@ class DeepLearn:
         model = keras.Model(input_spectrogram, output, name="DeepSpeech_2")
         with mlflow.start_run(run_name='audio-deep-learner'):
             mlflow.set_tag("mlflow.runName", "audio-deep-learner")
-            opt = keras.optimizers.Adam(learning_rate=1e-4)
+            opt = keras.optimizers.Adam(learning_rate=lr)
             model.compile(optimizer=opt, loss=self.CTCLoss)
             logger.info("Successfully run the deep learing model")
         if serialize:
@@ -270,6 +270,8 @@ class DeepLearn:
 
     
 if __name__=='__main__':
+    no_epochs = int(sys.argv[1])
+    learning_rate = int(sys.argv[2])
     cleaner = Clean()
     char_to_num,num_to_char=vocab(EN_ALPHABET)
     swahili_df = pd.read_csv('../data/swahili.csv')
@@ -310,6 +312,7 @@ if __name__=='__main__':
         input_dim=fft_length // 2 + 1,
         output_dim=char_to_num.vocabulary_size(),
         rnn_units=512,
+        lr=learning_rate
     )
     model.summary(line_length=110)
     epochs = 1
