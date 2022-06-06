@@ -1,0 +1,29 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: cd scripts && python clean.py 10
+    deps:
+    - path: data/amharic_train_text.txt
+      md5: 837b41c84f2fff5e5cb87d49a784c6a7
+      size: 1706211
+    - path: data/amharic_train_wav/
+      md5: 0697cd48989326909a10e81977696029.dir
+      size: 2308726994
+      nfiles: 10876
+    - path: data/swahili_train_text.txt
+      md5: 4e4b043964f30ad01a1f868fe18240a0
+      size: 1297749
+    - path: data/swahili_train_wav/
+      md5: b7e332bd57f0f4642cb8eece87f7a5d8.dir
+      size: 1142186384
+      nfiles: 10180
+    params:
+      params.yaml:
+        dataset.no_observations: 10
+    outs:
+    - path: data/amharic.csv
+      md5: 67e2fc2db6516ce7fdc997cc52ec7b77
+      size: 7047
+    - path: data/swahili.csv
+      md5: 04211f3e01ed733d6b5706b82e66bcce
+      size: 7711

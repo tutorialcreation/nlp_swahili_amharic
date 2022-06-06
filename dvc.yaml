@@ -1,11 +1,13 @@
 stages:
   prepare:
-    cmd: python clean.py
+    cmd: cd scripts && python clean.py ${dataset.no_observations}
     deps:
     - data/amharic_train_text.txt
     - data/amharic_train_wav/
     - data/swahili_train_text.txt
     - data/swahili_train_wav/
+    params:
+    - dataset.no_observations
     outs:
-    - amharic.csv
-    - swahili.csv
+    - data/amharic.csv
+    - data/swahili.csv
