@@ -301,6 +301,9 @@ if __name__=='__main__':
         .padded_batch(batch_size)
         .prefetch(buffer_size=tf.data.AUTOTUNE)
     )
+    learn = DeepLearn(input_width=1, label_width=1, shift=1,epochs=5,
+                 train_df=train_df, val_df=val_df, test_df=test_df,
+                 label_columns=['mfcc-0'])
     fft_length = 384
     model = learn.build_asr_model(
         input_dim=fft_length // 2 + 1,
@@ -308,4 +311,3 @@ if __name__=='__main__':
         rnn_units=512,
     )
     model.summary(line_length=110)
-    
