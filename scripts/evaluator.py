@@ -3,6 +3,7 @@ from utils import decode_batch_predictions,vocab
 from jiwer import wer
 import tensorflow as tf
 import numpy as np
+import mlflow
 
 AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
 EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
@@ -15,6 +16,7 @@ class CallbackEval(keras.callbacks.Callback):
         super().__init__()
         self.dataset = dataset
         self.model = model
+
 
     def on_epoch_end(self, epoch: int, logs=None):
         predictions = []
@@ -31,6 +33,7 @@ class CallbackEval(keras.callbacks.Callback):
                 )
                 targets.append(label)
         wer_score = wer(targets, predictions)
+        mlflow.log_metric('wer-rate',wer_score)
         print("-" * 100)
         print(f"Word Error Rate: {wer_score:.4f}")
         print("-" * 100)
