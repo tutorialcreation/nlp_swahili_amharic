@@ -193,12 +193,22 @@ class DeepLearn:
 
     def build_asr_model(self,input_dim, output_dim, rnn_layers=5, rnn_units=12,
                         serialize=True):
-        """Model similar to DeepSpeech2."""
-        # Model's input
+        """
+        this functions works like this
+        - input spectogram
+        - Expand the dimension to use 2D CNN.
+        - Convolution layer 1
+        - Convolution layer 2
+        - Reshape the resulted volume to feed the RNNs layers
+        - Dense layer                                                                        
+        - Classification layer
+        - Model
+        - Optimizer
+        - Compile the model and log it
+        - Serialize and save the model 
+        """
         input_spectrogram = layers.Input((None, input_dim), name="input")
-        # Expand the dimension to use 2D CNN.
         x = layers.Reshape((-1, input_dim, 1), name="expand_dim")(input_spectrogram)
-        # Convolution layer 1
         x = layers.Conv2D(
             filters=3,
             kernel_size=[11, 41],
@@ -209,7 +219,6 @@ class DeepLearn:
         )(x)
         x = layers.BatchNormalization(name="conv_1_bn")(x)
         x = layers.ReLU(name="conv_1_relu")(x)
-        # Convolution layer 2
         x = layers.Conv2D(
             filters=2,
             kernel_size=[11, 21],
@@ -220,9 +229,7 @@ class DeepLearn:
         )(x)
         x = layers.BatchNormalization(name="conv_2_bn")(x)
         x = layers.ReLU(name="conv_2_relu")(x)
-        # Reshape the resulted volume to feed the RNNs layers
         x = layers.Reshape((-1, x.shape[-2] * x.shape[-1]))(x)
-        # RNN layers
         for i in range(1, rnn_layers + 1):
             recurrent = layers.GRU(
                 units=rnn_units,
@@ -238,23 +245,17 @@ class DeepLearn:
             )(x)
             if i < rnn_layers:
                 x = layers.Dropout(rate=0.5)(x)
-        # Dense layer                                                                        
         x = layers.Dense(units=rnn_units * 2, name="dense_1")(x)
         x = layers.ReLU(name="dense_1_relu")(x)
         x = layers.Dropout(rate=0.5)(x)
-        # Classification layer
         output = layers.Dense(units=output_dim + 1, activation="softmax")(x)
-        # Model
         mlflow.tensorflow.autolog()
         model = keras.Model(input_spectrogram, output, name="DeepSpeech_2")
-        # Optimizer
         with mlflow.start_run(run_name='audio-deep-learner'):
             mlflow.set_tag("mlflow.runName", "audio-deep-learner")
             opt = keras.optimizers.Adam(learning_rate=1e-4)
-            # Compile the model and return
             model.compile(optimizer=opt, loss=self.CTCLoss)
             logger.info("Successfully run the deep learing model")
-
         if serialize:
             serializer = ModelSerializer(model)
             serializer.pickle_serialize()
