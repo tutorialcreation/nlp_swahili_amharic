@@ -45418,3 +45418,6 @@
 2022-06-06 06:21:49,872:logger:Successfully read the data
 2022-06-06 06:21:53,244:logger:successful in operation of loading audios
 2022-06-06 06:21:58,264:logger:successful in operation of loading audios
+2022-06-06 16:57:01,509:logger:Successfully initialized clean class
+2022-06-06 16:57:11,179:logger:Successfully run the deep learing model
+2022-06-06 16:57:11,182:scripts.logger:initializing serializer
