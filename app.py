@@ -1,42 +1,23 @@
-
-from dashboard.routes import router
+import os
+import sys
 import streamlit as st
-# """
-# - the purpose of this file
-# Use one of the platforms of your choice (Flask, Streamlit, pure javascript, etc.) to design, and build 
-# a backend to make inference using your trained model and input parameters collected through a frontend interface.
 
-# Your dashboard should provide an easy way for a user (in this case managers of the stores) to enter required 
-# input parameters, and output the predicted sales amount and customer numbers.
+sys.path.insert(0, 'dashboardd')
+from applications import exploration
+from multiapp import MultiApp
 
-# The input fields in the frontend are for example
+st.set_page_config(page_title="African language Speech Recognition - Speech-to-Text ", layout="wide")
 
-#     Store_id
-#     Upload csv file with a columns name
+app = MultiApp()
 
-#     Date
-#     IsHoliday
-#     IsWeekend
-#     IsPromo
+st.sidebar.markdown("""
+# Speech-to-Text
+""")
 
-#     Any other parameter which is dependent on the date
-#     Any any other parameter requires as input for your model that is not dependent on date
+# Add all your application here
+app.add_app("visualizations", exploration.app)
 
-# Finally your dashboard should show a plot that shows the predicted sales amount and number of customers. It 
-# should also allow the user to download the prediction in the form of a csv table.
-# """
 
-def run():
-    st.title("Pharmaceutical Sales Prediction")
-    st.session_state.page_select = st.sidebar.radio('SiteMap', 
-            [
-                'make_forecast', 
-                'view_forecast_chart'
-            ])
-    # routes
-    router(page=st.session_state.page_select)    
-    
-
-if __name__=='__main__':
-    run()
+# The main app
+app.run()
 
