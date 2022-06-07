@@ -2,15 +2,18 @@ from django.shortcuts import get_object_or_404, render
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from scripts.clean import AM_ALPHABET, EN_ALPHABET, Clean
-from scripts.logger import logger
-from scripts.evaluator import CallbackEval
-from scripts.utils import decode_batch_predictions
-from django.core.exceptions import ObjectDoesNotExist
 from .models import Audio, Performance
+from django.core.exceptions import ObjectDoesNotExist
 from jiwer import wer
 import tensorflow as tf
 import pickle
+
+import os,sys
+sys.path.append(os.path.abspath(os.path.join('scripts')))
+sys.path.append(os.path.abspath(os.path.join('logs')))
+from scripts.clean import AM_ALPHABET, EN_ALPHABET, Clean
+from scripts.logger import logger
+from scripts.utils import decode_batch_predictions
 # Create your views here.
 
 class FetchAudio(APIView):

@@ -3,7 +3,7 @@ from . import views
 app_name='stt'
 
 urlpatterns=[
-    path('create/',views.FetchAudio,name='fetch'),
-    path('lang/',views.FetchLanguage,name='lang'),
-    path('predict/',views.PredictView,name='predict'),
+    path('create/',views.FetchAudio.as_view(),name='fetch'),
+    path('lang/',views.FetchLanguage.as_view(),name='lang'),
+    path('predict/',views.PredictView.as_view(),name='predict'),
 ]
