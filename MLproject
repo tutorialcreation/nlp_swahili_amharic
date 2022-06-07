@@ -3,8 +3,11 @@ name: abtest
 conda_env: conda.yaml
 
 entry_points:
-  deep_learner:
-    command: "cd scripts && python3 deep_learner.py"
+  audio-deep-learner:
+    parameters:
+      epochs: {type: int}
+      learning_rate: {type:float}
+    command: "cd scripts && python3 deep_learner.py {epochs} {learning_rate}"
 
   main:
     command: "python3 pipeline/main.py"
