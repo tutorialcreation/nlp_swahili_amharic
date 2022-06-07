@@ -1,9 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from scripts.clean import AM_ALPHABET, EN_ALPHABET
+from scripts.logger import logger
+from scripts.evaluator import CallbackEval
+from scripts.utils import decode_batch_predictions
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Audio
+from jiwer import wer
+import tensorflow as tf
+import mlflow
+import pickle
 # Create your views here.
 
 class FetchAudio(APIView):
@@ -11,6 +19,7 @@ class FetchAudio(APIView):
         try:
             audio = request.data.get('audio')
         except ObjectDoesNotExist as e:
+            logger.error(e)
             return Response({'error':e})
         
         Audio.objects.create(audio_file=audio)
@@ -22,4 +31,22 @@ class FetchAudio(APIView):
 
 
 class PredictView(APIView):
-    pass
+    model=open("models/model.pkl","rb")
+    deep_model=pickle.load(model)
+
+    def post(self,request,*args,**kwargs):
+        audio_pk = request.data.get('pk')
+        alphabet = request.data.get('alphabet')
+        audio = get_object_or_404(Audio,pk=audio_pk)
+        dataset = tf.data.Dataset.from_tensor_slices(
+            (list(audio.audio_file.url))
+        )
+        predictions = []
+        for batch in dataset:
+            X = batch
+            batch_predictions = self.model.predict(X)
+            batch_predictions = decode_batch_predictions(batch_predictions,alphabet=alphabet)
+            predictions.extend(batch_predictions)
+        return Response({
+            'data':predictions
+        })
