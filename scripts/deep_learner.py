@@ -37,12 +37,12 @@ class DeepLearn:
         self.val_df = val_df
         self.test_df = test_df
         # Work out the label column indices.
-        self.label_columns = label_columns
-        if label_columns is not None:
-            self.label_columns_indices = {name: i for i, name in
-                                            enumerate(label_columns)}
-        self.column_indices = {name: i for i, name in
-                            enumerate(train_df.columns)}
+        # self.label_columns = label_columns
+        # if label_columns is not None:
+        #     self.label_columns_indices = {name: i for i, name in
+        #                                     enumerate(label_columns)}
+        # self.column_indices = {name: i for i, name in
+        #                     enumerate(train_df.columns)}
         # Work out the window parameters.
         self.input_width = input_width
         self.label_width = label_width

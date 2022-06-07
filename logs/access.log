@@ -45425,3 +45425,10 @@
 2022-06-06 16:59:53,778:logger:Successfully run the deep learing model
 2022-06-06 16:59:53,782:scripts.logger:initializing serializer
 2022-06-07 05:55:12,111:logger:Successfully initialized clean class
+2022-06-07 06:59:07,589:logger:Successfully run the deep learing model
+2022-06-07 06:59:07,608:scripts.logger:initializing serializer
+2022-06-07 06:59:07,609:scripts.logger:[Errno 2] No such file or directory: '../models/20220607-065907.pkl'
+2022-06-07 07:01:53,420:logger:Successfully run the deep learing model
+2022-06-07 07:01:53,439:scripts.logger:initializing serializer
+2022-06-07 07:12:25,811:logger:Successfully run the deep learing model
+2022-06-07 07:12:25,889:scripts.logger:initializing serializer

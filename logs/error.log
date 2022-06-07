@@ -28,3 +28,4 @@
 2022-05-31 10:03:57,251:logger:local variable 'w_files' referenced before assignment
 2022-05-31 10:03:57,289:logger:local variable 'w_files' referenced before assignment
 2022-05-31 10:03:57,290:logger:local variable 'w_files' referenced before assignment
+2022-06-07 06:59:07,609:scripts.logger:[Errno 2] No such file or directory: '../models/20220607-065907.pkl'

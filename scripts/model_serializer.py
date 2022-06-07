@@ -32,10 +32,10 @@ class ModelSerializer:
                 pickle.dump(self.model, files)
         except:
             try:
-                with open(f'../models/{file_name}.pkl', 'wb') as files:
+                with open(f'models/{file_name}.pkl', 'wb') as files:
                     pickle.dump(self.model, files)
 
-                with open(f'../models/model.pkl', 'wb') as files:
+                with open(f'models/model.pkl', 'wb') as files:
                     pickle.dump(self.model, files)
             except Exception as e:
                 logger.error(e)
