@@ -25,7 +25,40 @@ import IPython.display as ipd
 import warnings
 import wave, array
 warnings.filterwarnings("ignore")
-AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
+AM_ALPHABET = """
+ሀ ሁ ሂ ሄ ህ ሆ
+ለ ሉ ሊ ላ ሌ ል ሎ ሏ
+መ ሙ ሚ ማ ሜ ም ሞ ሟ
+ረ ሩ ሪ ራ ሬ ር ሮ ሯ
+ሰ ሱ ሲ ሳ ሴ ስ ሶ ሷ
+ሸ ሹ ሺ ሻ ሼ ሽ ሾ ሿ
+ቀ ቁ ቂ ቃ ቄ ቅ ቆ ቋ
+በ ቡ ቢ ባ ቤ ብ ቦ ቧ
+ቨ ቩ ቪ ቫ ቬ ቭ ቮ ቯ
+ተ ቱ ቲ ታ ቴ ት ቶ ቷ
+ቸ ቹ ቺ ቻ ቼ ች ቾ ቿ
+ኋ
+ነ ኑ ኒ ና ኔ ን ኖ ኗ
+ኘ ኙ ኚ ኛ ኜ ኝ ኞ ኟ
+አ ኡ ኢ ኤ እ ኦ
+ኧ
+ከ ኩ ኪ ካ ኬ ክ ኮ
+ኳ
+ወ ዉ ዊ ዋ ዌ ው ዎ
+ዘ ዙ ዚ ዛ ዜ ዝ ዞ ዟ
+ዠ ዡ ዢ ዣ ዤ ዥ ዦ ዧ
+የ ዩ ዪ ያ ዬ ይ ዮ
+ደ ዱ ዲ ዳ ዴ ድ ዶ ዷ
+ጀ ጁ ጂ ጃ ጄ ጅ ጆ ጇ
+ገ ጉ ጊ ጋ ጌ ግ ጐ ጓ ጔ
+ጠ ጡ ጢ ጣ ጤ ጥ ጦ ጧ
+ጨ ጩ ጪ ጫ ጬ ጭ ጮ ጯ
+ጰ ጱ ጲ ጳ ጴ ጵ ጶ ጷ
+ጸ ጹ ጺ ጻ ጼ ጽ ጾ
+ፈ ፉ ፊ ፋ ፌ ፍ ፎ ፏ
+ፐ ፑ ፒ ፓ ፔ ፕ ፖ
+""".split()
+
 EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
 
 class Clean:
@@ -33,7 +66,7 @@ class Clean:
     - this class is responsible for performing 
     Cleaning Tasks
     """
-    char_to_num,_=vocab(EN_ALPHABET)
+    char_to_num,_=vocab(AM_ALPHABET)
 
     def __init__(self,df = None):
         """initialize the cleaning class"""
