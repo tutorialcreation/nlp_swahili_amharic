@@ -23,5 +23,4 @@ RUN pip3 install -r requirements.txt
 EXPOSE 8080
 
 # CMD ["/bin/bash", "-c", "/app/setup.sh"]
-# ENTRYPOINT streamlit run app.py --server.port
-# CMD streamlit run --server.port 8080 --server.enableCORS false app.py
+CMD gunicorn api.wsgi:application --bind 0.0.0.0:$PORT

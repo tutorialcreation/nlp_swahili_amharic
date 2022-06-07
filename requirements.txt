@@ -25,3 +25,4 @@ Wave
 torch
 torchaudio
 kaleido
+gunicorn

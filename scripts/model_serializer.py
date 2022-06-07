@@ -40,5 +40,4 @@ class ModelSerializer:
             except Exception as e:
                 logger.error(e)
             
-        mlflow.log_artifact(f"models/{file_name}.pkl")
         logger.info("Successfully saved the model")
