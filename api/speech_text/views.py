@@ -7,7 +7,7 @@ from scripts.logger import logger
 from scripts.evaluator import CallbackEval
 from scripts.utils import decode_batch_predictions
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Audio
+from .models import Audio, Performance
 from jiwer import wer
 import tensorflow as tf
 import pickle
@@ -28,6 +28,15 @@ class FetchAudio(APIView):
             },
             status=status.HTTP_201_CREATED)
 
+class FetchLanguage(APIView):
+    def get(self,request,*args,**kwargs):
+        alphabets={
+            'swahili':EN_ALPHABET,
+            'amharic':AM_ALPHABET
+        }
+
+        return Response(data=alphabets,
+                        status=status.HTTP_200_OK)
 
 class PredictView(APIView):
     model=open("models/model.pkl","rb")
@@ -53,6 +62,9 @@ class PredictView(APIView):
             batch_predictions = self.deep_model.predict(X)
             batch_predictions = decode_batch_predictions(batch_predictions,alphabet=alphabet)
             predictions.extend(batch_predictions)
+
+        stringed_predictions = ' '.join(map(str,predictions))
+        Performance.objects.create(audio=audio,prediction=stringed_predictions)
         return Response({
             'data':predictions
         })
