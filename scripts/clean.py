@@ -385,6 +385,32 @@ class Clean:
         label = char_to_num(label)
         return spectrogram, label
 
+
+    def convert_spectogram(self,wav_file,frame_length=256,
+                            frame_step=160,fft_length=384):
+        """
+        this algorithm does the following:
+            - Read wav file 
+            - Decode the wav file
+            - Change type to float
+            - Get the spectrogram
+            - We only need the magnitude, which can be derived by applying tf.abs
+            - normalisation
+        """
+        file = tf.io.read_file(wav_file)
+        audio, _ = tf.audio.decode_wav(file)
+        audio = tf.squeeze(audio, axis=-1)
+        audio = tf.cast(audio, tf.float32)
+        spectrogram = tf.signal.stft(
+            audio, frame_length=frame_length, frame_step=frame_step, fft_length=fft_length
+        )
+        spectrogram = tf.abs(spectrogram)
+        spectrogram = tf.math.pow(spectrogram, 0.5)
+        means = tf.math.reduce_mean(spectrogram, 1, keepdims=True)
+        stddevs = tf.math.reduce_std(spectrogram, 1, keepdims=True)
+        spectrogram = (spectrogram - means) / (stddevs + 1e-10)
+        return spectrogram
+
     def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):
         """
         author: Martin Luther
