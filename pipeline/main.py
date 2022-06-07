@@ -14,12 +14,10 @@ def _run(entrypoint, parameters={}, source_version=None, use_cache=True):
 
 @click.command()
 def workflow():
-    with mlflow.start_run(run_name ="ml_pipeline") as active_run:
-        mlflow.set_experiment("mlpipelines")
-        # mlflow.set_tracking_uri(uri)
-        mlflow.set_tag("mlflow.runName", "ml_pipeline")
-        _run("regression-modeling",{"backend":"local","use_conda":False})
-        _run("deep-learner",{"backend":"local","use_conda":False})
+    with mlflow.start_run(run_name ="audio_pipeline") as active_run:
+        mlflow.set_experiment("audiopipelines")
+        mlflow.set_tag("mlflow.runName", "audio_pipeline")
+        _run("audio-deep-learner",{"backend":"local","use_conda":False})
         
         
 if __name__=="__main__":
