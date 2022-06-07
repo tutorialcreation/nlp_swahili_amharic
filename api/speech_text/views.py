@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Audio
 # Create your views here.
+
 class FetchAudio(APIView):
     def post(self,request,*args,**kwargs):
         try:
@@ -18,3 +19,7 @@ class FetchAudio(APIView):
                 'data':'succesfully passed audio'
             },
             status=status.HTTP_201_CREATED)
+
+
+class PredictView(APIView):
+    pass

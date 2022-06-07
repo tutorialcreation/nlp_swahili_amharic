@@ -4,4 +4,5 @@ app_name='stt'
 
 urlpatterns=[
     path('create/',views.FetchAudio,name='fetch'),
+    path('predict/',views.PredictView,name='predict'),
 ]
