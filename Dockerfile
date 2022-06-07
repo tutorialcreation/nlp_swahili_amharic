@@ -24,4 +24,4 @@ EXPOSE 8080
 
 # CMD ["/bin/bash", "-c", "/app/setup.sh"]
 # ENTRYPOINT streamlit run app.py --server.port
-CMD streamlit run --server.port 8080 --server.enableCORS false app.py
+# CMD streamlit run --server.port 8080 --server.enableCORS false app.py
