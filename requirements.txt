@@ -8,6 +8,7 @@ dvc
 xgboost==0.90
 mlflow
 tensorflow
+tensorflow-gpu
 statsmodels
 pandoc
 nbconvert

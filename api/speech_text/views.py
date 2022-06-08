@@ -38,25 +38,16 @@ class FetchLanguage(APIView):
 class PredictView(APIView):
     
     def post(self,request,*args,**kwargs):
-        # saved_model=open("models/model.pickle","rb")
+        saved_model=open("models/model.pkl","rb")
         
-        # with saved_model as f:
-        #     model=pickle.load(f)
+        with saved_model as f:
+            model=pickle.load(f)
 
         audio_pk = request.data.get('pk')
         alphabet = request.data.get('alphabet')
         audio = get_object_or_404(Audio,pk=audio_pk)
-        char_to_num,num_to_char = vocab(alphabet=alphabet)
         batch_size = 1
-        learn = DeepLearn(input_width=0, label_width=0, shift=0,epochs=0)
-        fft_length = 384
-        model = learn.build_asr_model(
-            input_dim=fft_length // 2 + 1,
-            output_dim=char_to_num.vocabulary_size(),
-            rnn_units=512,
-            lr=0.0001
-        )
-
+        
         cleaner = Clean()
         dataset = tf.data.Dataset.from_tensor_slices(
             (list(audio.audio_file.url))

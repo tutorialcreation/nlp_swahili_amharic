@@ -17,7 +17,6 @@ data/*
 env/
 .env
 /models/*
-!/models/model.pkl
 /pipeline/mlruns/*
 mlruns/*
 logs/*
