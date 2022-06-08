@@ -387,7 +387,7 @@ class Clean:
 
 
     def convert_spectogram(self,wav_file,frame_length=256,
-                            frame_step=160,fft_length=384):
+                            frame_step=160,fft_length=256):
         """
         this algorithm does the following:
             - Read wav file 
@@ -399,7 +399,7 @@ class Clean:
         """
         file = tf.io.read_file(wav_file)
         audio, _ = tf.audio.decode_wav(file)
-        audio = tf.squeeze(audio, axis=-1)
+        audio = tf.squeeze(audio)
         audio = tf.cast(audio, tf.float32)
         spectrogram = tf.signal.stft(
             audio, frame_length=frame_length, frame_step=frame_step, fft_length=fft_length

@@ -249,7 +249,7 @@ class DeepLearn:
             )(x)
             if i < rnn_layers:
                 x = layers.Dropout(rate=0.5)(x)
-        x = layers.Dense(units=rnn_units * 2, name="dense_1")(x)
+        x = layers.Dense(units=rnn_units * 2)(x)
         x = layers.ReLU(name="dense_1_relu")(x)
         x = layers.Dropout(rate=0.5)(x)
         output = layers.Dense(units=output_dim + 1, activation="softmax")(x)
@@ -260,9 +260,9 @@ class DeepLearn:
             opt = keras.optimizers.Adam(learning_rate=lr)
             model.compile(optimizer=opt, loss=self.CTCLoss)
             logger.info("Successfully run the deep learing model")
-        if serialize:
-            serializer = ModelSerializer(model)
-            serializer.pickle_serialize()
+        # if serialize:
+        #     serializer = ModelSerializer(model)
+        #     serializer.pickle_serialize()
         return model
 
     
