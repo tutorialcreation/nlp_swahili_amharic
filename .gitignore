@@ -20,3 +20,5 @@ env/
 /pipeline/mlruns/*
 mlruns/*
 logs/*
+/amharic.csv
+/swahili.csv

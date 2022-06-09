@@ -1,23 +1,27 @@
 # importing of libraries
-from bleach import Cleaner
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import os,sys
+
 print(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join('../scripts')))
+from modeling import Modeler
 from logger import logger
 from tensorflow import keras
 from tensorflow.keras import layers
 from model_serializer import ModelSerializer
 from clean import Clean
+from utils import vocab
+from evaluator import CallbackEval
 import mlflow
 import csv
 import seaborn as sns
 sns.set()
 
-
+AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
+EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
 class DeepLearn:
     """
     - this class is responsible for deep learning
@@ -33,12 +37,12 @@ class DeepLearn:
         self.val_df = val_df
         self.test_df = test_df
         # Work out the label column indices.
-        self.label_columns = label_columns
-        if label_columns is not None:
-            self.label_columns_indices = {name: i for i, name in
-                                            enumerate(label_columns)}
-        self.column_indices = {name: i for i, name in
-                            enumerate(train_df.columns)}
+        # self.label_columns = label_columns
+        # if label_columns is not None:
+        #     self.label_columns_indices = {name: i for i, name in
+        #                                     enumerate(label_columns)}
+        # self.column_indices = {name: i for i, name in
+        #                     enumerate(train_df.columns)}
         # Work out the window parameters.
         self.input_width = input_width
         self.label_width = label_width
@@ -207,16 +211,27 @@ class DeepLearn:
             return tf.math.floor(output_length)
 
 
-    def build_asr_model(self,input_dim, output_dim, rnn_layers=1, rnn_units=1):
-        """Model similar to DeepSpeech2."""
-        # Model's input
+    def build_asr_model(self,input_dim, output_dim, rnn_layers=5, rnn_units=12,
+                        lr=1e-4,serialize=True):
+        """
+        this functions works like this
+        - input spectogram
+        - Expand the dimension to use 2D CNN.
+        - Convolution layer 1
+        - Convolution layer 2
+        - Reshape the resulted volume to feed the RNNs layers
+        - Dense layer                                                                        
+        - Classification layer
+        - Model
+        - Optimizer
+        - Compile the model and log it
+        - Serialize and save the model 
+        """
         input_spectrogram = layers.Input((None, input_dim), name="input")
-        # Expand the dimension to use 2D CNN.
         x = layers.Reshape((-1, input_dim, 1), name="expand_dim")(input_spectrogram)
-        # Convolution layer 1
         x = layers.Conv2D(
-            filters=2,
-            kernel_size=[1, 2],
+            filters=3,
+            kernel_size=[11, 41],
             strides=[2, 2],
             padding="same",
             use_bias=False,
@@ -224,10 +239,9 @@ class DeepLearn:
         )(x)
         x = layers.BatchNormalization(name="conv_1_bn")(x)
         x = layers.ReLU(name="conv_1_relu")(x)
-        # Convolution layer 2
         x = layers.Conv2D(
             filters=2,
-            kernel_size=[1, 1],
+            kernel_size=[11, 21],
             strides=[1, 2],
             padding="same",
             use_bias=False,
@@ -235,9 +249,7 @@ class DeepLearn:
         )(x)
         x = layers.BatchNormalization(name="conv_2_bn")(x)
         x = layers.ReLU(name="conv_2_relu")(x)
-        # Reshape the resulted volume to feed the RNNs layers
         x = layers.Reshape((-1, x.shape[-2] * x.shape[-1]))(x)
-        # RNN layers
         for i in range(1, rnn_layers + 1):
             recurrent = layers.GRU(
                 units=rnn_units,
@@ -253,103 +265,78 @@ class DeepLearn:
             )(x)
             if i < rnn_layers:
                 x = layers.Dropout(rate=0.5)(x)
-        # Dense layer
-        x = layers.Dense(units=rnn_units * 2, name="dense_1")(x)
+        x = layers.Dense(units=rnn_units * 2)(x)
         x = layers.ReLU(name="dense_1_relu")(x)
         x = layers.Dropout(rate=0.5)(x)
-        # Classification layer
         output = layers.Dense(units=output_dim + 1, activation="softmax")(x)
-        # Model
+        mlflow.tensorflow.autolog()
         model = keras.Model(input_spectrogram, output, name="DeepSpeech_2")
-        # Optimizer
-        opt = keras.optimizers.Adam(learning_rate=1e-4)
-        # Compile the model and return
-        model.compile(optimizer=opt, loss=self.CTCLoss)
+        with mlflow.start_run(run_name='audio-deep-learner'):
+            mlflow.set_tag("mlflow.runName", "audio-deep-learner")
+            opt = keras.optimizers.Adam(learning_rate=lr)
+            model.compile(optimizer=opt, loss=self.CTCLoss)
+            logger.info("Successfully run the deep learing model")
+        # if serialize:
+        #     serializer = ModelSerializer(model)
+        #     serializer.pickle_serialize()
         return model
 
-    def cnn_rnn_model(self, input_dim, filters, kernels, pool_sizes, mx_stride, cnn_stride, output_dim=224, num_cnn = 3, num_lstm = 4 ):
-
-        input_spectrogram = layers.Input(name='the_input', shape=(None, input_dim))
-        x = layers.Reshape((-1, input_dim, 1), dtype="float32")(input_spectrogram)
-        
-        # Activation function used LeakyReLU, we can also use ReLU
-        # Conv Layers
-        for i in range(num_cnn):
-            x = layers.Conv2D(filters=filters[i], kernel_size=kernels[i], strides=1, padding='valid', name='cnn_{}'.format(i))(x)
-            x = layers.LeakyReLU(.1)(x)
-            x = layers.MaxPooling2D( pool_size=pool_sizes[i], strides=(1,2), padding="valid")(x)
-            x = layers.BatchNormalization(name='bn_cnn_{}'.format(i))(x)
-            
-        x = layers.Reshape((-1, x.shape[-1] * x.shape[-2] ))(x)
-
-        # RNN Layers
-        for i in range(num_lstm):
-            x = layers.Bidirectional(layers.GRU(units=512, return_sequences=True, implementation=2, name='rnn_{}'.format(i)))(x)
-            x = layers.LeakyReLU(.1)(x)
-            x = layers.BatchNormalization(name='bn_rnn_{}'.format(i))(x)
-
-            if i < num_lstm:
-                x = layers.Dropout(rate=0.5)(x)
-
-        # Dense Layer
-        x = layers.TimeDistributed(layers.Dense(output_dim))(x)
-
-        # Prediction Layer
-        y_pred = layers.Activation('softmax', name='softmax')(x)
-        y_pred = layers.LeakyReLU(name="dense_1_relu")(y_pred) 
-        y_pred = layers.Dropout(rate=0.5)(y_pred)
-
-        # Model
-        model = keras.Model( inputs=input_spectrogram, outputs=y_pred, name="CONV_RNN" )
-
-        # Optimizer
-        opt = keras.optimizers.Adam(learning_rate=1e-4)
-        
-        # Compile the model and print its summary 
-        model.compile(optimizer=opt, loss=self.CTCLoss)
-        print(model.summary())
-
-        # Calculate the output length
-        model.output_length = lambda x: self.output_length(x, kernels, pool_sizes, cnn_stride, mx_stride)
-
-        return model
-
-    def decode_batch_predictions(self,pred,alphabet):
-        input_len = np.ones(pred.shape[0]) * pred.shape[1]
-        # Use greedy search. For complex tasks, you can use beam search
-        results = keras.backend.ctc_decode(pred, input_length=input_len, greedy=True)[0][0]
-        # Iterate over the results and get back the text
-        output_text = []
-        cleaner = Clean()
-        vocabs = cleaner.vocab(alphabet)
-        _,num_to_char = vocabs
-        for result in results:
-            result = tf.strings.reduce_join(num_to_char(result)).numpy().decode("utf-8")
-            output_text.append(result)
-        return output_text
+    
 
     
 if __name__=='__main__':
-    train_ = pd.read_csv("data/cleaned_train.csv")
-    train_.set_index('Date',inplace=True)
-    """make sales to be last column"""
-    train=train_.loc[:,train_.columns!='Sales']
-    train['Sales']=train_['Sales']
-    n = len(train)
-    train_df = train[0:int(n*0.7)]
-    val_df = train[int(n*0.7):int(n*0.9)]
-    test_df = train[int(n*0.9):]
-    num_features = train.shape[1]
-    learn = DeepLearn(input_width=1, label_width=1, shift=1,epochs=5,
-                     train_df=train_df, val_df=val_df, test_df=test_df,
-                     label_columns=['Sales'])
-    forecast = learn.model(
-        model_=tf.keras.models.Sequential([
-            # Shape [batch, time, features] => [batch, time, lstm_units]
-            tf.keras.layers.LSTM(32, return_sequences=True),
-            # Shape => [batch, time, features]
-            tf.keras.layers.Dense(units=1)
-        ])
+    no_epochs = int(sys.argv[1])
+    learning_rate = float(sys.argv[2])
+    cleaner = Clean()
+    char_to_num,num_to_char=vocab(EN_ALPHABET)
+    swahili_df = pd.read_csv('../data/swahili.csv')
+    lang = pd.read_csv("../data/swahili.csv")
+    lang['type']='swahili'
+    amharic_df = pd.read_csv("../data/amharic.csv")
+    amharic_df['type']='amharic'
+    language_df = lang.append(amharic_df, ignore_index=True)
+    pre_model = Modeler()
+    swahili_preprocessed = pre_model.preprocessing_learn(swahili_df,'key','file')
+    amharic_preprocessed = pre_model.preprocessing_learn(amharic_df,'key','file')
+    train_df,val_df,test_df = swahili_preprocessed
+    batch_size = 32
+    # Define the trainig dataset
+    train_dataset = tf.data.Dataset.from_tensor_slices(
+        (list(train_df["file"]), list(train_df["text"]))
     )
-    
-    
+    train_dataset = (
+        train_dataset.map(cleaner.encode_single_sample, num_parallel_calls=tf.data.AUTOTUNE)
+        .padded_batch(batch_size)
+        .prefetch(buffer_size=tf.data.AUTOTUNE)
+    )
+
+    # Define the validation dataset
+    validation_dataset = tf.data.Dataset.from_tensor_slices(
+        (list(val_df["file"]), list(val_df["text"]))
+    )
+    validation_dataset = (
+        validation_dataset.map(cleaner.encode_single_sample, num_parallel_calls=tf.data.AUTOTUNE)
+        .padded_batch(batch_size)
+        .prefetch(buffer_size=tf.data.AUTOTUNE)
+    )
+    learn = DeepLearn(input_width=1, label_width=1, shift=1,epochs=5,
+                 train_df=train_df, val_df=val_df, test_df=test_df,
+                 label_columns=['mfcc-0'])
+    fft_length = 384
+    model = learn.build_asr_model(
+        input_dim=fft_length // 2 + 1,
+        output_dim=char_to_num.vocabulary_size(),
+        rnn_units=512,
+        lr=learning_rate
+    )
+    model.summary(line_length=110)
+    epochs = no_epochs
+    # Callback function to check transcription on the val set.
+    validation_callback = CallbackEval(model,validation_dataset)
+    # Train the model
+    history = model.fit(
+        train_dataset,
+        validation_data=validation_dataset,
+        epochs=epochs,
+        callbacks=[validation_callback],
+    )

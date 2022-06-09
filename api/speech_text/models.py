@@ -18,11 +18,16 @@ class AudioParams(models.Model):
     def __str__(self) -> str:
         return self.key
 
+    @property
+    def get_mfcc(self):
+        pass
 
 class Audio(models.Model):
     audio_file = models.FileField(upload_to="media/audio/",null=True,blank=True)
 
 class Performance(models.Model):
-    target=models.TextField(null=True,blank=True)
+    audio = models.ForeignKey(Audio,on_delete=models.CASCADE,null=True,blank=True)
     prediction=models.TextField(null=True,blank=True)
+
+
     

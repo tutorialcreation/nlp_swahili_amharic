@@ -17,12 +17,6 @@ jobs:
           REPO_TOKEN: ${{ secrets.TOKEN }}
         run: |
           echo "
-              Opening affects stores, in this sense. It begins with a low and then it picks up very 
-              slowly because as you can see in the line graph, it takes quite some time before reaching 
-              the peak. But it does have some peaks, though they are not so frequent. I want to believe 
-              that it is because the clientele is formed from scratch, and it takes time to win their 
-              confidence. What I would recommend is that if there is any opening to take place, 
-              let it be done in a thriving atmosphere. I shall look more keenly into store 291, 
-              to see why this one has abnormally picked like crazy.
+              Started developing the api development and designed the database, 
           " > report.md
           cml send-comment report.md

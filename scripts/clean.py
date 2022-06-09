@@ -23,6 +23,7 @@ import random
 from logger import logger
 import IPython.display as ipd
 import warnings
+import string
 import wave, array
 warnings.filterwarnings("ignore")
 AM_ALPHABET = """
@@ -319,12 +320,6 @@ class Clean:
         logger.info("successful aggregation")
         return dict(per_x)
 
-    def openfile(self,audio_file):
-        """
-        - to open audio file and return the signal and sampling rate
-        """
-        sig, sr = torchaudio.load(audio_file)
-        return (sig, sr)
 
 
     def pad_trunc(self,sig,sr, max_ms):
@@ -391,8 +386,8 @@ class Clean:
     
     
 
-    def encode_single_sample(self,wav_file, label,frame_length=2,
-                            frame_step=2,fft_length=2,char_to_num=char_to_num):
+    def encode_single_sample(self,wav_file, label,frame_length=256,
+                            frame_step=160,fft_length=384,char_to_num=char_to_num):
         """
         this algorithm does the following:
             - Read wav file 
@@ -422,6 +417,32 @@ class Clean:
         label = tf.strings.unicode_split(label, input_encoding="UTF-8")        
         label = char_to_num(label)
         return spectrogram, label
+
+
+    def convert_spectogram(self,wav_file,frame_length=256,
+                            frame_step=160,fft_length=256):
+        """
+        this algorithm does the following:
+            - Read wav file 
+            - Decode the wav file
+            - Change type to float
+            - Get the spectrogram
+            - We only need the magnitude, which can be derived by applying tf.abs
+            - normalisation
+        """
+        file = tf.io.read_file(wav_file)
+        audio, _ = tf.audio.decode_wav(file)
+        audio = tf.squeeze(audio)
+        audio = tf.cast(audio, tf.float32)
+        spectrogram = tf.signal.stft(
+            audio, frame_length=frame_length, frame_step=frame_step, fft_length=fft_length
+        )
+        spectrogram = tf.abs(spectrogram)
+        spectrogram = tf.math.pow(spectrogram, 0.5)
+        means = tf.math.reduce_mean(spectrogram, 1, keepdims=True)
+        stddevs = tf.math.reduce_std(spectrogram, 1, keepdims=True)
+        spectrogram = (spectrogram - means) / (stddevs + 1e-10)
+        return spectrogram
 
     def load_audios(self,language,wav_type='train',start=0,stop=None,files=None):
         """
@@ -652,32 +673,102 @@ class Clean:
 
 
 if __name__ == '__main__':
-    df = pd.read_csv('data/train.csv')
-    store = pd.read_csv('data/store.csv')
-    clean_df = Clean(df)
-    clean_df.merge_df(store,'Store')
-    clean_df.save(name='data/unclean_train.csv')
-    clean_df.drop_missing_values()
-    clean_df.fix_outliers('Sales',25000)
-    clean_df.transfrom_time_series('Date')
-    train = clean_df.get_df()
-    train['SchoolHoliday'] = train['SchoolHoliday'].astype(int)
-    daily_sales = clean_df.aggregations(train,'Store','Sales','Open','sum')
-    daily_customers = clean_df.aggregations(train,'Store','Customers','Open','sum')
-    avg_sales = clean_df.aggregations(train,'Store','Sales','Open','mean')
-    avg_customers = clean_df.aggregations(train,'Store','Customers','Open','mean')
-    clean_df.label_encoding(train)
-    indexes = ['DayOfWeek','Day', 'Month', 'Year', 'DayOfYear','WeekOfYear','Sales']
-    training_data_ = train[train.columns.difference(indexes)]
-    train_transformation=clean_df.generate_transformation(training_data_,"numeric","number")
-    train_transformed = pd.DataFrame(train_transformation,columns=train.columns.difference(indexes))
-    train_index = train[indexes]
-    train_index = train_index.reset_index()
-    train = pd.concat([train_index,train_transformed],axis=1)
-    train.to_csv("data/cleaned_train.csv",index=False)
-    train['DailySales'] = train['Store'].map(daily_sales)
-    train['DailyCustomers'] = train['Store'].map(daily_customers)
-    train['AvgSales'] = train['Store'].map(avg_sales)
-    train['AvgCustomers'] = train['Store'].map(avg_customers)
-    train.sort_values(["Year","Month","Day"], ascending=False ,ignore_index=True, inplace=True)
-    train.to_csv("data/cleaned_aggregated_train.csv",index=False)
+    no_observations = int(sys.argv[1])
+    NO_OBSERVATIOINS=no_observations
+    cleaning_audios = Clean()
+    swahili_train_labels = cleaning_audios.get_labels('swahili','train')
+    swahili_test_labels = cleaning_audios.get_labels('swahili','test')
+    amharic_train_labels = cleaning_audios.get_labels('amharic','train')
+    amharic_test_labels = cleaning_audios.get_labels('amharic','test')
+    swahili_text_data, swahili_label_data = cleaning_audios.read_data('../data/swahili_train_text.txt', '../data/swahili_test_text.txt',
+                                                  swahili_train_labels, swahili_test_labels)
+    amharic_text_data, amharic_label_data = cleaning_audios.read_data('../data/amharic_train_text.txt', '../data/amharic_test_text.txt',
+                                                  amharic_train_labels, amharic_test_labels)
+    swahili_data = pd.DataFrame({'key': swahili_label_data, 'text': swahili_text_data})
+    amharic_data = pd.DataFrame({'key': amharic_label_data, 'text': amharic_text_data})                                                  
+    swahili_recordings = cleaning_audios.load_audios('swahili',files=swahili_data.key.to_list()[0:NO_OBSERVATIOINS])
+    amharic_recordings = cleaning_audios.load_audios('amharic',files=amharic_data.key.to_list()[0:NO_OBSERVATIOINS])
+    swahili_data_df = swahili_data.head(NO_OBSERVATIOINS)
+    amharic_data_df = amharic_data.head(NO_OBSERVATIOINS)
+    durations = []
+    for recording in swahili_recordings:
+        _,_,duration,_ = recording
+        durations.append(duration)
+    swahili_data_df['duration'] = durations
+    durations = []
+    for recording in amharic_recordings:
+        _,_,duration,_ = recording
+        durations.append(duration)
+    amharic_data_df['duration'] = durations
+    y = [x in swahili_test_labels for x in swahili_data.key]
+    swahili_data["category"] = ["Test" if i else "Train" for i in y]
+    y = [x in amharic_test_labels for x in amharic_data.key]
+    amharic_data["category"] = ["Test" if i else "Train" for i in y]
+    rates = []
+    for recording in swahili_recordings:
+        _,rate,_,_ = recording
+        rates.append(rate)
+    swahili_data_df['rate'] = rates
+    rates = []
+    for recording in amharic_recordings:
+        _,rate,_,_ = recording
+        rates.append(rate)
+    amharic_data_df['rate'] = rates
+    file_path = []
+    for recording in swahili_recordings:
+        _,_,_,file_path_ = recording
+        file_path.append(file_path_)
+    swahili_data_df['file'] = file_path
+    file_path = []
+    for recording in amharic_recordings:
+        _,_,_,file_path_ = recording
+        file_path.append(file_path_)
+    amharic_data_df['file'] = file_path
+    audio_rates=[]
+    for recording in amharic_recordings:
+        audio,rate,duration,_ = recording
+        audio_rates.append((audio,rate,duration))
+
+    max_ms = max([i[2] for i in audio_rates[0:len(audio_rates)]])*1000
+    max_ms
+    audios = [i[0].tolist() for i in audio_rates[0:len(audio_rates)]]
+    new_audio_rates = []
+    for i,x in enumerate(audio_rates):
+        audio,rate,_, = x
+        new_audio_rates.append(cleaning_audios.pad_trunc(audio,rate,max_ms))
+    amharic_data_df['duration'] = amharic_data_df['duration'][3] 
+    audio_rates=[]
+    for recording in swahili_recordings:
+        audio,rate,duration,_ = recording
+        audio_rates.append((audio,rate,duration))
+
+    max_ms = max([i[2] for i in audio_rates[0:len(audio_rates)]])*1000
+    max_ms
+    audios = [i[0].tolist() for i in audio_rates[0:len(audio_rates)]]
+    new_audio_rates = []
+    for i,x in enumerate(audio_rates):
+        audio,rate,_ = x
+        new_audio_rates.append(cleaning_audios.pad_trunc(audio,rate,max_ms))
+    swahili_data_df['duration']=swahili_data_df['duration'][4]
+    audio_rates=[]
+    for recording in amharic_recordings:
+        audio,rate,_,_ = recording
+        audio_rates.append((audio,rate))
+    data = []
+    for audio,rate in audio_rates:
+        data.append(cleaning_audios.store_audio_features(audio,rate))
+    amharic = pd.DataFrame(data)
+    amharic_df = pd.concat([amharic_data_df,amharic],axis=1)
+    amharic_df['type'] = 'amharic'
+    audio_rates=[]
+    for recording in swahili_recordings:
+        audio,rate,_,_ = recording
+        audio_rates.append((audio,rate))
+    data = []
+    for audio,rate in audio_rates:
+        data.append(cleaning_audios.store_audio_features(audio,rate))
+    swahili = pd.DataFrame(data)
+    swahili_df = pd.concat([swahili_data_df,swahili],axis=1)
+    swahili_df['type']='swahili'
+    amharic_df.to_csv("../data/amharic.csv",index=False)
+    swahili_df.to_csv("../data/swahili.csv",index=False)

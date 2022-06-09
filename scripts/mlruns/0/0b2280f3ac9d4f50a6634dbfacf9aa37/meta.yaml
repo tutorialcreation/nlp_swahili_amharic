@@ -1,0 +1,15 @@
+artifact_uri: file:///home/martin/Documents/swahili_nlp/scripts/mlruns/0/0b2280f3ac9d4f50a6634dbfacf9aa37/artifacts
+end_time: 1654523993778
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 0b2280f3ac9d4f50a6634dbfacf9aa37
+run_uuid: 0b2280f3ac9d4f50a6634dbfacf9aa37
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1654523993720
+status: 3
+tags: []
+user_id: martin

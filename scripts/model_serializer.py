@@ -24,8 +24,20 @@ class ModelSerializer:
         - algorithm for serializing the models
         """
         file_name =  time.strftime("%Y%m%d-%H%M%S")
-        with open(f'models/{file_name}.pkl', 'wb') as files:
-            pickle.dump(self.model, files)
-        
-        mlflow.log_artifact(f"models/{file_name}.pkl")
+        try:
+            with open(f'../models/{file_name}.pkl', 'wb') as files:
+                pickle.dump(self.model, files)
+
+            with open(f'../models/model.pkl', 'wb') as files:
+                pickle.dump(self.model, files)
+        except:
+            try:
+                with open(f'models/{file_name}.pkl', 'wb') as files:
+                    pickle.dump(self.model, files)
+
+                with open(f'models/model.pkl', 'wb') as files:
+                    pickle.dump(self.model, files)
+            except Exception as e:
+                logger.error(e)
+            
         logger.info("Successfully saved the model")

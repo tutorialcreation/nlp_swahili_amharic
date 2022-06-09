@@ -7,11 +7,25 @@ logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
 
-error_handler = logging.FileHandler('../logs/error.log')
+try:
+    error_handler = logging.FileHandler('../logs/error.log')
+except:
+    try:
+        error_handler = logging.FileHandler('logs/error.log')
+    except Exception as e:
+        print(e)
+
 error_handler.setLevel(logging.ERROR)
 error_handler.setFormatter(formatter)
 
-info_handler = logging.FileHandler('../logs/access.log')
+try:
+    info_handler = logging.FileHandler('../logs/access.log')
+except:
+    try:
+        info_handler = logging.FileHandler('logs/access.log')
+    except Exception as e:
+        print(e)
+
 info_handler.setLevel(logging.INFO)
 info_handler.setFormatter(formatter)
 

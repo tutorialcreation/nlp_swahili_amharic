@@ -1,41 +1,43 @@
 stages:
-  # first stage in the pipeline
-  prepare:
-    cmd: python scripts/eda.py data/data.csv
+  cleaning:
+    cmd: python scripts/clean.py data/train.csv data/test.csv data/store.csv
     deps:
-    - data/data.csv
-    - scripts/eda.py
+    - data/train.csv
+    - data/test.csv
+    - data/store.csv
+    - scripts/clean.py
     outs:
-    - data/eda.csv
-  train:
-    cmd: cd pipeline && python train.py ../data/eda.csv
+    - data/training.csv
+    - data/testing.csv
+  features:
+    cmd: python scripts/clean.py data/training.csv data/testing.csv
     deps:
-    - data/eda.csv
-    - pipeline/train.py
+    - data/testing.csv
+    - data/training.csv
+    - scripts/clean.py
     outs:
-    - data/os_6.csv
-  crossValidation:
-    cmd: cd pipeline && python cross_validator.py 5 ../data/os_6.csv
-    params:
-    - validation.folds
+    - data/cleaned_test.csv
+    - data/cleaned_train.csv
+  model:
+    cmd: python scripts/modeling.py data/cleaned_train.csv data/cleaned_test.csv
     deps:
-    - data/os_6.csv
-    - pipeline/cross_validator.py
+    - data/cleaned_test.csv
+    - data/cleaned_train.csv
+    - scripts/modeling.py
     outs:
-    - data/validation.csv
+    - models/model.pkl
   evaluate:
-    cmd: cd pipeline && python evaluate.py 5 ../data/validation.csv
-    params:
-    - validation.folds
+    cmd: mlflow run ......
     deps:
-    - data/validation.csv
+    - models/model.pkl
+    - scripts/modeling.py
+    outs:
+    - models/evaluate.pkl
+  deployment:
+    cmd: python pipeline/evaluate.py models/evaluate.pkl
+    deps:
+    - models/evaluate.pkl
     - pipeline/evaluate.py
     outs:
     - data/results.csv
-  predict:
-    cmd: cd pipeline && python evaluate.py 5 ../data/validation.csv
-    deps:
-    - data/validation.csv
-    - pipeline/evaluate.py
-    outs:
-    - data/predictions.csv
+
