@@ -1,3 +1,22 @@
+"""
+This sript file is responsible of cleaning process of data, we will be calling functions from here!
+# of Classes: 1
+# of functions: 12
+    openfile
+    pad_trunc
+    char_index
+    store_audio_features
+    encode_single_sample
+    load_audios
+    get_labels
+    read_text
+    read_data
+    get_clean_word
+    get_duration
+    get_durations
+    convert_channels
+"""
+
 import imp
 import librosa
 import numpy as np
@@ -28,6 +47,7 @@ warnings.filterwarnings("ignore")
 AM_ALPHABET='ሀለሐመሠረሰቀበግዕዝተኀነአከወዐዘየደገጠጰጸፀፈፐቈኈጐኰፙፘፚauiāeəo'
 EN_ALPHABET='abcdefghijklmnopqrstuvwxyz'
 
+
 class Clean:
     """
     - this class is responsible for performing 
@@ -40,14 +60,12 @@ class Clean:
         self.df = df
         logger.info("Successfully initialized clean class")
         
-
     def openfile(self,audio_file):
         """
         - to open audio file and return the signal and sampling rate
         """
         sig, sr = torchaudio.load(audio_file)
         return (sig, sr)
-
 
     def pad_trunc(self,sig,sr, max_ms):
         """
@@ -77,17 +95,13 @@ class Clean:
 
         return (sig, sr)
 
-
-    
     def char_index(self,alphabet):
         a_map = {} # map letter to number
         rev_a_map = {} # map number to letter
         for i, a in enumerate(alphabet):
             a_map[a] = i
             rev_a_map[i] = a
-        return rev_a_map
-
-    
+        return rev_a_map    
 
     def store_audio_features(self,y,sr):
         """
@@ -109,9 +123,6 @@ class Clean:
             lc.update({f'mfcc-{i}':f' {np.mean(e)}'})
         
         return lc
-
-    
-    
 
     def encode_single_sample(self,wav_file, label,frame_length=2,
                             frame_step=2,fft_length=2,char_to_num=char_to_num):
@@ -312,7 +323,6 @@ class Clean:
 
         return word, position
 
-
     def get_duration(self, audio, rate):
         '''
         author: Biruk
@@ -342,7 +352,6 @@ class Clean:
         logger.info("The audio files duration is successfully computed")          
         return duration_of_recordings 
 
-
     def convert_channels(self,file1, output):
         """
         author: Martin Luther
@@ -371,7 +380,6 @@ class Clean:
         except Exception as e:
             logger.error(e)
         ofile.close()
-
 
 if __name__ == '__main__':
     df = pd.read_csv('data/train.csv')
