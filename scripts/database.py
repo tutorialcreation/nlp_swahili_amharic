@@ -11,7 +11,6 @@ class DBOps:
     - inserts data from json into mysql 
     """
 
-
     def __init__(self,df=None,is_online=True):
         if is_online:
             try:
@@ -30,15 +29,11 @@ class DBOps:
 
         self.df = df
         
-
-
     def get_engine(self):
         """
         - this function simply returns the connection
         """
         return self.conn
-
-    
     
     def execute_from_script(self,sql_script):
         """
@@ -50,7 +45,6 @@ class DBOps:
             sql_ = sql_file.read()
             sql_file.close()
 
-
             sql_commands = sql_.split(";")
             for command in sql_commands:
                 if command:
@@ -59,7 +53,6 @@ class DBOps:
         except Error as e:
             logger.error(e)
         return
-    
 
     def insert_update_data(self,table):
         """
