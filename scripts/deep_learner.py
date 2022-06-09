@@ -194,6 +194,22 @@ class DeepLearn:
         return loss
 
         
+    def cnn_output_length(self, input_length, kernel_list, pool_sizes, cnn_stride, mx_stride, padding='valid'):
+
+        if padding == 'same':
+            output_length = input_length
+            
+            return output_length
+
+        elif padding == 'valid':
+            output_length = input_length
+
+            for i, j, k in zip(kernel_list, pool_sizes, mx_stride):
+                output_length = (output_length - i)/cnn_stride + 1
+                if j != 0: output_length = (output_length - j)/k + 1
+            
+            return tf.math.floor(output_length)
+
 
     def build_asr_model(self,input_dim, output_dim, rnn_layers=5, rnn_units=12,
                         lr=1e-4,serialize=True):

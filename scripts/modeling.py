@@ -33,7 +33,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, GaussianNB
 
 import os,sys
-sys.path.append(os.path.abspath(os.path.join('../scripts')))
+# sys.path.append(os.path.abspath(os.path.join('../scripts')))
 from logger import logger
 from model_serializer import ModelSerializer
 # To evaluate end result we have
