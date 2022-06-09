@@ -18,6 +18,7 @@ from scripts.clean import AM_ALPHABET, EN_ALPHABET, Clean
 from scripts.deep_learner import DeepLearn
 from scripts.utils import decode_batch_predictions, vocab
 # Create your views here.
+import speech_recognition as sr
 
 class AudioLoader(viewsets.ModelViewSet):
     queryset = Audio.objects.all()
@@ -78,3 +79,17 @@ class PredictView(APIView):
         return Response({
             'data':predictions
         })
+
+
+
+class SPR(APIView):
+    def get(self,request,*args,**kwargs):
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            audio = r.listen(source)
+            try:
+                text = r.recognize_google(audio)
+                return Response({'prediction':text})
+            except:
+                return Response({'error':'sorry could note hear your voice'})
+        
